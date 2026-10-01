@@ -1,8 +1,12 @@
 // ==========================================================================
-// Aakash Chemistry Study Hub - Multi-Chapter Scrollytelling Engine
-// Chapter 6: Haloalkanes and Haloarenes (CBSE Board, NCERT & NEET)
-// Chapter 8: Aldehydes, Ketones and Carboxylic Acids
+// Class 12 Medical Hub - Multi-Chapter Scrollytelling Engine
+// Chapters: 6 (Haloalkanes), 7 (Alcohols/Phenols/Ethers), 8 (Carbonyls),
+// 9 (Amines), 10 (Biomolecules)
 // ==========================================================================
+
+import { DiagramsCh7 } from './diagramsCh7.js';
+import { DiagramsCh9 } from './diagramsCh9.js';
+import { DiagramsCh10 } from './diagramsCh10.js';
 
 export class StudyHub {
   constructor() {
@@ -11,16 +15,50 @@ export class StudyHub {
     this.stageSubtitle = document.getElementById('study-stage-subtitle');
     this.stageBadge = document.getElementById('study-stage-badge');
     
-    this.currentChapter = 'ch6'; // 'ch6' (default) | 'ch8'
+    this.currentChapter = 'ch6';
     this.currentDiagramId = 'ch6-classification';
     this.observer = null;
     this.playAudio = null;
 
+    // Module instances
+    this.diagramsCh7 = new DiagramsCh7(this);
+    this.diagramsCh9 = new DiagramsCh9(this);
+    this.diagramsCh10 = new DiagramsCh10(this);
+
+    // Chapter Metadata
+    this.chapterMeta = {
+      'ch6': {
+        title: 'Chapter 6: Haloalkanes and Haloarenes',
+        desc: 'Master NCERT, CBSE Board theory, and NEET high-yield concepts with split-screen scrollytelling. Dynamic 2D/3D interactive visual stages update automatically on the left as you read!',
+        defaultDiagram: 'ch6-classification'
+      },
+      'ch7': {
+        title: 'Chapter 7: Alcohols, Phenols and Ethers',
+        desc: 'In-depth NCERT coverage of 1°/2°/3° alcohols, Lucas test, Grignard synthesis, Saytzeff dehydration, Phenol resonance & acidity (why NaHCO₃ fails), Kolbe, Reimer-Tiemann, and Williamson ether cleavage.',
+        defaultDiagram: 'ch7-classification'
+      },
+      'ch8': {
+        title: 'Chapter 8: Aldehydes, Ketones and Carboxylic Acids',
+        desc: 'Planar sp² carbonyl group, Rosenmund/Stephen preparations, Nucleophilic addition, Tollens/Fehling/Iodoform tests, Aldol condensation, Cannizzaro, and Carboxylic acid acidity ladder.',
+        defaultDiagram: 'carbonyl-structure'
+      },
+      'ch9': {
+        title: 'Chapter 9: Amines & Diazonium Salts',
+        desc: 'Pyramidal nitrogen inversion, Master Basicity Ladder (213 vs 231 vs gas phase), Gabriel Phthalimide, Hofmann Bromamide (1 less carbon), Carbylamine test, Hinsberg distinction, and Azo dye coupling.',
+        defaultDiagram: 'ch9-classification'
+      },
+      'ch10': {
+        title: 'Chapter 10: Biomolecules',
+        desc: 'D-Glucose open-chain proof, Haworth cyclic pyranose structures, Anomeric carbon & Mutarotation, Invert sugar, Starch vs Cellulose, Zwitterion & pI, Protein 1°–4° structure & Denaturation, and DNA double helix.',
+        defaultDiagram: 'ch10-glucose-structure'
+      }
+    };
+
     // Interactive State Variables (Chapter 6)
-    this.snMechanismMode = 'sn2'; // 'sn2' | 'sn1'
-    this.cxBondSelected = 'cl'; // 'f' | 'cl' | 'br' | 'i'
-    this.ambidentSelected = 'cn'; // 'cn' | 'no2'
-    this.saytzeffBase = 'etoh'; // 'etoh' (Saytzeff) | 'tbu' (Hofmann)
+    this.snMechanismMode = 'sn2';
+    this.cxBondSelected = 'cl';
+    this.ambidentSelected = 'cn';
+    this.saytzeffBase = 'etoh';
 
     // Interactive State Variables (Chapter 8)
     this.currentTollensState = 'unmixed';
@@ -36,6 +74,7 @@ export class StudyHub {
 
   init() {
     this.setupChapterSwitcher();
+    this.setupCatalogControls();
     this.setupScrollObserver();
     this.setupQuickIndex();
     this.renderDiagram(this.currentDiagramId);
@@ -44,7 +83,47 @@ export class StudyHub {
   }
 
   // =========================================================================
-  // CHAPTER SWITCHER (Ch. 6 Haloalkanes & Haloarenes vs Ch. 8 Carbonyls)
+  // CHAPTER CATALOG CONTROLS & SUBPAGE NAVIGATION
+  // =========================================================================
+  setupCatalogControls() {
+    const openBtn = document.getElementById('btn-open-catalog');
+    const closeBtn = document.getElementById('btn-close-catalog');
+    const catalogSubpage = document.getElementById('chapter-catalog-subpage');
+    const readingLayout = document.getElementById('chapter-reading-layout');
+
+    openBtn?.addEventListener('click', () => {
+      if (this.playAudio) this.playAudio('pop');
+      if (catalogSubpage) catalogSubpage.style.display = 'block';
+      if (readingLayout) readingLayout.style.display = 'none';
+      catalogSubpage?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      if (this.playAudio) this.playAudio('pop');
+      if (catalogSubpage) catalogSubpage.style.display = 'none';
+      if (readingLayout) readingLayout.style.display = 'grid';
+      readingLayout?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Card launch buttons inside catalog subpage
+    const launchBtns = document.querySelectorAll('.card-launch-btn, .catalog-chapter-card');
+    launchBtns.forEach(el => {
+      el.addEventListener('click', (e) => {
+        // Prevent double trigger if clicking button inside card
+        const chId = el.getAttribute('data-chapter');
+        if (chId) {
+          this.switchChapter(chId);
+          if (catalogSubpage) catalogSubpage.style.display = 'none';
+          if (readingLayout) readingLayout.style.display = 'grid';
+          readingLayout?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  // =========================================================================
+  // CHAPTER SWITCHER (Chapters 6, 7, 8, 9, 10)
+  // Ensures ONLY the selected chapter's reading content & nav appear!
   // =========================================================================
   setupChapterSwitcher() {
     const chBtns = document.querySelectorAll('.study-ch-btn');
@@ -57,40 +136,55 @@ export class StudyHub {
   }
 
   switchChapter(chId) {
+    if (!chId) return;
     this.currentChapter = chId;
     if (this.playAudio) this.playAudio('pop');
 
-    // Update chapter button states
+    // Update active pill button state
     const chBtns = document.querySelectorAll('.study-ch-btn');
     chBtns.forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-chapter') === chId);
     });
 
-    // Toggle chapter containers
-    const ch6Container = document.getElementById('chapter-6-container');
-    const ch8Container = document.getElementById('chapter-8-container');
-    const ch6Index = document.getElementById('quick-nav-ch6');
-    const ch8Index = document.getElementById('quick-nav-ch8');
+    // Update chapter title and description in banner
+    const meta = this.chapterMeta[chId];
+    const bannerTitle = document.getElementById('study-active-chapter-title');
+    const bannerDesc = document.getElementById('study-active-chapter-desc');
+    if (bannerTitle && meta) bannerTitle.textContent = meta.title;
+    if (bannerDesc && meta) bannerDesc.textContent = meta.desc;
 
-    if (chId === 'ch6') {
-      if (ch6Container) ch6Container.style.display = 'block';
-      if (ch8Container) ch8Container.style.display = 'none';
-      if (ch6Index) ch6Index.style.display = 'flex';
-      if (ch8Index) ch8Index.style.display = 'none';
-      this.switchDiagram('ch6-classification');
-    } else {
-      if (ch6Container) ch6Container.style.display = 'none';
-      if (ch8Container) ch8Container.style.display = 'block';
-      if (ch6Index) ch6Index.style.display = 'none';
-      if (ch8Index) ch8Index.style.display = 'flex';
-      this.switchDiagram('carbonyl-structure');
+    // Toggle Chapter Content Containers (ONLY active chapter is displayed)
+    const allChapters = ['ch6', 'ch7', 'ch8', 'ch9', 'ch10'];
+    allChapters.forEach(c => {
+      const num = c.replace('ch', '');
+      const container = document.getElementById(`chapter-${num}-container`);
+      const navBar = document.getElementById(`quick-nav-${c}`);
+      
+      const isCurrent = (c === chId);
+      if (container) container.style.display = isCurrent ? 'block' : 'none';
+      if (navBar) navBar.style.display = isCurrent ? 'flex' : 'none';
+    });
+
+    // Ensure catalog is closed and reading view is visible
+    const catalogSubpage = document.getElementById('chapter-catalog-subpage');
+    const readingLayout = document.getElementById('chapter-reading-layout');
+    if (catalogSubpage) catalogSubpage.style.display = 'none';
+    if (readingLayout) readingLayout.style.display = 'grid';
+
+    // Switch visual diagram to chapter default
+    if (meta && meta.defaultDiagram) {
+      this.switchDiagram(meta.defaultDiagram);
     }
+
+    // Scroll smoothly to top of study layout
+    const studySection = document.getElementById('view-study');
+    studySection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     // Rebind scroll observer to the active chapter's sections
     setTimeout(() => {
       this.setupScrollObserver();
       this.setupCheckpointQuizzes();
-    }, 50);
+    }, 60);
   }
 
   // =========================================================================
@@ -103,9 +197,8 @@ export class StudyHub {
     }
 
     // Only observe sections inside the currently active chapter container
-    const activeContainer = this.currentChapter === 'ch6' ? 
-      document.getElementById('chapter-6-container') : 
-      document.getElementById('chapter-8-container');
+    const num = this.currentChapter.replace('ch', '');
+    const activeContainer = document.getElementById(`chapter-${num}-container`);
 
     if (!activeContainer) return;
     const studySections = activeContainer.querySelectorAll('.study-topic-block');
@@ -219,7 +312,30 @@ export class StudyHub {
         this.renderCh6Polyhalogen();
         break;
 
-      // Chapter 8 Visuals
+      // Chapter 7 Visuals (Alcohols, Phenols and Ethers)
+      case 'ch7-classification':
+        this.diagramsCh7.renderClassification();
+        break;
+      case 'ch7-grignard':
+        this.diagramsCh7.renderGrignardSynthesis();
+        break;
+      case 'ch7-lucas-test':
+        this.diagramsCh7.renderLucasTest();
+        break;
+      case 'ch7-dehydration':
+        this.diagramsCh7.renderDehydration();
+        break;
+      case 'ch7-phenol-acidity':
+        this.diagramsCh7.renderPhenolAcidity();
+        break;
+      case 'ch7-kolbe-reimer':
+        this.diagramsCh7.renderKolbeReimer();
+        break;
+      case 'ch7-williamson-cleavage':
+        this.diagramsCh7.renderWilliamsonCleavage();
+        break;
+
+      // Chapter 8 Visuals (Aldehydes, Ketones and Carboxylic Acids)
       case 'carbonyl-structure':
         this.renderCarbonylStructure();
         break;
@@ -243,6 +359,40 @@ export class StudyHub {
         break;
       case 'hvz-decarb':
         this.renderHvzDecarboxylation();
+        break;
+
+      // Chapter 9 Visuals (Amines & Diazonium Salts)
+      case 'ch9-classification':
+        this.diagramsCh9.renderClassificationStructure();
+        break;
+      case 'ch9-basicity-ladder':
+        this.diagramsCh9.renderBasicityLadder();
+        break;
+      case 'ch9-hinsberg-test':
+        this.diagramsCh9.renderHinsbergTest();
+        break;
+      case 'ch9-diazonium-reactions':
+        this.diagramsCh9.renderDiazoniumReactions();
+        break;
+      case 'ch9-gabriel-hofmann':
+        this.diagramsCh9.renderGabrielHofmann();
+        break;
+
+      // Chapter 10 Visuals (Biomolecules)
+      case 'ch10-glucose-structure':
+        this.diagramsCh10.renderGlucoseStructure();
+        break;
+      case 'ch10-disaccharides':
+        this.diagramsCh10.renderDisaccharides();
+        break;
+      case 'ch10-amino-acids-zwitterion':
+        this.diagramsCh10.renderAminoAcidsZwitterion();
+        break;
+      case 'ch10-protein-structure':
+        this.diagramsCh10.renderProteinStructure();
+        break;
+      case 'ch10-dna-rna':
+        this.diagramsCh10.renderDnaRnaDoubleHelix();
         break;
       default:
         if (this.currentChapter === 'ch6') {

@@ -70,7 +70,7 @@
   <div class="tool-nav-bar">
     <nav class="nav-tabs" aria-label="Main Tool Navigation">
       <button class="nav-tab active" data-target="view-study" id="tab-study">
-        <span>📖</span> Chemistry Study Hub (Ch. 6 & 8)
+        <span>📖</span> Chemistry Study Hub (Ch. 6 - 10)
       </button>
       <button class="nav-tab" data-target="view-3d-models" id="tab-3d">
         <span>🪐</span> 3D Moveable Models
@@ -98,91 +98,267 @@
          VIEW 0: AAKASH CHEMISTRY STUDY HUB (CHAPTER 8)
          ====================================================================== -->
     <section id="view-study" class="view-section active">
-      <!-- Chapter Hero Banner -->
+
+      <!-- Chapter Hero Banner & Switcher -->
       <div class="study-header-banner">
         <div class="study-breadcrumb">
-          <span>Aakash Chemistry</span>
+          <span>Chemistry Grade 12</span>
           <span class="sep">/</span>
-          <span>Class 12 Medical NEET</span>
+          <span>NCERT &amp; CBSE Board</span>
           <span class="sep">/</span>
-          <span style="color: var(--accent-cyan); font-weight: 700;">Organic Chemistry Hub</span>
+          <span style="color: var(--accent-cyan); font-weight: 700;">Class 12 Medical Hub</span>
         </div>
-        <h2>Chemistry Grade 12 (CBSE & NEET Study Hub)</h2>
-        <p>
-          Master NCERT, CBSE Board concepts, and NEET high-yield topics with split-screen scrollytelling. Switch between Chapter 6 (Haloalkanes &amp; Haloarenes) and Chapter 8 (Aldehydes, Ketones &amp; Carboxylic Acids). Interactive visual diagrams update dynamically on the left as you scroll on the right!
-        </p>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h2 id="study-active-chapter-title">Chapter 6: Haloalkanes and Haloarenes</h2>
+            <p id="study-active-chapter-desc" style="color: var(--text-secondary); font-size: 0.88rem; max-width: 780px;">
+              Master NCERT, CBSE Board theory, and NEET high-yield concepts with split-screen scrollytelling. Dynamic 2D/3D interactive visual stages update automatically on the left as you read!
+            </p>
+          </div>
+          <button class="btn-primary" id="btn-open-catalog" style="padding: 0.55rem 1.1rem; font-size: 0.85rem; border-radius: 999px; box-shadow: 0 0 15px rgba(0,210,255,0.25);">
+            📚 Chapters Catalog &amp; Selector
+          </button>
+        </div>
 
-        <!-- Chapter Switcher Toggle Buttons -->
-        <div class="study-ch-selector-bar" style="display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap;">
-          <button class="study-ch-btn active" data-chapter="ch6">🧪 Ch. 6: Haloalkanes and Haloarenes (CBSE &amp; NEET)</button>
-          <button class="study-ch-btn" data-chapter="ch8">⚗️ Ch. 8: Aldehydes, Ketones and Carboxylic Acids</button>
+        <!-- Horizontal Chapter Switcher Pills -->
+        <div class="study-ch-selector-bar" style="display: flex; gap: 0.5rem; margin-top: 1.1rem; flex-wrap: wrap;">
+          <button class="study-ch-btn active" data-chapter="ch6">🧪 Ch. 6: Haloalkanes</button>
+          <button class="study-ch-btn" data-chapter="ch7">🍷 Ch. 7: Alcohols, Phenols &amp; Ethers</button>
+          <button class="study-ch-btn" data-chapter="ch8">⚗️ Ch. 8: Carbonyls &amp; Acids</button>
+          <button class="study-ch-btn" data-chapter="ch9">🧬 Ch. 9: Amines</button>
+          <button class="study-ch-btn" data-chapter="ch10">🧫 Ch. 10: Biomolecules</button>
         </div>
       </div>
 
-      <!-- Quick Index Sticky Bar for Chapter 6 -->
+
+      <!-- ======================================================================
+           CHAPTER CATALOG & SYLLABUS DASHBOARD SUBPAGE
+           ====================================================================== -->
+      <div id="chapter-catalog-subpage" class="catalog-subpage" style="display: none;">
+        <div class="catalog-header-bar">
+          <div>
+            <span class="subject-pill chem">Class 12 Medical Hub</span>
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-top: 0.3rem;">Class 12 Chemistry Organic &amp; Biomolecules Catalog</h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem;">
+              Select a chapter below to load its dedicated reading module with live 2D/3D interactive visual stages, NCERT line-by-line theory, and NEET checkpoint quizzes.
+            </p>
+          </div>
+          <button class="btn-secondary" id="btn-close-catalog" style="align-self: flex-start;">
+            ✕ Back to Study View
+          </button>
+        </div>
+
+        <div class="chapter-card-grid">
+          <!-- Card 1: Chapter 6 -->
+          <div class="catalog-chapter-card" data-chapter="ch6">
+            <div class="card-top-row">
+              <span class="ch-number-badge">Ch. 6</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Haloalkanes &amp; Haloarenes</h4>
+            <p class="ch-summary">
+              Classification (sp³ vs sp²), C–X bond dipole anomaly, Lucas test, Markovnikov &amp; Kharasch peroxide effect, Sandmeyer &amp; Balz-Schiemann, SN1 vs SN2 Walden inversion, Saytzeff elimination, and Freons/DDT.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 13 Deep-Dive Topics</span>
+              <span>🧪 11 Interactive Visuals</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="ch6">
+              Launch Chapter 6 Module →
+            </button>
+          </div>
+
+          <!-- Card 2: Chapter 7 -->
+          <div class="catalog-chapter-card" data-chapter="ch7">
+            <div class="card-top-row">
+              <span class="ch-number-badge">Ch. 7</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~10%</span>
+            </div>
+            <h4>Alcohols, Phenols &amp; Ethers</h4>
+            <p class="ch-summary">
+              1°/2°/3° alcohols, Grignard synthesis, Lucas test simulator, Saytzeff dehydration, Phenol resonance &amp; acidity (why NaHCO₃ fails), Cumene process, Kolbe &amp; Reimer-Tiemann, and Williamson ether cleavage.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 24 Comprehensive Topics</span>
+              <span>🔬 7 Visual Simulations</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="ch7">
+              Launch Chapter 7 Module →
+            </button>
+          </div>
+
+          <!-- Card 3: Chapter 8 -->
+          <div class="catalog-chapter-card" data-chapter="ch8">
+            <div class="card-top-row">
+              <span class="ch-number-badge">Ch. 8</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~12%</span>
+            </div>
+            <h4>Aldehydes, Ketones &amp; Carboxylic Acids</h4>
+            <p class="ch-summary">
+              Carbonyl sp² hybridization, Rosenmund/Stephen/Etard preparations, Nucleophilic addition, Tollens/Fehling/Iodoform tests, Aldol condensation, Cannizzaro, and Carboxylic acid dimer &amp; pKa ladder.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 9 In-Depth Topics</span>
+              <span>⚗️ 6 Dynamic Stages</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="ch8">
+              Launch Chapter 8 Module →
+            </button>
+          </div>
+
+          <!-- Card 4: Chapter 9 -->
+          <div class="catalog-chapter-card" data-chapter="ch9">
+            <div class="card-top-row">
+              <span class="ch-number-badge">Ch. 9</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Amines &amp; Diazonium Salts</h4>
+            <p class="ch-summary">
+              Pyramidal inversion, Master Basicity Ladder (213 vs 231 vs gas phase), Gabriel Phthalimide, Hofmann Bromamide (1 less carbon), Carbylamine test, Hinsberg distinction, Diazonium synthesis, and Azo dyes.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 27 Detailed Sections</span>
+              <span>🧬 5 Interactive Labs</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="ch9">
+              Launch Chapter 9 Module →
+            </button>
+          </div>
+
+          <!-- Card 5: Chapter 10 -->
+          <div class="catalog-chapter-card" data-chapter="ch10">
+            <div class="card-top-row">
+              <span class="ch-number-badge">Ch. 10</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Biomolecules</h4>
+            <p class="ch-summary">
+              D-Glucose open-chain proof, Haworth pyranose cyclic structures, Anomeric carbon &amp; Mutarotation, Sucrose invert sugar, Starch vs Cellulose, Amino acid Zwitterions, Protein 1°-4° structure &amp; Denaturation, DNA double helix, and Vitamins.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 26 Curriculum Topics</span>
+              <span>🧫 5 Molecular Stages</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="ch10">
+              Launch Chapter 10 Module →
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Chapter Reading Layout (Active When Studying) -->
+      <div id="chapter-reading-layout">
+
+      <!-- Chapter 6 Quick Index -->
       <div class="study-quick-nav-bar" id="quick-nav-ch6" aria-label="Chapter 6 Topic Index">
         <a href="#sec-ch6-intro" class="study-index-link active">1. Intro</a>
         <a href="#sec-ch6-classification" class="study-index-link">2. Classification</a>
         <a href="#sec-ch6-nomenclature" class="study-index-link">3. Nomenclature</a>
-        <a href="#sec-ch6-cxbond" class="study-index-link">4. C-X Bond</a>
+        <a href="#sec-ch6-cxbond" class="study-index-link">4. C–X Bond</a>
         <a href="#sec-ch6-prep-alcohols" class="study-index-link">5. From Alcohols</a>
-        <a href="#sec-ch6-prep-hydrocarbons" class="study-index-link">6. From Hydrocarbons</a>
+        <a href="#sec-ch6-prep-hydrocarbons" class="study-index-link">6. Hydrocarbons</a>
         <a href="#sec-ch6-halogen-exchange" class="study-index-link">7. Halogen Exchange</a>
         <a href="#sec-ch6-physical-props" class="study-index-link">8. Physical Props</a>
         <a href="#sec-ch6-chem-props" class="study-index-link">9. Chemical &amp; Ambident</a>
         <a href="#sec-ch6-stereochem" class="study-index-link">10. Stereochem &amp; SN1/SN2</a>
         <a href="#sec-ch6-elimination" class="study-index-link">11. Elimination &amp; Metals</a>
-        <a href="#sec-ch6-haloarenes" class="study-index-link">12. Haloarenes Reactions</a>
+        <a href="#sec-ch6-haloarenes" class="study-index-link">12. Haloarenes</a>
         <a href="#sec-ch6-polyhalogen" class="study-index-link">13. Polyhalogen</a>
       </div>
 
-      <!-- Quick Index Sticky Bar for Chapter 8 -->
+      <!-- Chapter 7 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-ch7" style="display: none;" aria-label="Chapter 7 Topic Index">
+        <a href="#sec-ch7-class-alcohols" class="study-index-link active">1. Classification</a>
+        <a href="#sec-ch7-nomen-alcohols" class="study-index-link">2. Nomenclature</a>
+        <a href="#sec-ch7-struct-alcohols" class="study-index-link">3. Structure</a>
+        <a href="#sec-ch7-prep-alcohols" class="study-index-link">4. Preparation (Alcohols)</a>
+        <a href="#sec-ch7-phys-alcohols" class="study-index-link">5. Physical Props</a>
+        <a href="#sec-ch7-chem-alcohols" class="study-index-link">6. Reactions (Alcohols)</a>
+        <a href="#sec-ch7-distinction" class="study-index-link">7. Lucas Test</a>
+        <a href="#sec-ch7-phenol-intro" class="study-index-link">8. Phenols</a>
+        <a href="#sec-ch7-phenol-prep" class="study-index-link">9. Cumene &amp; Dow's</a>
+        <a href="#sec-ch7-phenol-reactions" class="study-index-link">11. Phenol Reactions</a>
+        <a href="#sec-ch7-kolbe" class="study-index-link">12. Kolbe</a>
+        <a href="#sec-ch7-reimer" class="study-index-link">13. Reimer-Tiemann</a>
+        <a href="#sec-ch7-ethers-intro" class="study-index-link">17. Ethers</a>
+        <a href="#sec-ch7-ethers-prep" class="study-index-link">18. Williamson Synthesis</a>
+        <a href="#sec-ch7-ethers-reactions" class="study-index-link">20. HI Cleavage</a>
+      </div>
+
+      <!-- Chapter 8 Quick Index -->
       <div class="study-quick-nav-bar" id="quick-nav-ch8" style="display: none;" aria-label="Chapter 8 Topic Index">
-        <a href="#sec-intro" class="study-index-link">1. Introduction</a>
+        <a href="#sec-intro" class="study-index-link active">1. Introduction</a>
         <a href="#sec-nomenclature" class="study-index-link">2. Nomenclature &amp; Structure</a>
-        <a href="#sec-prep-carbonyl" class="study-index-link">3. Preparation (Aldehydes &amp; Ketones)</a>
+        <a href="#sec-prep-carbonyl" class="study-index-link">3. Prep (Aldehydes &amp; Ketones)</a>
         <a href="#sec-phys-carbonyl" class="study-index-link">4. Physical Properties</a>
         <a href="#sec-uses-carbonyl" class="study-index-link">5. Reactions &amp; Uses</a>
         <a href="#sec-carboxylic-intro" class="study-index-link">6. Carboxylic Acids</a>
-        <a href="#sec-prep-carboxylic" class="study-index-link">7. Preparation (Carboxylic)</a>
-        <a href="#sec-phys-carboxylic" class="study-index-link">8. Physical Properties (Acids)</a>
-        <a href="#sec-chem-carboxylic" class="study-index-link">9. Chemical Properties &amp; Acidity</a>
+        <a href="#sec-prep-carboxylic" class="study-index-link">7. Prep (Carboxylic)</a>
+        <a href="#sec-phys-carboxylic" class="study-index-link">8. Physical Properties</a>
+        <a href="#sec-chem-carboxylic" class="study-index-link">9. Chemical &amp; Acidity</a>
       </div>
 
-      <!-- Mobile Toggle for Sticky Visual Stage -->
-      <div class="mobile-stage-toggle-bar">
-        <button class="btn-mobile-stage-toggle" id="btn-toggle-mobile-stage">
-          🔬 View Interactive Stage & Diagrams
-        </button>
+      <!-- Chapter 9 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-ch9" style="display: none;" aria-label="Chapter 9 Topic Index">
+        <a href="#sec-ch9-class-amines" class="study-index-link active">1. Classification</a>
+        <a href="#sec-ch9-struct-amines" class="study-index-link">2. Structure</a>
+        <a href="#sec-ch9-prep-ammonolysis" class="study-index-link">4. Ammonolysis</a>
+        <a href="#sec-ch9-prep-gabriel" class="study-index-link">5. Gabriel Phthalimide</a>
+        <a href="#sec-ch9-prep-hofmann" class="study-index-link">6. Hofmann Bromamide</a>
+        <a href="#sec-ch9-phys-amines" class="study-index-link">8. Physical Props</a>
+        <a href="#sec-ch9-basicity" class="study-index-link">9. Basicity Ladder</a>
+        <a href="#sec-ch9-reactions-carbyl" class="study-index-link">12. Carbylamine &amp; Hinsberg</a>
+        <a href="#sec-ch9-diazotisation" class="study-index-link">14. Diazotisation</a>
+        <a href="#sec-ch9-diazonium-reactions" class="study-index-link">18. Diazonium &amp; Azo Dyes</a>
+        <a href="#sec-ch9-aniline-eas" class="study-index-link">21. Aniline EAS</a>
       </div>
 
-      <!-- Main Scrollytelling Split Grid -->
-      <div class="study-layout">
-        <!-- Left Sticky Visual Column -->
-        <aside class="study-visual-sticky" id="study-visual-container">
-          <div class="stage-header-bar">
-            <div>
-              <h3 id="study-stage-title">Carbonyl Group Orbital Architecture</h3>
-              <p id="study-stage-subtitle">Planar sp² carbon with electron-rich carbonyl oxygen</p>
+      <!-- Chapter 10 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-ch10" style="display: none;" aria-label="Chapter 10 Topic Index">
+        <a href="#sec-ch10-carbohydrates" class="study-index-link active">1. Carbohydrates &amp; Glucose</a>
+        <a href="#sec-ch10-cyclic-glucose" class="study-index-link">3. Cyclic &amp; Mutarotation</a>
+        <a href="#sec-ch10-disaccharides" class="study-index-link">5. Disaccharides</a>
+        <a href="#sec-ch10-polysaccharides" class="study-index-link">7. Polysaccharides</a>
+        <a href="#sec-ch10-amino-acids" class="study-index-link">9. Amino Acids &amp; Zwitterion</a>
+        <a href="#sec-ch10-proteins" class="study-index-link">13. Proteins 1°–4°</a>
+        <a href="#sec-ch10-enzymes-vitamins" class="study-index-link">16. Enzymes &amp; Vitamins</a>
+        <a href="#sec-ch10-nucleic-acids" class="study-index-link">19. DNA Double Helix</a>
+        <a href="#sec-ch10-hormones" class="study-index-link">25. Hormones</a>
+      </div>
+
+
+        <!-- Mobile Toggle for Sticky Visual Stage -->
+        <div class="mobile-stage-toggle-bar">
+          <button class="btn-mobile-stage-toggle" id="btn-toggle-mobile-stage">
+            🔬 View Interactive Stage &amp; Diagrams
+          </button>
+        </div>
+
+        <!-- Main Scrollytelling Split Grid -->
+        <div class="study-layout">
+          <!-- Left Sticky Visual Column -->
+          <aside class="study-visual-sticky" id="study-visual-container">
+            <div class="stage-header-bar">
+              <div>
+                <h3 id="study-stage-title">Haloalkanes Classification Matrix</h3>
+                <p id="study-stage-subtitle">sp³ vs sp² Carbon-Halogen Hybridisation</p>
+              </div>
+              <span class="stage-badge-ncert" id="study-stage-badge">NCERT Sec 6.1</span>
             </div>
-            <span class="stage-badge-ncert" id="study-stage-badge">NCERT Sec 8.1</span>
-          </div>
 
-          <div class="study-visual-viewport" id="study-visual-stage">
-            <!-- Dynamically populated by StudyHub engine -->
-          </div>
+            <div class="study-visual-viewport" id="study-visual-stage">
+              <!-- Dynamically populated by StudyHub engine -->
+            </div>
 
-          <div style="font-size: 0.72rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
-            ✦ Visual updates automatically as you scroll through topics on the right.
-          </div>
-        </aside>
+            <div style="font-size: 0.72rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border-subtle); padding-top: 0.5rem;">
+              ✦ Visual updates dynamically as you scroll through topics on the right.
+            </div>
+          </aside>
 
-        <!-- Right Scrolling In-Depth Reading Column -->
-        <div class="study-content-column">
-          <!-- ======================================================================
-               CHAPTER 6: HALOALKANES AND HALOARENES (CBSE, NCERT & NEET)
-               ====================================================================== -->
-          <div id="chapter-6-container">
+          <!-- Right Scrolling In-Depth Reading Column (Only Active Chapter Shown) -->
+          <div class="study-content-column">
+<div id="chapter-6-container">
 
             <!-- TOPIC 1: Introduction -->
             <article class="study-topic-block" id="sec-ch6-intro" data-visual="ch6-classification">
@@ -1087,7 +1263,634 @@
           </div>
           <!-- END CHAPTER 6 CONTAINER -->
 
-          <div id="chapter-8-container" style="display: none;">
+          <!-- ======================================================================
+               CHAPTER 7: ALCOHOLS, PHENOLS AND ETHERS (CBSE, NCERT & NEET)
+               ====================================================================== -->
+          <div id="chapter-7-container" style="display: none;">
+
+            <!-- TOPIC 1: Classification of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-class-alcohols" data-visual="ch7-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">1</span> Classification of Alcohols</h3>
+                <span class="subject-pill chem">NCERT Sec 7.1 & Monohydric to Polyhydric</span>
+              </div>
+              <p class="study-body-text">
+                Alcohols are hydroxy derivatives of aliphatic hydrocarbons in which one or more hydrogen atoms are replaced by hydroxyl (<code>-OH</code>) groups.
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">A. Based on Number of Hydroxyl Groups:</h4>
+              <p class="study-body-text">
+                • <strong>Monohydric Alcohols</strong>: Contain one <code>-OH</code> group (e.g., Ethyl alcohol, <code>CH₃CH₂OH</code>).
+                <br>• <strong>Dihydric Alcohols (Glycols)</strong>: Contain two <code>-OH</code> groups on adjacent carbons (e.g., Ethane-1,2-diol / Ethylene glycol, <code>CH₂OH-CH₂OH</code>).
+                <br>• <strong>Trihydric Alcohols (Glycerols)</strong>: Contain three <code>-OH</code> groups (e.g., Propane-1,2,3-triol / Glycerol, <code>CH₂OH-CHOH-CH₂OH</code>).
+                <br>• <strong>Polyhydric Alcohols</strong>: Contain four or more <code>-OH</code> groups (e.g., Sorbitol, Mannitol).
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">B. Based on Degree of Carbon Bearing –OH:</h4>
+              <p class="study-body-text">
+                • <strong>Primary (1°) Alcohol</strong>: <code>-OH</code> attached to a primary carbon (<code>-CH₂OH</code>, e.g., Ethanol <code>CH₃CH₂OH</code>).
+                <br>• <strong>Secondary (2°) Alcohol</strong>: <code>-OH</code> attached to a secondary carbon (<code>>CHOH</code>, e.g., Propan-2-ol <code>(CH₃)₂CHOH</code>).
+                <br>• <strong>Tertiary (3°) Alcohol</strong>: <code>-OH</code> attached to a tertiary carbon (<code>-COH</code>, e.g., 2-Methylpropan-2-ol <code>(CH₃)₃COH</code>).
+                <br>• <strong>Allylic & Benzylic Alcohols</strong>: Can be 1°, 2°, or 3° based on substitution at the allylic or benzylic sp³ carbon.
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Glycerol contains three hydroxyl groups at positions 1, 2, and 3 of propane, making it a trihydric alcohol.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.1</span>
+                  <span style="color: var(--accent-emerald);">Classification</span>
+                </div>
+                <p>Propane-1,2,3-triol (Glycerol) belongs to which class of alcohols?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Monohydric alcohol</button>
+                  <button class="study-opt-btn" data-correct="false">B. Dihydric alcohol</button>
+                  <button class="study-opt-btn" data-correct="true">C. Trihydric alcohol</button>
+                  <button class="study-opt-btn" data-correct="false">D. Polyhydric diol</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 2: Nomenclature of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-nomen-alcohols" data-visual="ch7-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">2</span> Nomenclature of Alcohols</h3>
+                <span class="subject-pill chem">Common vs IUPAC System</span>
+              </div>
+              <p class="study-body-text">
+                • <strong>Common System</strong>: Named as 'alkyl alcohol' (e.g., Methyl alcohol, Isopropyl alcohol, tert-Butyl alcohol).
+                <br>• <strong>IUPAC System</strong>: Suffix <strong>'-ol'</strong> replaces terminal '-e' of parent alkane. The longest carbon chain containing the <code>-OH</code> group is selected. Numbering gives the lowest locant to the carbon attached to <code>-OH</code>.
+                <br>• <strong>Multiple -OH Groups</strong>: Suffixes '-diol', '-triol' appended to the full alkane name (e.g. <em>Ethane-1,2-diol</em>, <em>Propane-1,2,3-triol</em>).
+              </p>
+              <table class="study-data-table">
+                <thead>
+                  <tr><th>Structure</th><th>Common Name</th><th>IUPAC Name</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>CH₃-OH</code></td><td>Methyl alcohol</td><td><strong>Methanol</strong></td></tr>
+                  <tr><td><code>CH₃CH₂CH₂OH</code></td><td>n-Propyl alcohol</td><td><strong>Propan-1-ol</strong></td></tr>
+                  <tr><td><code>CH₃CH(OH)CH₃</code></td><td>Isopropyl alcohol</td><td><strong>Propan-2-ol</strong></td></tr>
+                  <tr><td><code>(CH₃)₃COH</code></td><td>tert-Butyl alcohol</td><td><strong>2-Methylpropan-2-ol</strong></td></tr>
+                  <tr><td><code>CH₂OH-CH₂OH</code></td><td>Ethylene glycol</td><td><strong>Ethane-1,2-diol</strong></td></tr>
+                  <tr><td><code>CH₂=CH-CH₂OH</code></td><td>Allyl alcohol</td><td><strong>Prop-2-en-1-ol</strong></td></tr>
+                </tbody>
+              </table>
+              <div class="study-checkpoint-card" data-explanation="The longest continuous chain containing -OH has 4 carbons with a methyl substituent at C-2: 2-Methylbutan-2-ol.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.2</span>
+                  <span style="color: var(--accent-emerald);">IUPAC Naming</span>
+                </div>
+                <p>What is the IUPAC name of (CH₃)₂C(OH)CH₂CH₃?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. 2-Ethylpropan-2-ol</button>
+                  <button class="study-opt-btn" data-correct="true">B. 2-Methylbutan-2-ol</button>
+                  <button class="study-opt-btn" data-correct="false">C. 3-Methylbutan-3-ol</button>
+                  <button class="study-opt-btn" data-correct="false">D. Pentan-2-ol</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 3: Structure of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-struct-alcohols" data-visual="ch7-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">3</span> Structure of the Hydroxyl Group in Alcohols</h3>
+                <span class="subject-pill chem">Orbital Geometry & Polar Bonds</span>
+              </div>
+              <p class="study-body-text">
+                In alcohols, the oxygen atom of the <code>-OH</code> group is attached to carbon by a sigma (σ) bond formed by the overlap of an <strong>sp³ hybridized orbital</strong> of carbon with an sp³ hybridized orbital of oxygen.
+                <br>• <strong>Bond Angle</strong>: In methanol (<code>CH₃OH</code>), the C–O–H bond angle is <strong>108.9°</strong>, slightly less than regular tetrahedral angle (109.5°) due to repulsive interactions between the two unshared lone pairs on oxygen.
+                <br>• <strong>Bond Polarities</strong>: Both C–O and O–H bonds are strongly polarized because of high electronegativity of oxygen (Pauling 3.5 vs C 2.5 and H 2.1).
+              </p>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.25rem;">📐</span>
+                <div>
+                  <strong>Bond Angle Contrast (Methanol vs Dimethyl Ether):</strong>
+                  <br>• In <strong>Methanol (CH₃-OH)</strong>: Bond angle is <strong>108.9°</strong> (smaller than tetrahedral due to lone-pair repulsion).
+                  <br>• In <strong>Dimethyl Ether (CH₃-O-CH₃)</strong>: Bond angle is <strong>111.7°</strong> (GREATER than tetrahedral!) due to strong repulsive steric crowding between the two bulky methyl groups!
+                </div>
+              </div>
+            </article>
+
+            <!-- TOPIC 4: Preparation of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-prep-alcohols" data-visual="ch7-grignard">
+              <div class="topic-header-row">
+                <h3><span class="section-num">4</span> Preparation of Alcohols</h3>
+                <span class="subject-pill chem">Alkenes, Carbonyl Reduction & Grignard</span>
+              </div>
+              <h4 style="color: var(--accent-cyan); margin: 0.5rem 0 0.2rem; font-size: 0.95rem;">A. From Alkenes:</h4>
+              <p class="study-body-text">
+                <strong>1. Acid-catalysed hydration:</strong> Alkenes react with water in presence of dilute H₂SO₄ according to <strong>Markovnikov's rule</strong> via a carbocation intermediate (susceptible to hydride/methyl shift rearrangements!).
+                <br><code>CH₃-CH=CH₂ + H₂O xrightarrow{H⁺} CH₃-CH(OH)-CH₃ (Propan-2-ol)</code>
+                <br><strong>2. Hydroboration-Oxidation:</strong> Diborane (<code>B₂H₆</code>) reacts with alkenes followed by alkaline H₂O₂ oxidation to yield alcohols following <strong>Anti-Markovnikov hydration</strong> with <em>syn</em> stereochemistry (NO carbocation rearrangement!).
+                <br><code>CH₃-CH=CH₂ xrightarrow{1. BH₃·THF}{2. H₂O₂, OH⁻} CH₃-CH₂-CH₂-OH (Propan-1-ol)</code>
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">B. From Carbonyl Compounds:</h4>
+              <p class="study-body-text">
+                • <strong>Aldehydes</strong> reduced to <strong>Primary (1°) Alcohols</strong>: <code>R-CHO + 2[H] xrightarrow{NaBH₄ / LiAlH₄ / H₂-Ni} R-CH₂OH</code>
+                <br>• <strong>Ketones</strong> reduced to <strong>Secondary (2°) Alcohols</strong>: <code>R-CO-R' + 2[H] xrightarrow{NaBH₄} R-CH(OH)-R'</code>
+                <br>• <em>NaBH₄</em> is selective: reduces only aldehydes, ketones, and acyl chlorides; does NOT reduce esters or carboxylic acids!
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">C. From Carboxylic Acids and Esters:</h4>
+              <p class="study-body-text">
+                Reduced to primary alcohols using powerful <code>LiAlH₄</code> or commercially converted into esters first and then catalytically hydrogenated:
+                <br><code>R-COOH xrightarrow{R'OH, H⁺} R-COOR' xrightarrow{H₂, Ni, Δ} R-CH₂OH + R'OH</code>
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">D. From Grignard Reagents (R-MgX):</h4>
+              <p class="study-body-text">
+                • <code>HCHO (Formaldehyde) + R-MgX xrightarrow{H₂O} 1° Alcohol (R-CH₂OH)</code>
+                <br>• <code>R'-CHO (Other Aldehydes) + R-MgX xrightarrow{H₂O} 2° Alcohol (R'-CH(OH)-R)</code>
+                <br>• <code>R'-CO-R'' (Ketones) + R-MgX xrightarrow{H₂O} 3° Alcohol (R'R''C(OH)-R)</code>
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Reaction of a Grignard reagent with formaldehyde (HCHO) yields a primary alcohol upon hydrolysis.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.3</span>
+                  <span style="color: var(--accent-emerald);">Grignard Reagents</span>
+                </div>
+                <p>Which carbonyl compound on reaction with methyl magnesium bromide followed by hydrolysis gives ethanol (a primary alcohol)?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="true">A. Formaldehyde (Methanal)</button>
+                  <button class="study-opt-btn" data-correct="false">B. Acetaldehyde (Ethanal)</button>
+                  <button class="study-opt-btn" data-correct="false">C. Acetone (Propanone)</button>
+                  <button class="study-opt-btn" data-correct="false">D. Benzaldehyde</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 5: Physical Properties of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-phys-alcohols" data-visual="ch7-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">5</span> Physical Properties of Alcohols</h3>
+                <span class="subject-pill chem">Intermolecular H-Bonding & Boiling Points</span>
+              </div>
+              <p class="study-body-text">
+                • <strong>Boiling Points</strong>: Alcohols have much higher boiling points than alkanes, haloalkanes, and ethers of comparable molecular masses because alcohols associate through strong <strong>intermolecular hydrogen bonding</strong>.
+                <br>• <strong>Effect of Chain Length</strong>: Boiling points increase regularly with increase in the number of carbon atoms due to increase in surface area and van der Waals forces.
+                <br>• <strong>Effect of Branching</strong>: Among isomeric alcohols, boiling point <strong>decreases with branching</strong>: <code>1° Alcohol &gt; 2° Alcohol &gt; 3° Alcohol</code> (spherical shape decreases surface area).
+                <br>• <strong>Solubility in Water</strong>: Lower alcohols are completely miscible with water in all proportions because they form hydrogen bonds with water molecules. Solubility decreases as the hydrophobic alkyl chain becomes larger (beyond C₄).
+              </p>
+            </article>
+
+            <!-- TOPIC 6: Chemical Reactions of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-chem-alcohols" data-visual="ch7-dehydration">
+              <div class="topic-header-row">
+                <h3><span class="section-num">6</span> Chemical Reactions of Alcohols</h3>
+                <span class="subject-pill chem">O–H vs C–O Cleavage & Dehydration</span>
+              </div>
+              <h4 style="color: var(--accent-cyan); margin: 0.5rem 0 0.2rem; font-size: 0.95rem;">A. Cleavage of O–H Bond (Acidity of Alcohols):</h4>
+              <p class="study-body-text">
+                • <strong>Reaction with active metals</strong>: Alcohols react with Na, K, Al to liberate hydrogen gas and form metal alkoxides:
+                <br><code>2R-OH + 2Na → 2R-O⁻Na⁺ (Sodium alkoxide) + H₂↑</code>
+                <br>• <strong>Acidic Strength Order</strong>: <code>H₂O &gt; 1° Alcohol &gt; 2° Alcohol &gt; 3° Alcohol</code>. Alkyl groups have +I electron-donating effect which increases electron density on oxygen and destabilizes the alkoxide ion.
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">B. Cleavage of C–O Bond:</h4>
+              <p class="study-body-text">
+                • Reaction with HX: <code>R-OH + HX xrightarrow{anh. ZnCl₂} R-X + H₂O</code> (Reactivity: 3° &gt; 2° &gt; 1°).
+                <br>• Reaction with PX₃ / PCl₅ / SOCl₂ (Darzens process gives pure R-Cl).
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">C. Dehydration of Alcohols (Saytzeff's Rule):</h4>
+              <p class="study-body-text">
+                Alcohols undergo loss of water upon heating with protic acids (conc. H₂SO₄ or H₃PO₄) to yield alkenes:
+                <br>• <strong>Relative ease of dehydration</strong>: <strong>3° (20% H₂SO₄, 358 K) &gt; 2° (85% H₃PO₄, 440 K) &gt; 1° (conc. H₂SO₄, 443 K)</strong>.
+                <br>• Follows <strong>Saytzeff Rule</strong>: The more substituted, hyperconjugated alkene is the major product.
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">D. Oxidation of Alcohols:</h4>
+              <p class="study-body-text">
+                • <strong>1° Alcohols</strong>: Oxidized to aldehydes using <strong>PCC (Pyridinium chlorochromate)</strong> or Collins reagent; strong oxidants (KMnO₄, K₂Cr₂O₇) oxidize them directly to carboxylic acids.
+                <br>• <strong>2° Alcohols</strong>: Oxidized to ketones with chromic anhydride (<code>CrO₃</code>) or PCC.
+                <br>• <strong>3° Alcohols</strong>: Resist oxidation in neutral/alkaline medium; under drastic acidic conditions undergo dehydration to alkenes followed by cleavage to acids with fewer carbons.
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">E. Catalytic Dehydrogenation over Heated Cu at 573 K:</h4>
+              <p class="study-body-text">
+                • <code>1° Alcohol xrightarrow{Cu, 573 K} Aldehyde + H₂↑</code>
+                <br>• <code>2° Alcohol xrightarrow{Cu, 573 K} Ketone + H₂↑</code>
+                <br>• <code>3° Alcohol xrightarrow{Cu, 573 K} Alkene + H₂O (Dehydration occurs instead of dehydrogenation!)</code>
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Tertiary alcohols do not possess an alpha-hydrogen atom, so passing them over heated Cu at 573 K causes dehydration to form an alkene (isobutylene).">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.4</span>
+                  <span style="color: var(--accent-emerald);">Cu / 573 K Test</span>
+                </div>
+                <p>What is the product when tert-butyl alcohol ((CH₃)₃COH) is passed over heated Cu at 573 K?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Acetone</button>
+                  <button class="study-opt-btn" data-correct="false">B. 2-Methylpropanal</button>
+                  <button class="study-opt-btn" data-correct="true">C. 2-Methylpropene (Alkene)</button>
+                  <button class="study-opt-btn" data-correct="false">D. Acetic acid</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 7: Identification & Distinction of Alcohols -->
+            <article class="study-topic-block" id="sec-ch7-distinction" data-visual="ch7-lucas-test">
+              <div class="topic-header-row">
+                <h3><span class="section-num">7</span> Identification & Distinction of 1°, 2° and 3° Alcohols</h3>
+                <span class="subject-pill chem">Lucas Test & Victor Meyer Test</span>
+              </div>
+              <p class="study-body-text">
+                Distinction between 1°, 2° and 3° alcohols is a guaranteed CBSE Board question:
+                <br>• <strong>Lucas Test (Conc. HCl + anh. ZnCl₂)</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 3° Alcohols: Instant turbidity (0 seconds) at room temperature.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 2° Alcohols: Turbidity appears in ~5 minutes.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 1° Alcohols: No turbidity at room temperature; clear solution.
+                <br>• <strong>Victor Meyer's Test (Red, White & Blue Test)</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 1° Alcohol: Gives blood-red color with alkali.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 2° Alcohol: Gives blue color.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 3° Alcohol: Remains colorless.
+              </p>
+            </article>
+
+            <!-- TOPIC 8: Phenols - Structure & Nomenclature -->
+            <article class="study-topic-block" id="sec-ch7-phenol-intro" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">8</span> Phenols: Structure & Nomenclature</h3>
+                <span class="subject-pill chem">Aromatic Hydroxyl Compounds</span>
+              </div>
+              <p class="study-body-text">
+                Phenols are compounds containing a hydroxyl (<code>-OH</code>) group attached directly to an <strong>sp² hybridized carbon</strong> of an aromatic benzene ring.
+                <br>• <em>Difference from Alcohols</em>: Phenol C–O bond is shorter (136 pm vs 142 pm in methanol) and stronger due to partial double bond character (+M resonance) and sp² hybridization of carbon.
+                <br>• <strong>Nomenclature</strong>: Parent compound is <em>Phenol</em> (Benzenol). Substituted phenols use prefixes ortho (1,2-), meta (1,3-), and para (1,4-):
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• 2-Methylphenol (o-Cresol), 3-Methylphenol (m-Cresol), 4-Methylphenol (p-Cresol).
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• Benzene-1,2-diol (Catechol), Benzene-1,3-diol (Resorcinol), Benzene-1,4-diol (Quinol or Hydroquinone).
+              </p>
+            </article>
+
+            <!-- TOPIC 9: Preparation of Phenols -->
+            <article class="study-topic-block" id="sec-ch7-phenol-prep" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">9</span> Preparation of Phenols</h3>
+                <span class="subject-pill chem">Dow's Process, Cumene & Diazonium</span>
+              </div>
+              <p class="study-body-text">
+                <strong>1. From Cumene (Isopropylbenzene - Most Important Industrial Method):</strong>
+                <br>Cumene is oxidized by air into <strong>cumene hydroperoxide</strong>, which on acidic hydrolysis yields <strong>Phenol</strong> and commercially valuable <strong>Acetone</strong> in equimolar amounts!
+                <br><code>C₆H₅CH(CH₃)₂ + O₂ → C₆H₅C(CH₃)₂-O-O-H xrightarrow{H⁺, H₂O} C₆H₅OH + CH₃COCH₃</code>
+                <br><br>
+                <strong>2. From Chlorobenzene (Dow's Process):</strong>
+                <br><code>C₆H₅Cl + 6-8% NaOH xrightarrow{623 K, 300 atm} C₆H₅O⁻Na⁺ xrightarrow{H⁺} C₆H₅OH</code>
+                <br><br>
+                <strong>3. From Benzene Sulphonic Acid:</strong>
+                <br><code>C₆H₆ xrightarrow{oleum} C₆H₅SO₃H xrightarrow{NaOH, 573 K} C₆H₅O⁻Na⁺ xrightarrow{H⁺} C₆H₅OH</code>
+                <br><br>
+                <strong>4. From Benzene Diazonium Chloride:</strong>
+                <br><code>C₆H₅NH₂ xrightarrow{NaNO₂ + HCl, 0-5°C} C₆H₅N₂⁺Cl⁻ xrightarrow{warm H₂O} C₆H₅OH + N₂↑ + HCl</code>
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Cumene process is the predominant industrial route because it yields two high-value products: phenol and acetone.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.5</span>
+                  <span style="color: var(--accent-emerald);">Industrial Route</span>
+                </div>
+                <p>Which valuable by-product is formed during the manufacture of phenol from cumene?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Acetaldehyde</button>
+                  <button class="study-opt-btn" data-correct="true">B. Acetone (Propanone)</button>
+                  <button class="study-opt-btn" data-correct="false">C. Benzoic acid</button>
+                  <button class="study-opt-btn" data-correct="false">D. Ethyl methyl ketone</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 10: Physical Properties of Phenols -->
+            <article class="study-topic-block" id="sec-ch7-phenol-phys" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">10</span> Physical Properties of Phenols</h3>
+                <span class="subject-pill chem">Intermolecular vs Intramolecular H-Bonding</span>
+              </div>
+              <p class="study-body-text">
+                • Colorless crystalline solids or liquids; turn pink or reddish brown upon air exposure due to slow oxidation to quinones.
+                <br>• High boiling points due to intermolecular hydrogen bonding.
+                <br>• <strong>Steam Volatility of o-Nitrophenol vs p-Nitrophenol (Classic CBSE Question):</strong>
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>o-Nitrophenol</strong> forms <strong>intramolecular hydrogen bonding</strong> (chelation) between <code>-OH</code> and adjacent <code>-NO₂</code> group, preventing association. It is <strong>steam volatile</strong> with lower boiling point!
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>p-Nitrophenol</strong> forms <strong>intermolecular hydrogen bonding</strong> between adjacent molecules, causing molecular association. It has higher boiling point and is <strong>non-steam volatile</strong>. They are cleanly separated by steam distillation!
+              </p>
+            </article>
+
+            <!-- TOPIC 11: Chemical Reactions of Phenols -->
+            <article class="study-topic-block" id="sec-ch7-phenol-reactions" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">11</span> Chemical Reactions of Phenols</h3>
+                <span class="subject-pill chem">Acidity & Electrophilic Aromatic Substitution</span>
+              </div>
+              <h4 style="color: var(--accent-cyan); margin: 0.5rem 0 0.2rem; font-size: 0.95rem;">A. Acidity & Reactions of the O–H Bond:</h4>
+              <p class="study-body-text">
+                • Reacts with Na: <code>2C₆H₅OH + 2Na → 2C₆H₅ONa + H₂↑</code>
+                <br>• Reacts with aq. NaOH: <code>C₆H₅OH + NaOH → C₆H₅ONa + H₂O</code> (Alcohols do NOT react with NaOH!).
+                <br>• <strong>Does NOT react with NaHCO₃</strong>: Phenol is weaker than carbonic acid (H₂CO₃) and cannot evolve CO₂.
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">B. Electrophilic Aromatic Substitution:</h4>
+              <p class="study-body-text">
+                The <code>-OH</code> group is <strong>strongly activating and ortho, para-directing</strong> due to resonance (+M effect).
+                <br>• <strong>Bromination</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• With <em>Bromine water</em>: Yields a dense white precipitate of <strong>2,4,6-Tribromophenol</strong>.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• With <em>Br₂ in non-polar CS₂ or CHCl₃ at 273 K</em>: Yields <strong>p-Bromophenol (Major)</strong> and o-bromophenol (Minor).
+                <br>• <strong>Nitration</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• With <em>Dilute HNO₃ at 298 K</em>: Gives mixture of <strong>o-Nitrophenol</strong> (steam volatile) and <strong>p-Nitrophenol</strong>.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• With <em>Concentrated HNO₃ + conc. H₂SO₄</em>: Gives <strong>Picric Acid (2,4,6-Trinitrophenol)</strong>.
+              </p>
+            </article>
+
+            <!-- TOPIC 12: Kolbe's Reaction -->
+            <article class="study-topic-block" id="sec-ch7-kolbe" data-visual="ch7-kolbe-reimer">
+              <div class="topic-header-row">
+                <h3><span class="section-num">12</span> Kolbe's Reaction</h3>
+                <span class="subject-pill chem">Synthesis of Salicylic Acid</span>
+              </div>
+              <p class="study-body-text">
+                Phenol is treated with sodium hydroxide to generate <strong>sodium phenoxide</strong>, which is far more activated than phenol towards electrophilic attack. Carbon dioxide (<code>CO₂</code>, a weak electrophile) is passed through at <strong>400 K and 4–7 atm pressure</strong>, followed by acidification to yield <strong>Salicylic Acid (2-Hydroxybenzoic acid)</strong> as the major product!
+                <br><code>C₆H₅ONa + CO₂ xrightarrow{400 K, 4-7 atm} Sodium Salicylate xrightarrow{H⁺} Salicylic Acid</code>
+                <br>Salicylic acid is acetylated with acetic anhydride to produce <strong>Aspirin (Acetylsalicylic acid)</strong>, an analgesic and antipyretic drug.
+              </p>
+            </article>
+
+            <!-- TOPIC 13: Reimer–Tiemann Reaction -->
+            <article class="study-topic-block" id="sec-ch7-reimer" data-visual="ch7-kolbe-reimer">
+              <div class="topic-header-row">
+                <h3><span class="section-num">13</span> Reimer–Tiemann Reaction</h3>
+                <span class="subject-pill chem">Dichlorocarbene Intermediate</span>
+              </div>
+              <p class="study-body-text">
+                When phenol is treated with <strong>chloroform (CHCl₃) in the presence of aqueous NaOH</strong> at 340 K, followed by alkaline hydrolysis and acidification, an aldehyde group (<code>-CHO</code>) is introduced primarily at the ortho position, forming <strong>Salicylaldehyde (2-Hydroxybenzaldehyde)</strong>!
+                <br><code>C₆H₅OH + CHCl₃ + 3NaOH xrightarrow{340 K} o-(ONa)C₆H₄CHO + 3NaCl + 2H₂O xrightarrow{H⁺} Salicylaldehyde</code>
+                <br>• <strong>Active Electrophile</strong>: Neutral <strong>Dichlorocarbene (:CCl₂)</strong> formed by α-elimination: <code>CHCl₃ + OH⁻ ⇌ :CCl₃⁻ → :CCl₂ + Cl⁻</code>.
+              </p>
+              <div class="study-checkpoint-card" data-explanation="The active intermediate electrophile in Reimer-Tiemann reaction is dichlorocarbene (:CCl2).">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.6</span>
+                  <span style="color: var(--accent-emerald);">Named Mechanism</span>
+                </div>
+                <p>What is the reactive electrophilic intermediate in the Reimer–Tiemann reaction?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Carbonium ion (+CH₃)</button>
+                  <button class="study-opt-btn" data-correct="true">B. Dichlorocarbene (:CCl₂)</button>
+                  <button class="study-opt-btn" data-correct="false">C. Trichloromethyl anion (:CCl₃⁻)</button>
+                  <button class="study-opt-btn" data-correct="false">D. Formyl cation (+CHO)</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 14: Reaction with Zinc Dust -->
+            <article class="study-topic-block" id="sec-ch7-zinc-dust" data-visual="ch7-kolbe-reimer">
+              <div class="topic-header-row">
+                <h3><span class="section-num">14</span> Reaction with Zinc Dust</h3>
+                <span class="subject-pill chem">Reduction of Phenol to Benzene</span>
+              </div>
+              <p class="study-body-text">
+                Heating phenol vapors over hot zinc dust reduces the phenolic ring smoothly to <strong>benzene</strong>:
+                <br><code>C₆H₅OH + Zn (dust) xrightarrow{Δ} C₆H₆ (Benzene) + ZnO</code>
+                <br>This reaction is widely utilized in organic synthetic sequences to deoxygenate phenols back into parent aromatic hydrocarbons.
+              </p>
+            </article>
+
+            <!-- TOPIC 15: Oxidation of Phenol -->
+            <article class="study-topic-block" id="sec-ch7-phenol-ox" data-visual="ch7-kolbe-reimer">
+              <div class="topic-header-row">
+                <h3><span class="section-num">15</span> Oxidation of Phenol</h3>
+                <span class="subject-pill chem">Formation of p-Benzoquinone</span>
+              </div>
+              <p class="study-body-text">
+                Oxidation of phenol with acidified sodium dichromate (<code>Na₂Cr₂O₇ + H₂SO₄</code>) or air yields a conjugated cyclic diketone named <strong>benzo-1,4-quinone (p-benzoquinone)</strong>:
+                <br><code>C₆H₅OH + [O] xrightarrow{Na₂Cr₂O₇ / H₂SO₄} p-Benzoquinone (O=C₆H₄=O)</code>
+                <br>In presence of light and air, phenol slowly oxidizes into dark-colored mixtures containing quinones.
+              </p>
+            </article>
+
+            <!-- TOPIC 16: Acidity of Phenols & Substituent Effects -->
+            <article class="study-topic-block" id="sec-ch7-phenol-acidity-detail" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">16</span> Acidity of Phenols & Substituent Effects</h3>
+                <span class="subject-pill chem">Resonance of Phenoxide & Substituent Order</span>
+              </div>
+              <p class="study-body-text">
+                Phenol is significantly more acidic than aliphatic alcohols (pKa ~10 vs ~16-18) because:
+                <br>1. Deprotonation forms the <strong>phenoxide ion (C₆H₅O⁻)</strong>, which is stabilized by <strong>resonance delocalization</strong> of negative charge over the ortho and para positions of the benzene ring across five canonical structures.
+                <br>2. In alkoxide ion (<code>R-O⁻</code>), negative charge is localized strictly on oxygen and destabilized by the +I inductive effect of alkyl groups.
+              </p>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.25rem;">📈</span>
+                <div>
+                  <strong>Substituent Effects on Phenol Acidity (High-Yield NEET Ladder):</strong>
+                  <br>• <strong>Electron Withdrawing Groups (EWG: -NO₂, -CN, -X)</strong>: Disperse negative charge on phenoxide, increasing acidity. The effect is especially pronounced at <strong>ortho and para</strong> positions due to -M resonance!
+                  <br>• <strong>Electron Donating Groups (EDG: -CH₃, -OCH₃, -NH₂)</strong>: Intensify negative charge, decreasing acidity.
+                  <br><em>Acidity Hierarchy:</em> <strong>Picric acid &gt; 2,4-Dinitrophenol &gt; p-Nitrophenol &gt; o-Nitrophenol &gt; m-Nitrophenol &gt; Phenol &gt; o-Cresol &gt; p-Cresol &gt; m-Cresol &gt; Ethanol</strong>
+                </div>
+              </div>
+            </article>
+
+            <!-- TOPIC 17: Ethers - Classification & Structure -->
+            <article class="study-topic-block" id="sec-ch7-ethers-intro" data-visual="ch7-williamson-cleavage">
+              <div class="topic-header-row">
+                <h3><span class="section-num">17</span> Ethers: Classification, Nomenclature & Structure</h3>
+                <span class="subject-pill chem">C–O–C Linkage & 111.7° Bond Angle</span>
+              </div>
+              <p class="study-body-text">
+                Ethers are organic compounds in which an oxygen atom is bonded to two alkyl or aryl groups (<code>R–O–R'</code>).
+                <br>• <strong>Classification</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>Simple / Symmetrical Ethers</em>: Both groups identical (e.g. Diethyl ether <code>C₂H₅OC₂H₅</code>).
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>Mixed / Unsymmetrical Ethers</em>: The two groups differ (e.g. Ethyl methyl ether <code>CH₃OC₂H₅</code>, Anisole <code>C₆H₅OCH₃</code>).
+                <br>• <strong>IUPAC Nomenclature</strong>: Named as <strong>Alkoxyalkanes</strong>. The larger alkyl group forms parent alkane; the smaller alkyl group + oxygen becomes the alkoxy substituent (e.g., <code>CH₃OCH₂CH₃</code> is <em>Methoxyethane</em>; <code>C₆H₅OCH₃</code> is <em>Methoxybenzene</em> / Anisole).
+                <br>• <strong>Structure</strong>: Oxygen is sp³ hybridized. The C–O–C bond angle is <strong>111.7°</strong> (greater than tetrahedral 109.5°) due to repulsive steric hindrance between the two bulky alkyl groups.
+              </p>
+            </article>
+
+            <!-- TOPIC 18: Preparation of Ethers -->
+            <article class="study-topic-block" id="sec-ch7-ethers-prep" data-visual="ch7-williamson-cleavage">
+              <div class="topic-header-row">
+                <h3><span class="section-num">18</span> Preparation of Ethers</h3>
+                <span class="subject-pill chem">Dehydration of Alcohols vs Williamson Synthesis</span>
+              </div>
+              <h4 style="color: var(--accent-cyan); margin: 0.5rem 0 0.2rem; font-size: 0.95rem;">A. Dehydration of Alcohols:</h4>
+              <p class="study-body-text">
+                Ethanol heated with conc. H₂SO₄ at <strong>413 K (140 °C)</strong> yields diethyl ether via SN2 bimolecular substitution:
+                <br><code>2CH₃CH₂OH xrightarrow{H₂SO₄, 413 K} CH₃CH₂OCH₂CH₃ (Diethyl ether) + H₂O</code>
+                <br>• <em>Crucial Temperature Sensitivity</em>: At <strong>443 K (170 °C)</strong>, dehydration takes the elimination route to yield <strong>Ethene (CH₂=CH₂)</strong>!
+                <br>• Suitable only for symmetrical ethers from primary alcohols; 2° and 3° alcohols yield alkenes.
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">B. Williamson Ether Synthesis:</h4>
+              <p class="study-body-text">
+                An alkyl halide is heated with a sodium alkoxide or sodium phenoxide to yield symmetrical or unsymmetrical ethers:
+                <br><code>R-X + R'-O⁻Na⁺ xrightarrow{SN2} R-O-R' + NaX</code>
+                <br>• <strong>NEET Critical Condition</strong>: Must use a <strong>PRIMARY (1°) alkyl halide</strong>!
+                <br>• If a <strong>tertiary (3°) alkyl halide</strong> is used, alkoxide acts as a strong Bronsted base causing <strong>100% elimination (E2)</strong> to give an alkene instead of an ether:
+                <br><code>(CH₃)₃C-Br + CH₃O⁻Na⁺ → CH₂=C(CH₃)₂ (Isobutylene) + CH₃OH + NaBr</code>
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Tertiary alkyl halides undergo elimination with sodium alkoxides to yield alkenes; hence to prepare tert-butyl ethyl ether, sodium tert-butoxide must react with ethyl bromide.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.7</span>
+                  <span style="color: var(--accent-emerald);">Williamson Synthesis</span>
+                </div>
+                <p>Which pair of reagents should be chosen to prepare tert-butyl ethyl ether ((CH₃)₃C-O-C₂H₅)?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. (CH₃)₃C-Br + C₂H₅ONa</button>
+                  <button class="study-opt-btn" data-correct="true">B. (CH₃)₃C-ONa + C₂H₅Br</button>
+                  <button class="study-opt-btn" data-correct="false">C. (CH₃)₃C-OH + C₂H₅OH / H₂SO₄</button>
+                  <button class="study-opt-btn" data-correct="false">D. (CH₃)₃C-Cl + C₂H₅OH</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 19: Physical Properties of Ethers -->
+            <article class="study-topic-block" id="sec-ch7-ethers-phys" data-visual="ch7-williamson-cleavage">
+              <div class="topic-header-row">
+                <h3><span class="section-num">19</span> Physical Properties of Ethers</h3>
+                <span class="subject-pill chem">Dipole Moment & Volatility</span>
+              </div>
+              <p class="study-body-text">
+                • Ethers are polar molecules with a net dipole moment (e.g. Diethyl ether μ = 1.18 D) due to the bent C–O–C geometry.
+                <br>• <strong>Boiling Points</strong>: Ethers have much lower boiling points than isomeric alcohols because ethers lack intermolecular hydrogen bonding (e.g., Methoxyethane b.p. 281 K vs Propan-1-ol b.p. 370 K). Their boiling points are close to n-alkanes of comparable mass.
+                <br>• <strong>Solubility</strong>: Lower ethers (dimethyl ether, diethyl ether) are soluble in water to comparable extents as alcohols because the oxygen atom can accept hydrogen bonds from water molecules.
+              </p>
+            </article>
+
+            <!-- TOPIC 20: Chemical Reactions of Ethers -->
+            <article class="study-topic-block" id="sec-ch7-ethers-reactions" data-visual="ch7-williamson-cleavage">
+              <div class="topic-header-row">
+                <h3><span class="section-num">20</span> Chemical Reactions of Ethers: Cleavage by Hydrogen Halides</h3>
+                <span class="subject-pill chem">HI Cleavage Rules & Anisole Cleavage</span>
+              </div>
+              <p class="study-body-text">
+                Ethers are relatively inert but undergo cleavage of the C–O bond when heated with concentrated halogen acids (HI or HBr).
+                <br>• <strong>Reactivity of Halogen Acids</strong>: <code>HI &gt; HBr &gt; HCl</code>.
+                <br>• <strong>Case 1 (Primary / Secondary Alkyl Groups - SN2 Mechanism)</strong>:
+                <br>The iodide ion attacks the <strong>smaller (less sterically hindered) alkyl group</strong>:
+                <br><code>CH₃-O-CH₂CH₃ + HI xrightarrow{373 K} CH₃I (Smaller alkyl iodide) + CH₃CH₂OH (Alcohol)</code>
+                <br>With excess HI, the alcohol formed is further converted into alkyl iodide: <code>CH₃CH₂OH + HI → CH₃CH₂I + H₂O</code>.
+                <br><br>
+                • <strong>Case 2 (Ether containing a Tertiary Alkyl Group - SN1 Mechanism)</strong>:
+                <br>The reaction proceeds via a stable 3° carbocation intermediate. Hence, the <strong>tertiary alkyl group forms the alkyl iodide</strong>!
+                <br><code>(CH₃)₃C-O-CH₃ + HI → (CH₃)₃C-I (tert-Butyl iodide) + CH₃OH (Methanol)</code>
+                <br><br>
+                • <strong>Case 3 (Alkyl Aryl Ethers - Anisole Cleavage)</strong>:
+                <br>The Ar–O bond has partial double bond character (+M resonance) and is much stronger than the alkyl–O single bond. Hence cleavage occurs exclusively at the alkyl-oxygen bond, yielding <strong>Phenol</strong> and <strong>Alkyl Iodide</strong>:
+                <br><code>C₆H₅-O-CH₃ + HI xrightarrow{373 K} C₆H₅OH (Phenol) + CH₃I (Methyl iodide)</code>
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Because oxygen-phenyl bond has partial double bond character due to resonance, cleavage yields phenol and methyl iodide.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 7.8</span>
+                  <span style="color: var(--accent-emerald);">Ether Cleavage</span>
+                </div>
+                <p>When anisole (methoxybenzene) is heated with concentrated HI, what are the products formed?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Iodobenzene + Methanol</button>
+                  <button class="study-opt-btn" data-correct="true">B. Phenol + Methyl iodide</button>
+                  <button class="study-opt-btn" data-correct="false">C. Benzene + Methyl iodide</button>
+                  <button class="study-opt-btn" data-correct="false">D. Phenol + Methanol</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 21: Important Named Reactions Summary -->
+            <article class="study-topic-block" id="sec-ch7-named-rxns" data-visual="ch7-kolbe-reimer">
+              <div class="topic-header-row">
+                <h3><span class="section-num">21</span> Important Named Reactions Summary</h3>
+                <span class="subject-pill chem">Board Exam Master List</span>
+              </div>
+              <div class="ch6-matrix-grid">
+                <div class="matrix-card">
+                  <h4>1. Kolbe's Reaction</h4>
+                  <p>Sodium phenoxide + CO₂ (400 K, 4-7 atm) → Salicylic acid. Key for Aspirin synthesis.</p>
+                </div>
+                <div class="matrix-card">
+                  <h4>2. Reimer–Tiemann Reaction</h4>
+                  <p>Phenol + CHCl₃ + aq. NaOH (340 K) → Salicylaldehyde via :CCl₂ dichlorocarbene.</p>
+                </div>
+                <div class="matrix-card">
+                  <h4>3. Williamson Ether Synthesis</h4>
+                  <p>R-O⁻Na⁺ + R'-X (1°) → R-O-R' + NaX via SN2. 3° halides give alkenes.</p>
+                </div>
+                <div class="matrix-card">
+                  <h4>4. Dow's Process</h4>
+                  <p>C₆H₅Cl + NaOH (623 K, 300 atm) → Sodium phenoxide → Phenol.</p>
+                </div>
+                <div class="matrix-card">
+                  <h4>5. Cumene Process</h4>
+                  <p>Cumene + O₂ → Cumene hydroperoxide → Phenol + Acetone (industrial method).</p>
+                </div>
+                <div class="matrix-card">
+                  <h4>6. Lucas Test</h4>
+                  <p>Alcohol + conc. HCl + anh. ZnCl₂. 3° (instant), 2° (5 min), 1° (no cloudiness).</p>
+                </div>
+              </div>
+            </article>
+
+            <!-- TOPIC 22: Important Comparisons for Boards -->
+            <article class="study-topic-block" id="sec-ch7-comparisons" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">22</span> High-Yield Board Comparisons</h3>
+                <span class="subject-pill chem">CBSE Theory Differentiations</span>
+              </div>
+              <table class="study-data-table">
+                <thead>
+                  <tr><th>Property / Contrast</th><th>Phenol</th><th>Ethanol (Alcohol)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Acidity (pKa)</strong></td><td>Acidic (pKa ~10.0), turns blue litmus red</td><td>Neutral (pKa ~16.0), no litmus effect</td></tr>
+                  <tr><td><strong>Reaction with aq. NaOH</strong></td><td>Forms sodium phenoxide + H₂O</td><td>No reaction</td></tr>
+                  <tr><td><strong>Reaction with neutral FeCl₃</strong></td><td>Violet color complex (diagnostic test)</td><td>No color reaction</td></tr>
+                  <tr><td><strong>Reaction with Bromine Water</strong></td><td>White precipitate of 2,4,6-tribromophenol</td><td>No precipitate</td></tr>
+                  <tr><td><strong>C–O Bond Length</strong></td><td>136 pm (partial double bond character)</td><td>142 pm (pure single bond)</td></tr>
+                </tbody>
+              </table>
+            </article>
+
+            <!-- TOPIC 23: Must-Know Mechanisms -->
+            <article class="study-topic-block" id="sec-ch7-mechanisms" data-visual="ch7-dehydration">
+              <div class="topic-header-row">
+                <h3><span class="section-num">23</span> Must-Know CBSE Board Mechanisms</h3>
+                <span class="subject-pill chem">Step-by-Step Curly Arrow Pathways</span>
+              </div>
+              <div class="mechanism-card">
+                <div class="mechanism-title">1. Acid-Catalysed Dehydration of Ethanol to Ethene (443 K)</div>
+                <p class="study-body-text">
+                  • <em>Step 1 (Fast Protonation)</em>: <code>CH₃CH₂-OH + H⁺ ⇌ CH₃CH₂-OH₂⁺ (Ethyloxonium ion)</code>
+                  <br>• <em>Step 2 (Slow Carbocation Formation, r.d.s)</em>: <code>CH₃CH₂-OH₂⁺ → CH₃CH₂⁺ + H₂O</code>
+                  <br>• <em>Step 3 (Fast Deprotonation)</em>: Base eliminates β-proton: <code>CH₃CH₂⁺ → CH₂=CH₂ + H⁺</code>
+                </p>
+              </div>
+              <div class="mechanism-card">
+                <div class="mechanism-title">2. Acid-Catalysed Dehydration of Ethanol to Diethyl Ether (413 K)</div>
+                <p class="study-body-text">
+                  • <em>Step 1</em>: Formation of protonated alcohol: <code>CH₃CH₂OH + H⁺ ⇌ CH₃CH₂OH₂⁺</code>
+                  <br>• <em>Step 2 (SN2 Attack)</em>: Unprotonated alcohol attacks protonated molecule: <code>CH₃CH₂OH + CH₃CH₂OH₂⁺ → (CH₃CH₂)₂OH⁺ + H₂O</code>
+                  <br>• <em>Step 3</em>: Loss of proton: <code>(CH₃CH₂)₂OH⁺ → CH₃CH₂-O-CH₂CH₃ + H⁺</code>
+                </p>
+              </div>
+            </article>
+
+            <!-- TOPIC 24: Board-Type "Why" Questions -->
+            <article class="study-topic-block" id="sec-ch7-why-questions" data-visual="ch7-phenol-acidity">
+              <div class="topic-header-row">
+                <h3><span class="section-num">24</span> Board-Type "Why" Questions & Summary</h3>
+                <span class="subject-pill chem">High-Priority Exam Reasoning</span>
+              </div>
+              <div class="neet-trap-alert" style="margin-bottom: 0.8rem;">
+                <span style="font-size: 1.25rem;">❓</span>
+                <div>
+                  <strong>Why is o-Nitrophenol more steam-volatile than p-Nitrophenol?</strong>
+                  <br>In o-nitrophenol, intramolecular hydrogen bonding occurs within the same molecule (chelation). In p-nitrophenol, intermolecular hydrogen bonding binds separate molecules together, requiring more thermal energy to vaporize!
+                </div>
+              </div>
+              <div class="neet-trap-alert" style="margin-bottom: 0.8rem;">
+                <span style="font-size: 1.25rem;">❓</span>
+                <div>
+                  <strong>Why does Williamson ether synthesis fail with tertiary alkyl halides?</strong>
+                  <br>Sodium alkoxides are strong bases. With bulky tertiary halides, the steric barrier prevents SN2 backside attack, directing the pathway into 100% E2 elimination to yield an alkene!
+                </div>
+              </div>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.25rem;">❓</span>
+                <div>
+                  <strong>Why is Phenol acidic, but does not react with NaHCO₃?</strong>
+                  <br>Phenoxide ion is stabilized by resonance over the aromatic ring, making phenol acidic (pKa 10). However, phenol is weaker than carbonic acid (pKa 6.35) and cannot displace it from sodium bicarbonate.
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <!-- END CHAPTER 7 CONTAINER -->
+
+<div id="chapter-8-container" style="display: none;">
 
           <!-- TOPIC 1: Introduction -->
           <article class="study-topic-block" id="sec-intro" data-visual="carbonyl-structure">
@@ -1636,6 +2439,599 @@
 
           </div>
 
+          <!-- ======================================================================
+               CHAPTER 9: AMINES (CBSE, NCERT & NEET)
+               ====================================================================== -->
+          <div id="chapter-9-container" style="display: none;">
+
+            <!-- TOPIC 1: Classification of Amines -->
+            <article class="study-topic-block" id="sec-ch9-class-amines" data-visual="ch9-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">1</span> Classification of Amines</h3>
+                <span class="subject-pill chem">NCERT Sec 9.1 & 1°, 2°, 3° Systems</span>
+              </div>
+              <p class="study-body-text">
+                Amines are organic derivatives of ammonia (<code>NH₃</code>) obtained by replacing one, two, or all three hydrogen atoms with alkyl or aryl groups.
+                <br>• <strong>Primary (1°) Amines</strong>: One hydrogen replaced by R/Ar (functional group: <code>-NH₂</code>, amino group). E.g., Methylamine (<code>CH₃NH₂</code>), Aniline (<code>C₆H₅NH₂</code>).
+                <br>• <strong>Secondary (2°) Amines</strong>: Two hydrogens replaced (functional group: <code>>NH</code>, imino group). E.g., Dimethylamine (<code>(CH₃)₂NH</code>).
+                <br>• <strong>Tertiary (3°) Amines</strong>: All three hydrogens replaced (functional group: <code>>N-</code>, tertiary nitrogen). E.g., Trimethylamine (<code>(CH₃)₃N</code>).
+                <br>• <strong>Aliphatic vs Aromatic</strong>: In aliphatic amines, nitrogen is bonded to alkyl groups; in aromatic amines (arylamines), nitrogen is bonded directly to one or more aryl rings.
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Dimethylamine has two alkyl groups attached to nitrogen, making it a secondary (2°) amine.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 9.1</span>
+                  <span style="color: var(--accent-emerald);">Amine Degree</span>
+                </div>
+                <p>Which class of amines does (CH₃)₂NH belong to?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Primary (1°) amine</button>
+                  <button class="study-opt-btn" data-correct="true">B. Secondary (2°) amine</button>
+                  <button class="study-opt-btn" data-correct="false">C. Tertiary (3°) amine</button>
+                  <button class="study-opt-btn" data-correct="false">D. Quaternary ammonium salt</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 2: Structure of Amines -->
+            <article class="study-topic-block" id="sec-ch9-struct-amines" data-visual="ch9-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">2</span> Structure & Geometry of Amines</h3>
+                <span class="subject-pill chem">sp³ Nitrogen & Pyramidal Shape</span>
+              </div>
+              <p class="study-body-text">
+                Nitrogen in amines is <strong>sp³ hybridized</strong> with tetrahedral electron geometry and a <strong>trigonal pyramidal shape</strong>. Three of the sp³ orbitals overlap with orbitals of carbon or hydrogen, while the fourth orbital houses an unshared <strong>lone pair of electrons</strong>.
+                <br>• <strong>Bond Angle</strong>: The C–N–C bond angle in trimethylamine is <strong>108°</strong>, slightly less than regular tetrahedral angle (109.5°) due to lone pair–bond pair repulsions.
+                <br>• <strong>Pyramidal Inversion (Umbrella Inversion)</strong>: The unshared pair flips rapidly through the nitrogen nucleus from one side to the other, making simple chiral trivalent amines racemic mixtures at room temperature.
+              </p>
+            </article>
+
+            <!-- TOPIC 3: Nomenclature of Amines -->
+            <article class="study-topic-block" id="sec-ch9-nomen-amines" data-visual="ch9-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">3</span> Nomenclature of Amines</h3>
+                <span class="subject-pill chem">Alkylamine vs Alkanamine System</span>
+              </div>
+              <p class="study-body-text">
+                • <strong>Common System</strong>: Named by adding suffix '-amine' to the alkyl group (e.g. <em>Methylamine</em>, <em>Ethylmethylamine</em>).
+                <br>• <strong>IUPAC System</strong>: Suffix <strong>'-amine'</strong> replaces terminal '-e' of parent alkane (e.g. <em>Methanamine</em>, <em>Ethanamine</em>). For secondary and tertiary amines, the locant <strong>'N-'</strong> designates substituents attached to nitrogen (e.g. <em>N-Methylethanamine</em>, <em>N,N-Dimethylmethanamine</em>).
+                <br>• <strong>Aromatic Amines</strong>: Simplest arylamine is <em>Benzenamine</em>, commonly called <strong>Aniline</strong> (accepted by IUPAC).
+              </p>
+            </article>
+
+            <!-- TOPIC 4: Preparation of Amines: Ammonolysis -->
+            <article class="study-topic-block" id="sec-ch9-prep-ammonolysis" data-visual="ch9-gabriel-hofmann">
+              <div class="topic-header-row">
+                <h3><span class="section-num">4</span> Preparation: Ammonolysis of Alkyl Halides</h3>
+                <span class="subject-pill chem">Hoffmann's Ammonolysis</span>
+              </div>
+              <p class="study-body-text">
+                An alkyl or benzyl halide heated with ethanolic ammonia in a sealed tube at 373 K undergoes nucleophilic substitution:
+                <br><code>NH₃ (Nu) + R-X → R-NH₃⁺X⁻ xrightarrow{NH₃} R-NH₂ (1° Amine) + NH₄⁺X⁻</code>
+                <br>• <strong>Limitation</strong>: The primary amine formed is itself a good nucleophile and reacts further with remaining alkyl halide to yield a mixture of <strong>secondary amine, tertiary amine, and quaternary ammonium salt (R₄N⁺X⁻)</strong>!
+                <br>• <strong>Control</strong>: If <strong>large excess of ammonia (NH₃)</strong> is used, the primary amine is obtained as the predominant major product!
+              </p>
+            </article>
+
+            <!-- TOPIC 5: Gabriel Phthalimide Synthesis -->
+            <article class="study-topic-block" id="sec-ch9-prep-gabriel" data-visual="ch9-gabriel-hofmann">
+              <div class="topic-header-row">
+                <h3><span class="section-num">5</span> Gabriel Phthalimide Synthesis</h3>
+                <span class="subject-pill chem">Pure 1° Aliphatic Amines</span>
+              </div>
+              <p class="study-body-text">
+                Phthalimide is treated with ethanolic KOH to form potassium phthalimide. Heating with an alkyl halide (<code>R-X</code>) produces N-alkylphthalimide via SN2 substitution, which upon alkaline hydrolysis yields a <strong>pure primary aliphatic amine</strong>:
+                <br><code>Phthalimide xrightarrow{KOH} Potassium Phthalimide xrightarrow{R-X (1°)} N-Alkylphthalimide xrightarrow{aq. NaOH} R-NH₂ + Sodium Phthalate</code>
+                <br>• <strong>CRITICAL BOARD LIMITATION</strong>: <strong>Aromatic primary amines (like aniline) CANNOT be prepared by Gabriel synthesis</strong> because aryl halides (<code>Ar-X</code>) do not undergo nucleophilic substitution with potassium phthalimide anion under normal conditions!
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Aryl halides do not undergo nucleophilic substitution (SN2) with phthalimide anion due to partial double bond character of the C-X bond and electronic repulsion.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 9.2</span>
+                  <span style="color: var(--accent-emerald);">Gabriel Synthesis</span>
+                </div>
+                <p>Why cannot aniline be prepared by Gabriel phthalimide synthesis?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Aniline is too basic</button>
+                  <button class="study-opt-btn" data-correct="true">B. Aryl halides do not undergo SN2 substitution with phthalimide anion</button>
+                  <button class="study-opt-btn" data-correct="false">C. Potassium phthalimide decomposes</button>
+                  <button class="study-opt-btn" data-correct="false">D. Aniline boils at low temperature</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 6: Hofmann Bromamide Degradation -->
+            <article class="study-topic-block" id="sec-ch9-prep-hofmann" data-visual="ch9-gabriel-hofmann">
+              <div class="topic-header-row">
+                <h3><span class="section-num">6</span> Hofmann Bromamide Degradation Reaction</h3>
+                <span class="subject-pill chem">Amide to 1° Amine (1 Less Carbon)</span>
+              </div>
+              <p class="study-body-text">
+                An acid amide is treated with bromine in an aqueous or ethanolic solution of sodium hydroxide (<code>Br₂ + 4NaOH</code>). The reaction involves migration of an alkyl or aryl group from carbonyl carbon to nitrogen, accompanied by loss of the carbonyl carbon as carbonate:
+                <br><code>R-CONH₂ + Br₂ + 4NaOH → R-NH₂ + Na₂CO₃ + 2NaBr + 2H₂O</code>
+                <br>• <strong>High-Yield Key Point</strong>: The amine product contains <strong>ONE CARBON ATOM LESS</strong> than the starting amide (descent of carbon series). E.g., Ethanamide (<code>CH₃CONH₂</code>) gives Methanamine (<code>CH₃NH₂</code>); Benzamide (<code>C₆H₅CONH₂</code>) gives Aniline (<code>C₆H₅NH₂</code>).
+              </p>
+            </article>
+
+            <!-- TOPIC 7: Preparation of Aromatic Amines -->
+            <article class="study-topic-block" id="sec-ch9-prep-aromatic" data-visual="ch9-gabriel-hofmann">
+              <div class="topic-header-row">
+                <h3><span class="section-num">7</span> Preparation of Aromatic Amines (Reduction of Nitrobenzene)</h3>
+                <span class="subject-pill chem">Fe/HCl vs Sn/HCl</span>
+              </div>
+              <p class="study-body-text">
+                Nitro compounds are reduced to primary aromatic amines by catalytic hydrogenation with H₂/Ni, or by treatment with metals in acidic medium:
+                <br><code>C₆H₅NO₂ + 6[H] xrightarrow{Fe / HCl text{ or } Sn / HCl} C₆H₅NH₂ (Aniline) + 2H₂O</code>
+                <br>• <strong>Why is Fe/HCl preferred over Sn/HCl? (CBSE Question)</strong>:
+                <br>Iron scrap and hydrochloric acid (<code>Fe + HCl</code>) is favored commercially because <code>FeCl₂</code> produced is hydrolyzed by water to regenerate HCl! Hence, only a catalytic scrap amount of hydrochloric acid is required to initiate the reaction.
+              </p>
+            </article>
+
+            <!-- TOPIC 8: Physical Properties of Amines -->
+            <article class="study-topic-block" id="sec-ch9-phys-amines" data-visual="ch9-classification">
+              <div class="topic-header-row">
+                <h3><span class="section-num">8</span> Physical Properties of Amines</h3>
+                <span class="subject-pill chem">Boiling Points & Solubility</span>
+              </div>
+              <p class="study-body-text">
+                • <strong>Physical State & Smell</strong>: Lower aliphatic amines are gases with characteristic fishy odors; primary amines with 3 or more carbons are liquids. Aniline is colorless oily liquid but turns brown on storage due to atmospheric oxidation.
+                <br>• <strong>Boiling Points</strong>: Order among isomeric amines: <strong>Primary (1°) &gt; Secondary (2°) &gt; Tertiary (3°)</strong>. Primary amines have two N–H hydrogens for extensive intermolecular hydrogen bonding; secondary amines have one; tertiary amines have NO N–H bonds and cannot associate with each other via H-bonding.
+                <br>• <strong>Solubility</strong>: Lower aliphatic amines form hydrogen bonds with water molecules and are freely soluble. Solubility decreases with increasing molecular mass. Aniline is practically insoluble in water.
+              </p>
+            </article>
+
+            <!-- TOPIC 9 & 10: Basic Character & Strength Trends -->
+            <article class="study-topic-block" id="sec-ch9-basicity" data-visual="ch9-basicity-ladder">
+              <div class="topic-header-row">
+                <h3><span class="section-num">9 & 10</span> Basic Character & Strength of Amines</h3>
+                <span class="subject-pill chem">The Master Basicity Ladder</span>
+              </div>
+              <p class="study-body-text">
+                Amines are basic due to the availability of an unshared <strong>lone pair of electrons on nitrogen</strong> to donate to a proton (Lewis base / Bronsted-Lowry base).
+                <br>• <strong>Alkylamines vs Ammonia</strong>: Alkylamines are stronger bases than ammonia in the gas phase because electron-donating alkyl groups (+I effect) push electron density onto nitrogen and disperse the positive charge of the substituted ammonium cation.
+              </p>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.3rem;">⚖️</span>
+                <div>
+                  <strong>AQUEOUS PHASE BASICITY ORDER (Top NEET Question):</strong>
+                  In aqueous medium, basic strength depends on three competing factors: <em>Inductive effect (+I)</em>, <em>Hydration / Solvation energy</em>, and <em>Steric hindrance</em>!
+                  <br>• <strong>For Methyl-substituted series</strong>: <code>(CH₃)₂NH (2°) &gt; CH₃NH₂ (1°) &gt; (CH₃)₃N (3°) &gt; NH₃</code> (<strong>Rule: 213</strong>)
+                  <br>• <strong>For Ethyl-substituted series</strong>: <code>(C₂H₅)₂NH (2°) &gt; (C₂H₅)₃N (3°) &gt; C₂H₅NH₂ (1°) &gt; NH₃</code> (<strong>Rule: 231</strong>)
+                  <br>• <strong>In Gas Phase (pure +I effect)</strong>: <code>3° Amine &gt; 2° Amine &gt; 1° Amine &gt; NH₃</code>
+                  <br><br>
+                  <strong>Why is Aniline far less basic than Ammonia? (pKb = 9.38 vs 4.75):</strong>
+                  In aniline, the lone pair on nitrogen is <strong>delocalized into the benzene π-system</strong> across five resonance contributors. Consequently, electron density on nitrogen is reduced. Furthermore, the anilinium ion (<code>C₆H₅NH₃⁺</code>) has only two resonance structures, making protonation unfavorable!
+                </div>
+              </div>
+              <div class="study-checkpoint-card" data-explanation="In aqueous solution, the basicity order of ethyl substituted amines is 2° > 3° > 1° > NH3 (Rule 231).">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 9.3</span>
+                  <span style="color: var(--accent-emerald);">Basicity Ladder</span>
+                </div>
+                <p>Which is the strongest base in aqueous solution among ethyl-substituted amines?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Ethylamine (C₂H₅NH₂)</button>
+                  <button class="study-opt-btn" data-correct="true">B. Diethylamine ((C₂H₅)₂NH)</button>
+                  <button class="study-opt-btn" data-correct="false">C. Triethylamine ((C₂H₅)₃N)</button>
+                  <button class="study-opt-btn" data-correct="false">D. Ammonia (NH₃)</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 11 to 13: Reactions, Acylation & Carbylamine -->
+            <article class="study-topic-block" id="sec-ch9-reactions-carbyl" data-visual="ch9-hinsberg-test">
+              <div class="topic-header-row">
+                <h3><span class="section-num">11 - 13</span> Acylation, Carbylamine & Hinsberg's Test</h3>
+                <span class="subject-pill chem">Diagnostic Tests for 1°, 2°, 3° Amines</span>
+              </div>
+              <h4 style="color: var(--accent-cyan); margin: 0.5rem 0 0.2rem; font-size: 0.95rem;">A. Acylation of Amines:</h4>
+              <p class="study-body-text">
+                Primary and secondary amines react with acid chlorides or anhydrides in presence of pyridine base to form substituted amides (N-acetyl derivatives):
+                <br><code>CH₃CH₂NH₂ + CH₃COCl xrightarrow{text{pyridine}} CH₃CH₂NH-COCH₃ (N-Ethylethanamide) + HCl</code>
+                <br>• <em>Tertiary amines do NOT undergo acylation</em> because they lack a replaceable hydrogen atom on nitrogen!
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">B. Carbylamine Reaction / Isocyanide Test (Test for 1° Amines):</h4>
+              <p class="study-body-text">
+                Aliphatic and aromatic primary amines heated with <strong>chloroform (CHCl₃) and alcoholic KOH</strong> yield extremely foul-smelling <strong>isocyanides (carbylamines, R-NC)</strong>:
+                <br><code>R-NH₂ + CHCl₃ + 3KOH (alc.) xrightarrow{Δ} R-NC (Carbylamine, extremely foul odor) + 3KCl + 3H₂O</code>
+                <br>• <strong>Diagnostic Value</strong>: 2° and 3° amines do NOT show this reaction!
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">C. Hinsberg's Test (Benzenesulphonyl Chloride):</h4>
+              <p class="study-body-text">
+                • <strong>Primary Amine</strong>: Forms N-alkylbenzenesulphonamide containing an acidic hydrogen on nitrogen; <strong>DISSOLVES in aqueous NaOH</strong>.
+                <br>• <strong>Secondary Amine</strong>: Forms N,N-dialkylbenzenesulphonamide lacking acidic hydrogen; <strong>INSOLUBLE in aqueous NaOH</strong>.
+                <br>• <strong>Tertiary Amine</strong>: Does NOT react with benzenesulphonyl chloride; remains insoluble in alkali, dissolves in acid.
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Carbylamine reaction is given exclusively by primary (1°) amines (both aliphatic and aromatic).">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 9.4</span>
+                  <span style="color: var(--accent-emerald);">Identification</span>
+                </div>
+                <p>Which of the following compounds gives a foul-smelling isocyanide on heating with CHCl₃ and alcoholic KOH?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Dimethylamine ((CH₃)₂NH)</button>
+                  <button class="study-opt-btn" data-correct="true">B. Aniline (C₆H₅NH₂)</button>
+                  <button class="study-opt-btn" data-correct="false">C. Trimethylamine ((CH₃)₃N)</button>
+                  <button class="study-opt-btn" data-correct="false">D. N-Methylaniline</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 14 to 17: Reaction with Nitrous Acid & Diazotisation -->
+            <article class="study-topic-block" id="sec-ch9-diazotisation" data-visual="ch9-diazonium-reactions">
+              <div class="topic-header-row">
+                <h3><span class="section-num">14 - 17</span> Reaction with Nitrous Acid & Diazotisation</h3>
+                <span class="subject-pill chem">Aliphatic vs Aromatic Behavior</span>
+              </div>
+              <p class="study-body-text">
+                Nitrous acid (<code>HNO₂</code>) is unstable and prepared <em>in situ</em> by reacting <code>NaNO₂ + HCl</code>:
+                <br>• <strong>Primary Aliphatic Amines + HNO₂</strong>: Form highly unstable alkyldiazonium salts which decompose instantly with <strong>quantitative evolution of Nitrogen gas (N₂↑)</strong> and formation of alcohols:
+                <br><code>R-NH₂ + HNO₂ xrightarrow{NaNO₂ + HCl} [R-N₂⁺Cl⁻] xrightarrow{H₂O} R-OH + N₂↑ + HCl</code>
+                <br>(Used in quantitative amino group determination).
+                <br><br>
+                • <strong>Primary Aromatic Amines (Diazotisation)</strong>: Aniline reacts with <code>NaNO₂ + HCl</code> at <strong>273–278 K (0–5 °C)</strong> to yield stable <strong>benzene diazonium chloride</strong>:
+                <br><code>C₆H₅NH₂ + NaNO₂ + 2HCl xrightarrow{273-278 K} C₆H₅N₂⁺Cl⁻ (Benzene diazonium chloride) + NaCl + 2H₂O</code>
+                <br><em>Why 0–5 °C?</em> Diazonium salts decompose violently at higher temperatures!
+              </p>
+            </article>
+
+            <!-- TOPIC 18 to 20: Reactions of Diazonium Salts & Azo Coupling -->
+            <article class="study-topic-block" id="sec-ch9-diazonium-reactions" data-visual="ch9-diazonium-reactions">
+              <div class="topic-header-row">
+                <h3><span class="section-num">18 - 20</span> Reactions of Diazonium Salts & Azo Dyes</h3>
+                <span class="subject-pill chem">Sandmeyer, Gattermann & Azo Coupling</span>
+              </div>
+              <p class="study-body-text">
+                Benzene diazonium chloride is the supreme gateway for aromatic substitutions:
+                <br>• <strong>Sandmeyer Reaction</strong>: <code>C₆H₅N₂⁺Cl⁻ xrightarrow{Cu₂Cl₂/HCl} C₆H₅Cl</code> | <code>xrightarrow{Cu₂Br₂/HBr} C₆H₅Br</code> | <code>xrightarrow{CuCN/KCN} C₆H₅CN</code> (with N₂↑).
+                <br>• <strong>Gattermann Reaction</strong>: Uses copper powder: <code>C₆H₅N₂⁺Cl⁻ + Cu / HCl → C₆H₅Cl + N₂ + CuCl</code>.
+                <br>• <strong>Replacement by Iodine</strong>: <code>C₆H₅N₂⁺Cl⁻ + KI xrightarrow{warm} C₆H₅I + KCl + N₂↑</code>.
+                <br>• <strong>Balz-Schiemann Reaction</strong>: <code>C₆H₅N₂⁺Cl⁻ + HBF₄ → C₆H₅N₂⁺BF₄⁻ xrightarrow{Δ} C₆H₅F + BF₃ + N₂↑</code>.
+                <br>• <strong>Replacement by –OH</strong>: <code>C₆H₅N₂⁺Cl⁻ + H₂O xrightarrow{warm, 323 K} C₆H₅OH (Phenol) + N₂↑ + HCl</code>.
+                <br>• <strong>Reduction to Benzene</strong>: <code>C₆H₅N₂⁺Cl⁻ + H₃PO₂ (Hypophosphorous acid) + H₂O → C₆H₆ + H₃PO₃ + HCl + N₂↑</code>.
+                <br><br>
+                • <strong>Azo Coupling Reactions (Dye Synthesis)</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>With Phenol (Alkaline pH 9–10)</em>: Couplings at para position yield <strong>p-Hydroxyazobenzene (Orange Dye)</strong>.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>With Aniline (Mild Acidic pH 4–5)</em>: Yields <strong>p-Aminoazobenzene (Yellow Dye)</strong>.
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Azo coupling of benzene diazonium chloride with phenol in alkaline medium (pH 9-10) forms orange p-hydroxyazobenzene.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 9.5</span>
+                  <span style="color: var(--accent-emerald);">Azo Dyes</span>
+                </div>
+                <p>What is the product formed when benzene diazonium chloride couples with phenol at pH 9–10?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Chlorobenzene</button>
+                  <button class="study-opt-btn" data-correct="true">B. p-Hydroxyazobenzene (Orange Dye)</button>
+                  <button class="study-opt-btn" data-correct="false">C. p-Aminoazobenzene (Yellow Dye)</button>
+                  <button class="study-opt-btn" data-correct="false">D. Salicylic acid</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 21 to 27: Aniline EAS, Protection & Board Priorities -->
+            <article class="study-topic-block" id="sec-ch9-aniline-eas" data-visual="ch9-diazonium-reactions">
+              <div class="topic-header-row">
+                <h3><span class="section-num">21 - 27</span> Electrophilic Substitution of Aniline & Protection</h3>
+                <span class="subject-pill chem">Bromine Water & Nitration Anomalies</span>
+              </div>
+              <h4 style="color: var(--accent-cyan); margin: 0.5rem 0 0.2rem; font-size: 0.95rem;">A. Bromination of Aniline:</h4>
+              <p class="study-body-text">
+                The <code>-NH₂</code> group activates the benzene ring so strongly that reaction with <strong>bromine water</strong> gives immediate white precipitate of <strong>2,4,6-tribromoaniline</strong> even in the absence of a Lewis acid catalyst!
+                <br>To prepare monobromo derivative (<em>p-bromoaniline</em>), the <code>-NH₂</code> group must first be <strong>protected by acetylation</strong> with acetic anhydride to <em>acetanilide</em>. The acetyl group decreases the electron availability on nitrogen due to resonance with carbonyl oxygen!
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">B. Nitration of Aniline (The 47% Meta Anomaly):</h4>
+              <p class="study-body-text">
+                Direct nitration with conc. HNO₃ + conc. H₂SO₄ yields:
+                <br>• <strong>p-Nitroaniline = 51%</strong>
+                <br>• <strong>m-Nitroaniline = 47% (Unexpectedly High!)</strong>
+                <br>• <strong>o-Nitroaniline = 2%</strong>
+                <br><em>Why is substantial meta-isomer formed?</em> In strongly acidic nitrating mixture, aniline gets protonated to form the <strong>anilinium ion (-NH₃⁺)</strong>, which is a powerful <strong>meta-directing deactivating group</strong>!
+                <br>To prepare pure p-nitroaniline, aniline is acetylated first to acetanilide, nitrated, and then hydrolyzed.
+              </p>
+            </article>
+
+          </div>
+          <!-- END CHAPTER 9 CONTAINER -->
+
+
+          <!-- ======================================================================
+               CHAPTER 10: BIOMOLECULES (CBSE, NCERT & NEET)
+               ====================================================================== -->
+          <div id="chapter-10-container" style="display: none;">
+
+            <!-- TOPIC 1 & 2: Carbohydrates & Glucose -->
+            <article class="study-topic-block" id="sec-ch10-carbohydrates" data-visual="ch10-glucose-structure">
+              <div class="topic-header-row">
+                <h3><span class="section-num">1 & 2</span> Carbohydrates & Structure of Glucose</h3>
+                <span class="subject-pill chem">NCERT Sec 10.1 & Open-Chain Reactions</span>
+              </div>
+              <p class="study-body-text">
+                Carbohydrates are defined as <strong>optically active polyhydroxy aldehydes or polyhydroxy ketones</strong>, or substances which produce such units on hydrolysis.
+                <br>• <strong>Classification</strong>: Monosaccharides (cannot be hydrolyzed further, e.g. Glucose, Fructose), Oligosaccharides (yield 2 to 10 monosaccharides, e.g. Disaccharides Sucrose, Maltose, Lactose), and Polysaccharides (yield hundreds of monosaccharide units, e.g. Starch, Cellulose, Glycogen).
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">Chemical Evidence for Open-Chain Structure of D-(+)-Glucose (C₆H₁₂O₆):</h4>
+              <p class="study-body-text">
+                1. <strong>Straight Chain of 6 Carbons</strong>: Prolonged heating with <code>HI + Red P</code> yields <strong>n-Hexane</strong> (<code>CH₃(CH₂)₄CH₃</code>).
+                <br>2. <strong>Carbonyl Group (>C=O)</strong>: Reacts with hydroxylamine (<code>NH₂OH</code>) to form an <em>oxime</em> and adds <code>HCN</code> to form a <em>cyanohydrin</em>.
+                <br>3. <strong>Aldehyde Group (-CHO)</strong>: Mild oxidation with <strong>bromine water</strong> yields 6-carbon carboxylic acid <strong>Gluconic acid</strong> (<code>HOCH₂-(CHOH)₄-COOH</code>).
+                <br>4. <strong>Five Hydroxyl Groups (-OH)</strong>: Acetylation with <strong>acetic anhydride</strong> forms <strong>Glucose pentaacetate</strong>, confirming 5 <code>-OH</code> groups attached to five different carbons!
+                <br>5. <strong>Primary Alcohol Group (-CH₂OH)</strong>: Oxidation with strong nitric acid (<code>HNO₃</code>) yields a dicarboxylic acid called <strong>Saccharic acid</strong> (<code>HOOC-(CHOH)₄-COOH</code>).
+              </p>
+              <div class="study-checkpoint-card" data-explanation="Heating glucose with HI and red P reduces all functional groups to yield n-hexane, proving that all six carbons are linked in a straight unbranched chain.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 10.1</span>
+                  <span style="color: var(--accent-emerald);">Glucose Proof</span>
+                </div>
+                <p>Which reaction confirms that all six carbon atoms in glucose are linked in a continuous straight chain?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="true">A. Prolonged heating with HI and Red P</button>
+                  <button class="study-opt-btn" data-correct="false">B. Reaction with bromine water</button>
+                  <button class="study-opt-btn" data-correct="false">C. Reaction with acetic anhydride</button>
+                  <button class="study-opt-btn" data-correct="false">D. Reaction with Fehling's solution</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 3 & 4: Cyclic Structure & Mutarotation -->
+            <article class="study-topic-block" id="sec-ch10-cyclic-glucose" data-visual="ch10-glucose-structure">
+              <div class="topic-header-row">
+                <h3><span class="section-num">3 & 4</span> Cyclic Structure of Glucose & Mutarotation</h3>
+                <span class="subject-pill chem">Haworth Pyranose & Anomers</span>
+              </div>
+              <p class="study-body-text">
+                Open-chain glucose fails to form 2,4-DNP adduct, does not form sodium bisulphite adduct, and glucose pentaacetate does not react with hydroxylamine. This proves that the <code>-CHO</code> group is not completely free.
+                <br>• <strong>Intramolecular Hemiacetal</strong>: The <code>-OH</code> group at C-5 adds across the C-1 carbonyl group to form a six-membered pyranose ring.
+                <br>• <strong>Anomeric Carbon (C-1)</strong>: Becomes chiral, yielding two stereoisomers called <strong>anomers</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>α-D-Glucopyranose</strong>: C-1 <code>-OH</code> points DOWNWARDS (trans to C-5 <code>-CH₂OH</code>); [α]D = <strong>+112.2°</strong>.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>β-D-Glucopyranose</strong>: C-1 <code>-OH</code> points UPWARDS (cis to C-5 <code>-CH₂OH</code>); [α]D = <strong>+18.7°</strong>.
+                <br>• <strong>Mutarotation</strong>: When either pure α or β form is dissolved in water, the optical rotation spontaneously changes over time until reaching an equilibrium value of <strong>+52.7°</strong> (composed of ~36% α + 64% β + 0.02% open chain).
+              </p>
+            </article>
+
+            <!-- TOPIC 5 & 6: Disaccharides & Reducing Nature -->
+            <article class="study-topic-block" id="sec-ch10-disaccharides" data-visual="ch10-disaccharides">
+              <div class="topic-header-row">
+                <h3><span class="section-num">5 & 6</span> Disaccharides & Reducing vs Non-Reducing Sugars</h3>
+                <span class="subject-pill chem">Sucrose, Maltose & Inversion of Sugar</span>
+              </div>
+              <p class="study-body-text">
+                Disaccharides consist of two monosaccharide units joined by a <strong>glycosidic linkage</strong> (C–O–C oxide bond formed by condensation):
+                <br><br>
+                <strong>1. Sucrose (C₁₂H₂₂O₁₁ - Cane Sugar):</strong>
+                <br>Composed of <strong>α-D-glucopyranose</strong> and <strong>β-D-fructofuranose</strong> joined by an <strong>α(1 → 2) glycosidic linkage</strong>.
+                <br>• <strong>Non-reducing Sugar</strong>: Both reducing anomeric carbons (C-1 of glucose and C-2 of fructose) are engaged in glycosidic bond formation; no free hemiacetal or hemiketal group is present!
+                <br>• <strong>Invert Sugar</strong>: Sucrose is dextrorotatory ([α]D = +66.5°). On hydrolysis by acid or invertase enzyme, it produces an equimolar mixture of D-(+)-glucose (+52.5°) and D-(-)-fructose (-92.4°). Because laevorotation of fructose is greater than dextrorotation of glucose, the overall optical rotation changes from dextro (+) to <strong>laevo (-)</strong>! This hydrolyzed mixture is termed <strong>Invert Sugar</strong>.
+                <br><br>
+                <strong>2. Maltose:</strong> Two α-D-glucose units joined by <strong>α(1 → 4) linkage</strong>. <em>Reducing sugar</em> because C-1 of the second glucose unit has a free hemiacetal.
+                <br><br>
+                <strong>3. Lactose (Milk Sugar):</strong> β-D-galactose and β-D-glucose joined by <strong>β(1 → 4) linkage</strong>. <em>Reducing sugar</em>.
+              </p>
+              <div class="study-checkpoint-card" data-explanation="In sucrose, both the anomeric carbon of glucose (C-1) and fructose (C-2) are tied in the alpha-1,2-glycosidic linkage, leaving no free hemiacetal group.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 10.2</span>
+                  <span style="color: var(--accent-emerald);">Non-Reducing Sugar</span>
+                </div>
+                <p>Why is sucrose classified as a non-reducing sugar?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. It is composed of two identical glucose units</button>
+                  <button class="study-opt-btn" data-correct="true">B. Both reducing anomeric carbons (C1 and C2) are involved in glycosidic linkage</button>
+                  <button class="study-opt-btn" data-correct="false">C. It contains only ketose units</button>
+                  <button class="study-opt-btn" data-correct="false">D. It lacks optical activity</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 7 & 8: Polysaccharides -->
+            <article class="study-topic-block" id="sec-ch10-polysaccharides" data-visual="ch10-disaccharides">
+              <div class="topic-header-row">
+                <h3><span class="section-num">7 & 8</span> Polysaccharides: Starch, Cellulose & Glycogen</h3>
+                <span class="subject-pill chem">Amylose vs Amylopectin</span>
+              </div>
+              <p class="study-body-text">
+                Polysaccharides are high-molecular-weight polymers of monosaccharides linked by glycosidic bonds.
+                <br><br>
+                <strong>1. Starch (Main Storage Polysaccharide of Plants):</strong>
+                <br>Composed of two structural fractions:
+                <br>• <strong>Amylose (15–20%)</strong>: Water-soluble, linear unbranched polymer of α-D-glucose held by <strong>α(1 → 4) glycosidic linkages</strong>. Forms helical coil giving characteristic blue color with iodine (I₂).
+                <br>• <strong>Amylopectin (80–85%)</strong>: Water-insoluble, branched polymer. Main chains held by <strong>α(1 → 4)</strong> linkages; branching occurs via <strong>α(1 → 6) glycosidic linkages</strong> every 20–25 glucose residues! Gives reddish-brown color with I₂.
+                <br><br>
+                <strong>2. Cellulose:</strong>
+                <br>Predominant structural component of plant cell walls. Linear unbranched polymer of <strong>β-D-glucose held by β(1 → 4) glycosidic linkages</strong>. Chains pack closely in parallel sheets stabilized by extensive hydrogen bonding. Humans cannot digest cellulose because our digestive tract lacks the enzyme cellulase.
+                <br><br>
+                <strong>3. Glycogen (Animal Starch):</strong>
+                <br>Carbohydrate stored in animal liver and muscles. Structurally similar to amylopectin, but <strong>more highly branched</strong>!
+              </p>
+            </article>
+
+            <!-- TOPIC 9 to 12: Amino Acids, Zwitterion & Peptide Bond -->
+            <article class="study-topic-block" id="sec-ch10-amino-acids" data-visual="ch10-amino-acids-zwitterion">
+              <div class="topic-header-row">
+                <h3><span class="section-num">9 - 12</span> Amino Acids, Zwitterion & Peptide Bond</h3>
+                <span class="subject-pill chem">Dipolar Ion & Condensation</span>
+              </div>
+              <p class="study-body-text">
+                Proteins are polymers of <strong>α-amino acids</strong> (compounds containing an amino group <code>-NH₂</code> and a carboxyl group <code>-COOH</code> attached to the same α-carbon: <code>R-CH(NH₂)-COOH</code>).
+                <br>• <strong>Essential Amino Acids (10 Must be ingested in diet)</strong>: <em>Valine, Leucine, Isoleucine, Lysine, Methionine, Phenylalanine, Tryptophan, Threonine, Histidine, Arginine</em>.
+                <br>• <strong>Optical Inactivity of Glycine</strong>: All natural amino acids are optically active (chiral) EXCEPT <strong>Glycine (H₂N-CH₂-COOH)</strong> which has two identical hydrogen atoms on the α-carbon!
+              </p>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.25rem;">⚡</span>
+                <div>
+                  <strong>Zwitterion & Isoelectric Point (pI):</strong>
+                  In aqueous solution, the acidic <code>-COOH</code> group transfers a proton to the basic <code>-NH₂</code> group to form a dipolar ion called a <strong>Zwitterion</strong>:
+                  <br><code>R-CH(NH₂)-COOH ⇌ R-CH(NH₃⁺)-COO⁻ (Zwitterion, net charge = 0)</code>
+                  <br>• Zwitterions are amphoteric (react with both acids and bases).
+                  <br>• <strong>Isoelectric Point (pI)</strong>: The specific pH at which the dipolar amino acid carries no net electrical charge and does not migrate towards either electrode in an electric field.
+                </div>
+              </div>
+              <p class="study-body-text">
+                • <strong>The Peptide Bond (-CO-NH-)</strong>: A covalent amide linkage formed by condensation between the <code>-COOH</code> group of one amino acid and the <code>-NH₂</code> group of another with loss of water:
+                <br><code>H₂N-CH(R₁)-COOH + H₂N-CH(R₂)-COOH → H₂N-CH(R₁)-CO-NH-CH(R₂)-COOH + H₂O</code>
+                <br>Possesses partial double bond character due to resonance, making the peptide unit rigid and planar.
+              </p>
+            </article>
+
+            <!-- TOPIC 13 to 15: Protein Structure & Denaturation -->
+            <article class="study-topic-block" id="sec-ch10-proteins" data-visual="ch10-protein-structure">
+              <div class="topic-header-row">
+                <h3><span class="section-num">13 - 15</span> Structure of Proteins & Denaturation</h3>
+                <span class="subject-pill chem">Primary to Quaternary & Loss of Conformation</span>
+              </div>
+              <p class="study-body-text">
+                Proteins exhibit four levels of structural hierarchy:
+                <br>• <strong>Primary Structure</strong>: Specific sequence of amino acids linked by peptide bonds. A change in sequence destroys biological function (e.g., Sickle-cell anaemia: 6th position of β-globin changed from Glutamic acid to Valine).
+                <br>• <strong>Secondary Structure</strong>: Regular folding of polypeptide chain stabilized by <strong>hydrogen bonds</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>α-Helix</em>: Right-handed helix stabilized by <strong>intramolecular hydrogen bonding</strong> between <code>-NH</code> of residue <em>n</em> and <code>>C=O</code> of residue <em>n+4</em> (e.g. Keratin in hair/nails).
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>β-Pleated Sheet</em>: Extended polypeptide chains lying side-by-side held by <strong>intermolecular hydrogen bonds</strong> (e.g. Silk fibroin).
+                <br>• <strong>Tertiary Structure</strong>: Overall 3D folding of polypeptide into fibrous or globular shapes stabilized by <strong>disulfide bonds (-S-S-)</strong>, ionic electrostatic bonds, H-bonds, and hydrophobic interactions.
+                <br>• <strong>Quaternary Structure</strong>: Spatial arrangement of multiple polypeptide subunits (e.g. Hemoglobin: 4 subunits, 2α + 2β).
+              </p>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.25rem;">🍳</span>
+                <div>
+                  <strong>Denaturation of Proteins (Guaranteed CBSE Question):</strong>
+                  When a protein is subjected to heat, changes in pH, or chemical agents, hydrogen bonds and tertiary folding are disrupted.
+                  <br>• <strong>Primary structure remains completely intact</strong> (peptide bonds are NOT broken).
+                  <br>• <strong>Secondary and tertiary structures are destroyed</strong>, causing loss of biological activity.
+                  <br><em>Examples</em>: Coagulation of egg white on boiling; curdling of milk by bacteria.
+                </div>
+              </div>
+              <div class="study-checkpoint-card" data-explanation="During protein denaturation, weak hydrogen and tertiary bonds are broken, but the strong covalent peptide bonds of the primary sequence remain completely intact.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 10.3</span>
+                  <span style="color: var(--accent-emerald);">Protein Denaturation</span>
+                </div>
+                <p>Which level of protein structure remains unaffected during denaturation?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="true">A. Primary structure</button>
+                  <button class="study-opt-btn" data-correct="false">B. Secondary structure</button>
+                  <button class="study-opt-btn" data-correct="false">C. Tertiary structure</button>
+                  <button class="study-opt-btn" data-correct="false">D. Quaternary structure</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 16 to 18: Enzymes & Vitamins -->
+            <article class="study-topic-block" id="sec-ch10-enzymes-vitamins" data-visual="ch10-amino-acids-zwitterion">
+              <div class="topic-header-row">
+                <h3><span class="section-num">16 - 18</span> Enzymes & Vitamins Matrix</h3>
+                <span class="subject-pill chem">Biocatalysis & Deficiency Diseases</span>
+              </div>
+              <p class="study-body-text">
+                • <strong>Enzymes</strong>: Biological catalysts (almost all are globular proteins) that drastically speed up metabolic reactions by lowering the activation energy barrier. Highly specific in action, functioning optimally at body temperature (310 K) and physiological pH (~7.4).
+              </p>
+              <h4 style="color: var(--accent-cyan); margin: 0.8rem 0 0.2rem; font-size: 0.95rem;">Vitamins Classification & Deficiencies (CBSE Master Table):</h4>
+              <p class="study-body-text">
+                • <strong>Fat-Soluble Vitamins (A, D, E, K)</strong>: Soluble in fats and oils; stored in liver and adipose tissues.
+                <br>• <strong>Water-Soluble Vitamins (B-complex and C)</strong>: Must be supplied regularly in diet because they are readily excreted in urine (except Vitamin B₁₂ which is stored in the liver).
+              </p>
+              <table class="study-data-table">
+                <thead>
+                  <tr><th>Vitamin</th><th>Chemical Name / Source</th><th>Deficiency Disease</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Vitamin A</strong></td><td>Retinol / Fish liver oil, carrots</td><td><strong>Xerophthalmia / Night blindness</strong></td></tr>
+                  <tr><td><strong>Vitamin B₁</strong></td><td>Thiamine / Yeast, cereals</td><td><strong>Beri-beri</strong> (loss of appetite, weak muscles)</td></tr>
+                  <tr><td><strong>Vitamin B₂</strong></td><td>Riboflavin / Milk, egg white</td><td><strong>Cheilosis</strong> (fissuring at corners of mouth)</td></tr>
+                  <tr><td><strong>Vitamin B₆</strong></td><td>Pyridoxine / Yeast, gram</td><td>Convulsions</td></tr>
+                  <tr><td><strong>Vitamin B₁₂</strong></td><td>Cyanocobalamin / Meat, egg</td><td><strong>Pernicious anaemia</strong> (RBC deficiency in Hb)</td></tr>
+                  <tr><td><strong>Vitamin C</strong></td><td>Ascorbic acid / Citrus fruits, amla</td><td><strong>Scurvy</strong> (bleeding gums)</td></tr>
+                  <tr><td><strong>Vitamin D</strong></td><td>Calciferol / Sunlight, fish</td><td><strong>Rickets</strong> (children), Osteomalacia (adults)</td></tr>
+                  <tr><td><strong>Vitamin E</strong></td><td>Tocopherol / Wheat germ oil</td><td>Muscular weakness, increased fragility of RBCs</td></tr>
+                  <tr><td><strong>Vitamin K</strong></td><td>Phylloquinone / Green leaf veggies</td><td><strong>Increased blood clotting time / Haemorrhage</strong></td></tr>
+                </tbody>
+              </table>
+              <div class="study-checkpoint-card" data-explanation="Deficiency of Vitamin B12 (Cyanocobalamin) causes pernicious anaemia, characterized by defective RBC maturation.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 10.4</span>
+                  <span style="color: var(--accent-emerald);">Vitamins Recall</span>
+                </div>
+                <p>Which vitamin deficiency causes pernicious anaemia?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. Vitamin B₁ (Thiamine)</button>
+                  <button class="study-opt-btn" data-correct="false">B. Vitamin C (Ascorbic acid)</button>
+                  <button class="study-opt-btn" data-correct="true">C. Vitamin B₁₂ (Cyanocobalamin)</button>
+                  <button class="study-opt-btn" data-correct="false">D. Vitamin K</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 19 to 24: Nucleic Acids, DNA vs RNA -->
+            <article class="study-topic-block" id="sec-ch10-nucleic-acids" data-visual="ch10-dna-rna">
+              <div class="topic-header-row">
+                <h3><span class="section-num">19 - 24</span> Nucleic Acids & The DNA Double Helix</h3>
+                <span class="subject-pill chem">Nucleosides, Nucleotides & Watson-Crick Base Pairing</span>
+              </div>
+              <p class="study-body-text">
+                Nucleic acids are biopolymers composed of repeating monomer units called <strong>nucleotides</strong> linked together by <strong>3', 5'-phosphodiester bonds</strong>.
+                <br>• <strong>Components of Nucleic Acids</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;1. <em>Pentose Sugar</em>: β-D-2-deoxyribose in DNA; β-D-ribose in RNA.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;2. <em>Nitrogenous Base</em>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Purines</strong>: Adenine (A) and Guanine (G).
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Pyrimidines</strong>: Cytosine (C), Thymine (T, in DNA only), and Uracil (U, in RNA only).
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;3. <em>Phosphate Group</em>: Esterified at C-5' of the pentose sugar.
+                <br><br>
+                • <strong>Nucleoside vs Nucleotide (CBSE Definition)</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Nucleoside</strong> = Pentose Sugar + Nitrogenous Base (at C-1').
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Nucleotide</strong> = Sugar + Base + Phosphate group (at C-5').
+              </p>
+              <div class="neet-trap-alert">
+                <span style="font-size: 1.25rem;">🧬</span>
+                <div>
+                  <strong>Watson-Crick Double Helix (High-Yield Parameters):</strong>
+                  <br>• Two polynucleotide chains wound around a central axis in a right-handed double helix.
+                  <br>• The two strands are <strong>antiparallel</strong>: one chain runs 5' → 3' and the other runs 3' → 5'.
+                  <br>• <strong>Complementary Base Pairing</strong>:
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Adenine pairs with Thymine via 2 hydrogen bonds (A = T)</strong>.
+                  <br>&nbsp;&nbsp;&nbsp;&nbsp;• <strong>Guanine pairs with Cytosine via 3 hydrogen bonds (G ≡ C)</strong>.
+                  <br>• <em>Pitch of Helix</em>: 3.4 nm with ~10 base pairs per turn (distance between base pairs is 0.34 nm).
+                </div>
+              </div>
+              <div class="study-checkpoint-card" data-explanation="Guanine pairs with Cytosine through three specific hydrogen bonds (G ≡ C) in the DNA double helix.">
+                <div class="study-checkpoint-header">
+                  <span>Checkpoint Recall 10.5</span>
+                  <span style="color: var(--accent-emerald);">DNA Base Pairing</span>
+                </div>
+                <p>How many hydrogen bonds are formed between Guanine and Cytosine in DNA?</p>
+                <div class="study-opt-grid">
+                  <button class="study-opt-btn" data-correct="false">A. One</button>
+                  <button class="study-opt-btn" data-correct="false">B. Two</button>
+                  <button class="study-opt-btn" data-correct="true">C. Three</button>
+                  <button class="study-opt-btn" data-correct="false">D. Four</button>
+                </div>
+                <div class="study-chk-feedback"></div>
+              </div>
+            </article>
+
+            <!-- TOPIC 25 & 26: Hormones & Biological Functions -->
+            <article class="study-topic-block" id="sec-ch10-hormones" data-visual="ch10-amino-acids-zwitterion">
+              <div class="topic-header-row">
+                <h3><span class="section-num">25 & 26</span> Hormones & Biological Regulators</h3>
+                <span class="subject-pill chem">Endocrine Secretions & Steroids</span>
+              </div>
+              <p class="study-body-text">
+                Hormones are intercellular chemical messengers produced by ductless endocrine glands and released directly into the bloodstream to modulate physiological events.
+                <br>• <strong>Steroid Hormones (Lipid-soluble, derived from cholesterol)</strong>:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>Estrogens and Progesterone</em>: Female secondary sexual characteristics and pregnancy maintenance.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>Androgens (Testosterone)</em>: Male secondary sexual characteristics.
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;• <em>Cortisone</em>: Regulates carbohydrate metabolism and anti-inflammatory responses.
+                <br>• <strong>Peptide / Protein Hormones</strong>: <strong>Insulin</strong> (51 amino acids, decreases blood glucose) and <strong>Glucagon</strong> (increases blood glucose).
+                <br>• <strong>Amine Hormones</strong>: <strong>Epinephrine (Adrenaline)</strong> (fight-or-flight response) and <strong>Thyroxine</strong> (iodinated tyrosine derivative regulating basal metabolic rate).
+              </p>
+            </article>
+
+          </div>
+          <!-- END CHAPTER 10 CONTAINER -->
+
+          </div>
         </div>
       </div>
     </section>

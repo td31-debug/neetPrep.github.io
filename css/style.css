@@ -2379,3 +2379,174 @@ input[type="range"]::-webkit-slider-thumb {
 
 
 
+
+/* ==========================================================================
+   CHAPTER CATALOG & SYLLABUS DASHBOARD SUBPAGE
+   ========================================================================== */
+.catalog-subpage {
+  animation: fadeInCatalog 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeInCatalog {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.catalog-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgba(20, 25, 45, 0.85), rgba(13, 17, 30, 0.95));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(16px);
+}
+
+.chapter-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.catalog-chapter-card {
+  background: linear-gradient(145deg, rgba(22, 28, 48, 0.7), rgba(15, 20, 36, 0.9));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.catalog-chapter-card::before {
+  content: \'\';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.catalog-chapter-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 210, 255, 0.15);
+}
+
+.catalog-chapter-card:hover::before {
+  opacity: 1;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.ch-number-badge {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.75rem;
+  background: rgba(0, 210, 255, 0.15);
+  color: var(--accent-cyan);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.ch-weightage-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.catalog-chapter-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+
+.ch-summary {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+  flex-grow: 1;
+}
+
+.ch-stats-row {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-launch-btn {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.study-ch-selector-bar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.study-ch-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.study-ch-btn:hover {
+  background: rgba(0, 210, 255, 0.1);
+  color: #fff;
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.study-ch-btn.active {
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.25), rgba(236, 72, 153, 0.2));
+  border-color: var(--accent-cyan);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.3);
+  font-weight: 700;
+}
