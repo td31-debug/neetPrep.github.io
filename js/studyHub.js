@@ -1,6 +1,7 @@
 // ==========================================================================
-// Aakash Chemistry Study Hub - Chapter 8: Aldehydes, Ketones & Carboxylic Acids
-// Interactive Scrollytelling Engine & Dynamic Chemical Visual Stage
+// Aakash Chemistry Study Hub - Multi-Chapter Scrollytelling Engine
+// Chapter 6: Haloalkanes and Haloarenes (CBSE Board, NCERT & NEET)
+// Chapter 8: Aldehydes, Ketones and Carboxylic Acids
 // ==========================================================================
 
 export class StudyHub {
@@ -10,17 +11,21 @@ export class StudyHub {
     this.stageSubtitle = document.getElementById('study-stage-subtitle');
     this.stageBadge = document.getElementById('study-stage-badge');
     
-    this.currentDiagramId = 'carbonyl-structure';
+    this.currentChapter = 'ch6'; // 'ch6' (default) | 'ch8'
+    this.currentDiagramId = 'ch6-classification';
     this.observer = null;
     this.playAudio = null;
 
-    // Interactive State Variables
+    // Interactive State Variables (Chapter 6)
+    this.snMechanismMode = 'sn2'; // 'sn2' | 'sn1'
+    this.cxBondSelected = 'cl'; // 'f' | 'cl' | 'br' | 'i'
+    this.ambidentSelected = 'cn'; // 'cn' | 'no2'
+    this.saytzeffBase = 'etoh'; // 'etoh' (Saytzeff) | 'tbu' (Hofmann)
+
+    // Interactive State Variables (Chapter 8)
     this.currentTollensState = 'unmixed';
     this.currentFehlingState = 'unmixed';
     this.currentIodoformState = 'unmixed';
-    this.currentStepNuAdd = 1;
-    this.currentAldolStep = 1;
-    this.currentPkaAcid = 'acetic';
 
     this.init();
   }
@@ -30,6 +35,7 @@ export class StudyHub {
   }
 
   init() {
+    this.setupChapterSwitcher();
     this.setupScrollObserver();
     this.setupQuickIndex();
     this.renderDiagram(this.currentDiagramId);
@@ -38,11 +44,71 @@ export class StudyHub {
   }
 
   // =========================================================================
+  // CHAPTER SWITCHER (Ch. 6 Haloalkanes & Haloarenes vs Ch. 8 Carbonyls)
+  // =========================================================================
+  setupChapterSwitcher() {
+    const chBtns = document.querySelectorAll('.study-ch-btn');
+    chBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const chId = btn.getAttribute('data-chapter');
+        this.switchChapter(chId);
+      });
+    });
+  }
+
+  switchChapter(chId) {
+    this.currentChapter = chId;
+    if (this.playAudio) this.playAudio('pop');
+
+    // Update chapter button states
+    const chBtns = document.querySelectorAll('.study-ch-btn');
+    chBtns.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-chapter') === chId);
+    });
+
+    // Toggle chapter containers
+    const ch6Container = document.getElementById('chapter-6-container');
+    const ch8Container = document.getElementById('chapter-8-container');
+    const ch6Index = document.getElementById('quick-nav-ch6');
+    const ch8Index = document.getElementById('quick-nav-ch8');
+
+    if (chId === 'ch6') {
+      if (ch6Container) ch6Container.style.display = 'block';
+      if (ch8Container) ch8Container.style.display = 'none';
+      if (ch6Index) ch6Index.style.display = 'flex';
+      if (ch8Index) ch8Index.style.display = 'none';
+      this.switchDiagram('ch6-classification');
+    } else {
+      if (ch6Container) ch6Container.style.display = 'none';
+      if (ch8Container) ch8Container.style.display = 'block';
+      if (ch6Index) ch6Index.style.display = 'none';
+      if (ch8Index) ch8Index.style.display = 'flex';
+      this.switchDiagram('carbonyl-structure');
+    }
+
+    // Rebind scroll observer to the active chapter's sections
+    setTimeout(() => {
+      this.setupScrollObserver();
+      this.setupCheckpointQuizzes();
+    }, 50);
+  }
+
+  // =========================================================================
   // SCROLLYTELLING INTERSECTION OBSERVER
   // Binds right-column text scroll to left-column visual diagram
   // =========================================================================
   setupScrollObserver() {
-    const studySections = document.querySelectorAll('.study-topic-block');
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    // Only observe sections inside the currently active chapter container
+    const activeContainer = this.currentChapter === 'ch6' ? 
+      document.getElementById('chapter-6-container') : 
+      document.getElementById('chapter-8-container');
+
+    if (!activeContainer) return;
+    const studySections = activeContainer.querySelectorAll('.study-topic-block');
     if (!studySections.length) return;
 
     const options = {
@@ -112,12 +178,48 @@ export class StudyHub {
   }
 
   // =========================================================================
-  // DYNAMIC VISUAL STAGE RENDERER
+  // DYNAMIC VISUAL STAGE DISPATCHER
   // =========================================================================
   renderDiagram(diagramId) {
     if (!this.visualStage) return;
 
     switch (diagramId) {
+      // Chapter 6 Visuals
+      case 'ch6-classification':
+        this.renderCh6Classification();
+        break;
+      case 'ch6-cx-bond':
+        this.renderCh6CxBond();
+        break;
+      case 'ch6-prep-alcohols':
+        this.renderCh6PrepAlcohols();
+        break;
+      case 'ch6-prep-hydrocarbons':
+        this.renderCh6PrepHydrocarbons();
+        break;
+      case 'ch6-halogen-exchange':
+        this.renderCh6HalogenExchange();
+        break;
+      case 'ch6-physical-props':
+        this.renderCh6PhysicalProps();
+        break;
+      case 'ch6-ambident-nu':
+        this.renderCh6AmbidentNu();
+        break;
+      case 'ch6-stereochem-sn':
+        this.renderCh6StereochemSn();
+        break;
+      case 'ch6-elimination-saytzeff':
+        this.renderCh6EliminationSaytzeff();
+        break;
+      case 'ch6-haloarene-reactivity':
+        this.renderCh6HaloareneReactivity();
+        break;
+      case 'ch6-polyhalogen':
+        this.renderCh6Polyhalogen();
+        break;
+
+      // Chapter 8 Visuals
       case 'carbonyl-structure':
         this.renderCarbonylStructure();
         break;
@@ -143,9 +245,585 @@ export class StudyHub {
         this.renderHvzDecarboxylation();
         break;
       default:
-        this.renderCarbonylStructure();
+        if (this.currentChapter === 'ch6') {
+          this.renderCh6Classification();
+        } else {
+          this.renderCarbonylStructure();
+        }
     }
   }
+
+  // =========================================================================
+  // CHAPTER 6 DIAGRAM RENDERING METHODS
+  // =========================================================================
+
+  // 1. Classification Matrix & Hybridization States
+  renderCh6Classification() {
+    this.updateStageMeta('Haloalkane & Haloarene Classification', 'sp³ vs sp² hybridized carbon holding halogen (X)', 'NCERT Sec 6.1');
+    this.visualStage.innerHTML = `
+      <div class="stage-svg-wrap">
+        <svg viewBox="0 0 540 280" class="responsive-study-svg">
+          <rect width="540" height="280" rx="14" fill="#090e1c"/>
+          
+          <!-- Column 1: sp³ C-X -->
+          <g transform="translate(20, 20)">
+            <rect width="240" height="240" rx="10" fill="rgba(0, 242, 254, 0.05)" stroke="rgba(0, 242, 254, 0.3)" stroke-width="1.5"/>
+            <text x="120" y="26" fill="#00f2fe" font-size="13" font-weight="800" text-anchor="middle">sp³ C — X Classification</text>
+            
+            <!-- Type 1: Alkyl Halide -->
+            <rect x="15" y="42" width="210" height="52" rx="6" fill="#131e33" stroke="rgba(255,255,255,0.08)"/>
+            <text x="25" y="60" fill="#38bdf8" font-size="11" font-weight="700">1. Alkyl Halide (Haloalkane)</text>
+            <text x="25" y="78" fill="#94a3b8" font-size="9.5" font-family="var(--font-mono)">R—CH₂—X (1°), R₂CH—X (2°), R₃C—X (3°)</text>
+
+            <!-- Type 2: Allylic Halide -->
+            <rect x="15" y="104" width="210" height="52" rx="6" fill="#131e33" stroke="rgba(255,255,255,0.08)"/>
+            <text x="25" y="122" fill="#10b981" font-size="11" font-weight="700">2. Allylic Halide</text>
+            <text x="25" y="140" fill="#94a3b8" font-size="9.5" font-family="var(--font-mono)">CH₂=CH—CH₂—X (Adjacent to C=C)</text>
+
+            <!-- Type 3: Benzylic Halide -->
+            <rect x="15" y="166" width="210" height="52" rx="6" fill="#131e33" stroke="rgba(255,255,255,0.08)"/>
+            <text x="25" y="184" fill="#f59e0b" font-size="11" font-weight="700">3. Benzylic Halide</text>
+            <text x="25" y="202" fill="#94a3b8" font-size="9.5" font-family="var(--font-mono)">Ar—CH₂—X (Adjacent to benzene ring)</text>
+          </g>
+
+          <!-- Column 2: sp² C-X -->
+          <g transform="translate(280, 20)">
+            <rect width="240" height="240" rx="10" fill="rgba(168, 85, 247, 0.05)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1.5"/>
+            <text x="120" y="26" fill="#c084fc" font-size="13" font-weight="800" text-anchor="middle">sp² C — X Classification</text>
+            
+            <!-- Type 1: Vinylic Halide -->
+            <rect x="15" y="55" width="210" height="65" rx="6" fill="#131e33" stroke="rgba(255,255,255,0.08)"/>
+            <text x="25" y="78" fill="#ec4899" font-size="11" font-weight="700">1. Vinylic Halide</text>
+            <text x="25" y="96" fill="#94a3b8" font-size="9.5" font-family="var(--font-mono)">CH₂=CH—X (Directly on C=C)</text>
+            <text x="25" y="110" fill="#f43f5e" font-size="8.5">Resonance partial double bond!</text>
+
+            <!-- Type 2: Aryl Halide -->
+            <rect x="15" y="140" width="210" height="65" rx="6" fill="#131e33" stroke="rgba(255,255,255,0.08)"/>
+            <text x="25" y="163" fill="#a855f7" font-size="11" font-weight="700">2. Aryl Halide (Haloarene)</text>
+            <text x="25" y="181" fill="#94a3b8" font-size="9.5" font-family="var(--font-mono)">C₆H₅—X (Directly on aromatic ring)</text>
+            <text x="25" y="195" fill="#f43f5e" font-size="8.5">Low reactivity towards nucleophiles</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="stage-control-panel">
+        <div class="stage-prop-grid">
+          <div class="prop-card">
+            <span>Allylic & Benzylic Halides</span>
+            <strong style="color: var(--accent-emerald);">Highly Reactive (SN1)</strong>
+          </div>
+          <div class="prop-card">
+            <span>Vinylic & Aryl Halides</span>
+            <strong style="color: var(--accent-rose);">Inert to Nucleophiles</strong>
+          </div>
+          <div class="prop-card">
+            <span>Number of Halogens</span>
+            <strong style="color: var(--accent-cyan);">Mono, Di, Tri, Tetra</strong>
+          </div>
+          <div class="prop-card">
+            <span>Dihalide Types</span>
+            <strong style="color: var(--accent-amber);">Geminal (gem) vs Vicinal (vic)</strong>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. Nature of C-X Bond & Dipole Anomaly
+  renderCh6CxBond() {
+    this.updateStageMeta('Nature of C-X Bond & NEET Dipole Anomaly', 'CH₃Cl has greater dipole moment than CH₃F (q × d factor)', 'NCERT Sec 6.4');
+    
+    this.visualStage.innerHTML = `
+      <div class="stage-svg-wrap">
+        <svg viewBox="0 0 540 280" class="responsive-study-svg">
+          <rect width="540" height="280" rx="14" fill="#090e1c"/>
+          
+          <!-- Polar Bond Diagram -->
+          <circle cx="160" cy="80" r="28" fill="#1e293b" stroke="#00f2fe" stroke-width="3"/>
+          <text x="160" y="85" fill="#00f2fe" font-size="18" font-weight="900" text-anchor="middle">C</text>
+          <text x="160" y="45" fill="#00f2fe" font-size="11" font-weight="800" text-anchor="middle">δ⁺ (Electrophilic)</text>
+
+          <line x1="188" y1="80" x2="312" y2="80" stroke="#94a3b8" stroke-width="7" stroke-linecap="round"/>
+
+          <circle cx="340" cy="80" r="28" fill="#1e293b" stroke="#f43f5e" stroke-width="3"/>
+          <text x="340" y="85" fill="#f43f5e" font-size="18" font-weight="900" text-anchor="middle">X</text>
+          <text x="340" y="45" fill="#f43f5e" font-size="11" font-weight="800" text-anchor="middle">δ⁻ (Electronegative)</text>
+
+          <!-- Dipole Arrow -->
+          <line x1="180" y1="125" x2="320" y2="125" stroke="#10b981" stroke-width="3.5" marker-end="url(#arrow-dipole)"/>
+          <line x1="180" y1="118" x2="180" y2="132" stroke="#10b981" stroke-width="3"/>
+          <text x="250" y="145" fill="#10b981" font-size="11" font-weight="800" text-anchor="middle">Dipole Moment μ = q × d</text>
+
+          <!-- Dipole Moment Ranking Bar -->
+          <rect x="30" y="165" width="480" height="95" rx="8" fill="#131e33" stroke="rgba(245, 158, 11, 0.4)"/>
+          <text x="50" y="190" fill="#fbbf24" font-size="12" font-weight="800">⚠️ CRITICAL NEET EXAM ANOMALY: Dipole Moment Order</text>
+          
+          <text x="50" y="215" fill="#fff" font-size="13" font-weight="700">CH₃Cl (1.860 D) &gt; CH₃F (1.847 D) &gt; CH₃Br (1.830 D) &gt; CH₃I (1.636 D)</text>
+          <text x="50" y="235" fill="#94a3b8" font-size="10.5">
+            Explanation: Although F has higher charge (q), C—Cl has significantly longer bond length (d: 1.78 Å vs 1.39 Å), so product (q × d) is larger for CH₃Cl!
+          </text>
+        </svg>
+      </div>
+
+      <div class="stage-control-panel">
+        <div class="stage-prop-grid">
+          <div class="prop-card">
+            <span>Bond Length Order</span>
+            <strong style="color: var(--accent-cyan);">C-I &gt; C-Br &gt; C-Cl &gt; C-F</strong>
+          </div>
+          <div class="prop-card">
+            <span>Bond Enthalpy (Strength)</span>
+            <strong style="color: var(--accent-emerald);">C-F &gt; C-Cl &gt; C-Br &gt; C-I</strong>
+          </div>
+          <div class="prop-card">
+            <span>Leaving Group Ability</span>
+            <strong style="color: var(--accent-amber);">I⁻ &gt; Br⁻ &gt; Cl⁻ &gt; F⁻</strong>
+          </div>
+          <div class="prop-card">
+            <span>Reactivity to Nucleophiles</span>
+            <strong style="color: var(--accent-rose);">R-I &gt; R-Br &gt; R-Cl &gt; R-F</strong>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 3. Preparation from Alcohols & Lucas Test
+  renderCh6PrepAlcohols() {
+    this.updateStageMeta('Preparation from Alcohols & Darzens Process', 'SOCl₂ reaction produces pure alkyl chloride with gaseous byproducts', 'NCERT Sec 6.5.1');
+    this.visualStage.innerHTML = `
+      <div class="prep-rxn-display">
+        <div class="prep-header-bar">
+          <h4>Darzens Halogenation (Thionyl Chloride)</h4>
+          <span class="subject-pill chem">Highest Yield & Purity</span>
+        </div>
+        <div class="chemical-equation-box">
+          R—OH + SOCl₂ ⟶[Pyridine] R—Cl + SO₂↑ + HCl↑
+        </div>
+        <div class="neet-trap-alert">
+          <span style="font-size: 1.15rem;">📌</span>
+          <p>
+            <strong>Why SOCl₂ is the best reagent for converting alcohols to alkyl chlorides:</strong>
+            Both byproducts (Sulphur dioxide SO₂ and Hydrogen chloride HCl) are gases and escape immediately, leaving behind essentially pure alkyl chloride without requiring tedious separation!
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.85rem; margin-top: 0.5rem;">
+          <h4 style="font-size: 0.85rem; color: var(--accent-cyan); margin-bottom: 0.4rem;">Lucas Test for Distinguishing 1°, 2°, 3° Alcohols (HCl + anh. ZnCl₂):</h4>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; font-size: 0.76rem;">
+            <div style="background: #111a2e; padding: 0.5rem; border-radius: 6px; border-left: 3px solid #f43f5e;">
+              <strong style="color: #f43f5e;">3° Alcohol</strong><br>
+              Turbidity appears <strong>immediately</strong> at room temperature.
+            </div>
+            <div style="background: #111a2e; padding: 0.5rem; border-radius: 6px; border-left: 3px solid #f59e0b;">
+              <strong style="color: #f59e0b;">2° Alcohol</strong><br>
+              Turbidity appears within <strong>5 minutes</strong>.
+            </div>
+            <div style="background: #111a2e; padding: 0.5rem; border-radius: 6px; border-left: 3px solid #38bdf8;">
+              <strong style="color: #38bdf8;">1° Alcohol</strong><br>
+              Does NOT produce turbidity at room temp (only upon <strong>heating</strong>).
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 4. Preparation from Hydrocarbons & Markovnikov vs Kharasch
+  renderCh6PrepHydrocarbons() {
+    this.updateStageMeta('Hydrocarbon Addition: Markovnikov vs Kharasch', 'Peroxide effect applies ONLY to HBr (free radical mechanism)', 'NCERT Sec 6.5.2');
+    this.visualStage.innerHTML = `
+      <div class="decision-tree-container">
+        <div class="tree-root-box">
+          <span style="font-size: 0.72rem; color: var(--accent-cyan); font-weight: 700;">ADDITION OF HX TO ASYMMETRICAL ALKENE:</span>
+          <h4>Propene: CH₃—CH=CH₂ + HX</h4>
+        </div>
+
+        <div class="tree-branches-row">
+          <!-- Branch 1: Markovnikov -->
+          <div class="tree-branch-card aldol">
+            <div class="branch-badge" style="background: rgba(0, 242, 254, 0.2); color: #00f2fe;">Markovnikov's Rule (HCl, HBr, HI)</div>
+            <h3>Ionic Addition</h3>
+            <div class="tree-reagent-tag">Reagent: HX (No Peroxides)</div>
+            <div class="mechanism-steps-list">
+              <div class="mech-step">
+                <strong>Mechanism:</strong> Electrophile H⁺ adds to give more stable 2° carbocation [CH₃—C⁺H—CH₃].
+              </div>
+              <div class="mech-step">
+                <strong>Major Product:</strong> 2-Halopropane (CH₃—CHX—CH₃).
+              </div>
+            </div>
+            <div class="chemical-equation-box">CH₃CH=CH₂ + HBr ⟶ CH₃—CH(Br)—CH₃ (2-Bromopropane - Major)</div>
+          </div>
+
+          <!-- Branch 2: Anti-Markovnikov -->
+          <div class="tree-branch-card cannizzaro">
+            <div class="branch-badge" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">Kharasch Peroxide Effect (HBr ONLY!)</div>
+            <h3>Free Radical Addition</h3>
+            <div class="tree-reagent-tag">Reagent: HBr + Organic Peroxide (R—O—O—R)</div>
+            <div class="mechanism-steps-list">
+              <div class="mech-step">
+                <strong>Mechanism:</strong> Br• radical attacks first to produce more stable 2° radical [CH₃—C•H—CH₂Br].
+              </div>
+              <div class="mech-step">
+                <strong>Major Product:</strong> 1-Bromopropane (CH₃—CH₂—CH₂Br).
+              </div>
+            </div>
+            <div class="chemical-equation-box">CH₃CH=CH₂ + HBr + Peroxide ⟶ CH₃CH₂CH₂Br (1-Bromopropane - Major)</div>
+          </div>
+        </div>
+
+        <div class="neet-trap-alert" style="margin-top: 0.5rem;">
+          <span>⚠️</span>
+          <p>
+            <strong>NEET Question Trap:</strong> Why doesn't HCl or HI show the peroxide effect?
+            Because for HCl, the H—Cl bond is too strong (step 2 endothermic), while for HI, iodine radicals combine with each other to form I₂ instead of adding to alkene (step 1 endothermic)!
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // 5. Halogen Exchange & Diazonium Salts
+  renderCh6HalogenExchange() {
+    this.updateStageMeta('Halogen Exchange & Diazonium Pathways', 'Finkelstein (Iodide), Swarts (Fluoride), Sandmeyer & Balz-Schiemann', 'NCERT Sec 6.5.3');
+    this.visualStage.innerHTML = `
+      <div class="distinction-lab-grid" style="grid-template-columns: 1fr 1fr;">
+        <!-- Card 1: Finkelstein & Swarts -->
+        <div class="test-tube-card" style="text-align: left; align-items: flex-start;">
+          <h4 style="color: var(--accent-cyan); font-size: 0.95rem;">1. Finkelstein Reaction (Alkyl Iodides)</h4>
+          <div class="chemical-equation-box" style="width: 100%; font-size: 0.8rem;">
+            R—Cl / R—Br + NaI ⟶[dry acetone] R—I + NaCl↓ / NaBr↓
+          </div>
+          <p style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.35rem;">
+            Acetone dissolves NaI, but NaCl/NaBr precipitate out, driving the equilibrium forward (Le Chatelier's principle).
+          </p>
+
+          <h4 style="color: var(--accent-emerald); font-size: 0.95rem; margin-top: 0.85rem;">2. Swarts Reaction (Alkyl Fluorides)</h4>
+          <div class="chemical-equation-box" style="width: 100%; font-size: 0.8rem;">
+            R—Br + AgF ⟶ R—F + AgBr↓
+          </div>
+          <p style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.35rem;">
+            Heavy metallic fluorides (AgF, Hg₂F₂, CoF₃, SbF₃) are used to synthesize fluorocarbons.
+          </p>
+        </div>
+
+        <!-- Card 2: Diazonium Salt Pathways -->
+        <div class="test-tube-card" style="text-align: left; align-items: flex-start;">
+          <h4 style="color: var(--accent-amber); font-size: 0.95rem;">3. From Diazonium Salt (Ar-N₂⁺Cl⁻)</h4>
+          <div style="font-size: 0.78rem; display: flex; flex-direction: column; gap: 0.35rem; width: 100%;">
+            <div style="background: #111a2e; padding: 0.4rem; border-radius: 6px;">
+              <strong>Sandmeyer:</strong> Ar-N₂⁺Cl⁻ + Cu₂Cl₂/HCl ⟶ <strong>Ar-Cl</strong> + N₂↑
+            </div>
+            <div style="background: #111a2e; padding: 0.4rem; border-radius: 6px;">
+              <strong>Gattermann:</strong> Ar-N₂⁺Cl⁻ + Cu / HBr ⟶ <strong>Ar-Br</strong> + N₂↑
+            </div>
+            <div style="background: #111a2e; padding: 0.4rem; border-radius: 6px;">
+              <strong>Iodobenzene:</strong> Ar-N₂⁺Cl⁻ + KI, warm ⟶ <strong>Ar-I</strong> + N₂↑ (No Cu catalyst needed!)
+            </div>
+            <div style="background: #111a2e; padding: 0.4rem; border-radius: 6px;">
+              <strong>Balz-Schiemann:</strong> Ar-N₂⁺Cl⁻ + HBF₄ ⟶ Ar-N₂⁺BF₄⁻ ⟶[Δ] <strong>Ar-F</strong> + BF₃ + N₂↑
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 6. Physical Properties & Branching
+  renderCh6PhysicalProps() {
+    this.updateStageMeta('Physical Properties & Branching Simulator', 'Branching makes molecule spherical, lowering surface area & boiling point', 'NCERT Sec 6.6');
+    this.visualStage.innerHTML = `
+      <div class="acidity-ladder-card">
+        <h4 style="color: var(--accent-cyan); font-size: 0.88rem; margin-bottom: 0.4rem;">
+          Boiling Points of Isomeric Bromobutanes (C₄H₉Br):
+        </h4>
+        <div class="acidity-bars-container">
+          <div class="acid-bar-item">
+            <div class="acid-bar-label">
+              <span>n-Butyl bromide (CH₃CH₂CH₂CH₂Br) - Linear Chain</span>
+              <strong style="color: #00f2fe;">375 K (102°C)</strong>
+            </div>
+            <div class="acid-bar-track"><div class="acid-bar-fill" style="width: 100%; background: #00f2fe;"></div></div>
+          </div>
+
+          <div class="acid-bar-item">
+            <div class="acid-bar-label">
+              <span>Isobutyl bromide ((CH₃)₂CHCH₂Br) - 1 Branch</span>
+              <strong style="color: #38bdf8;">364 K (91°C)</strong>
+            </div>
+            <div class="acid-bar-track"><div class="acid-bar-fill" style="width: 88%; background: #38bdf8;"></div></div>
+          </div>
+
+          <div class="acid-bar-item">
+            <div class="acid-bar-label">
+              <span>sec-Butyl bromide (CH₃CH₂CH(Br)CH₃)</span>
+              <strong style="color: #f59e0b;">361 K (88°C)</strong>
+            </div>
+            <div class="acid-bar-track"><div class="acid-bar-fill" style="width: 82%; background: #f59e0b;"></div></div>
+          </div>
+
+          <div class="acid-bar-item">
+            <div class="acid-bar-label">
+              <span>tert-Butyl bromide ((CH₃)₃CBr) - Compact Sphere</span>
+              <strong style="color: #f43f5e;">346 K (73°C)</strong>
+            </div>
+            <div class="acid-bar-track"><div class="acid-bar-fill" style="width: 65%; background: #f43f5e;"></div></div>
+          </div>
+        </div>
+
+        <div class="neet-trap-alert" style="margin-top: 0.65rem;">
+          <span>📌</span>
+          <p>
+            <strong>Melting Point of Dihalobenzenes:</strong>
+            Para-dichlorobenzene has a much higher melting point (323 K) than ortho (256 K) or meta (249 K) because its symmetrical structure fits closely into the crystal lattice!
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // 7. Ambident Nucleophiles Electronic Switcher
+  renderCh6AmbidentNu() {
+    this.updateStageMeta('Ambident Nucleophiles Electronic Switch', 'Ionic vs Covalent bonds determine Carbon vs Nitrogen attack', 'NCERT Sec 6.7.1');
+    this.visualStage.innerHTML = `
+      <div class="special-rxn-grid">
+        <!-- Reagent Pair 1: KCN vs AgCN -->
+        <div class="rxn-card-item">
+          <div class="rxn-card-badge" style="background: rgba(0,242,254,0.15); color: #00f2fe;">Cyanide Nucleophile</div>
+          <h4>KCN (Ionic) vs AgCN (Covalent)</h4>
+          <div class="chemical-equation-box" style="font-size: 0.8rem; margin: 0.4rem 0;">
+            • R—X + KCN ⟶ R—CN (Alkyl Cyanide / Nitrile) + KX<br>
+            • R—X + AgCN ⟶ R—NC (Alkyl Isocyanide) + AgX
+          </div>
+          <p style="font-size: 0.74rem; color: var(--text-muted);">
+            KCN is ionic, so both C and N have lone pairs; attack occurs via Carbon because C—C bond is more stable than C—N bond. AgCN is covalent, so Carbon is bonded to Ag and only Nitrogen's lone pair is free to attack!
+          </p>
+        </div>
+
+        <!-- Reagent Pair 2: KNO2 vs AgNO2 -->
+        <div class="rxn-card-item">
+          <div class="rxn-card-badge" style="background: rgba(16,185,129,0.15); color: #10b981;">Nitrite Nucleophile</div>
+          <h4>KNO₂ (Ionic) vs AgNO₂ (Covalent)</h4>
+          <div class="chemical-equation-box" style="font-size: 0.8rem; margin: 0.4rem 0;">
+            • R—X + KNO₂ ⟶ R—O—N=O (Alkyl Nitrite) + KX<br>
+            • R—X + AgNO₂ ⟶ R—NO₂ (Nitroalkane) + AgX
+          </div>
+          <p style="font-size: 0.74rem; color: var(--text-muted);">
+            KNO₂ is predominantly ionic (K⁺ [O—N=O]⁻), so attack occurs through negative oxygen. AgNO₂ is covalent (Ag—O—N=O), so attack occurs through nitrogen's lone pair to form nitroalkanes!
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // 8. Stereochemistry & SN2 vs SN1 Mechanism Stage
+  renderCh6StereochemSn() {
+    this.updateStageMeta('SN2 (Walden Inversion) vs SN1 (Racemization)', 'Second-order single step vs First-order two steps via carbocation', 'NCERT Sec 6.7.2');
+    
+    this.visualStage.innerHTML = `
+      <div class="stage-matrix-nav">
+        <button class="stage-chip-btn ${this.snMechanismMode === 'sn2' ? 'active' : ''}" id="btn-toggle-sn2">SN2 (Bimolecular)</button>
+        <button class="stage-chip-btn ${this.snMechanismMode === 'sn1' ? 'active' : ''}" id="btn-toggle-sn1">SN1 (Unimolecular)</button>
+      </div>
+
+      <div id="sn-mechanism-viewport">
+        ${this.snMechanismMode === 'sn2' ? this.getSn2Html() : this.getSn1Html()}
+      </div>
+    `;
+
+    document.getElementById('btn-toggle-sn2')?.addEventListener('click', () => {
+      this.snMechanismMode = 'sn2';
+      this.renderCh6StereochemSn();
+      if (this.playAudio) this.playAudio('pop');
+    });
+
+    document.getElementById('btn-toggle-sn1')?.addEventListener('click', () => {
+      this.snMechanismMode = 'sn1';
+      this.renderCh6StereochemSn();
+      if (this.playAudio) this.playAudio('pop');
+    });
+  }
+
+  getSn2Html() {
+    return `
+      <div class="prep-rxn-display">
+        <div class="prep-header-bar">
+          <h4>SN2: Concerted Backside Attack</h4>
+          <span class="subject-pill chem">Rate = k[R-X][Nu⁻]</span>
+        </div>
+        
+        <div class="chemical-equation-box" style="font-size: 0.8rem;">
+          Nu⁻ + C—X ⟶ [Nu···C···X]‡ (Pentacoordinate Transition State) ⟶ Nu—C + X⁻
+        </div>
+
+        <div style="background: #111a2e; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.75rem; font-size: 0.78rem;">
+          <strong style="color: var(--accent-cyan);">Key Stereochemical Characteristic:</strong>
+          <p style="margin-top: 0.25rem; color: #cbd5e1;">
+            100% <strong>Walden Inversion</strong> of configuration. The nucleophile attacks 180° opposite to the leaving group, turning the tetrahedral umbrella inside out!
+          </p>
+          <div style="margin-top: 0.4rem; color: var(--accent-amber);">
+            <strong>Reactivity Order:</strong> CH₃X &gt; 1° (Primary) &gt; 2° &gt; 3° (Tertiary is essentially unreactive due to steric hindrance!).
+          </div>
+          <div style="margin-top: 0.25rem; color: var(--accent-emerald);">
+            <strong>Favored by:</strong> Polar Aprotic Solvents (Acetone, DMSO, DMF) & Strong Nucleophiles.
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  getSn1Html() {
+    return `
+      <div class="prep-rxn-display">
+        <div class="prep-header-bar">
+          <h4>SN1: Two-Step Carbocation Pathway</h4>
+          <span class="subject-pill chem">Rate = k[R-X]</span>
+        </div>
+
+        <div class="chemical-equation-box" style="font-size: 0.8rem;">
+          Step 1 (Slow RDS): R₃C—X ⟶ R₃C⁺ (Planar Carbocation) + X⁻<br>
+          Step 2 (Fast): R₃C⁺ + Nu⁻ ⟶ R₃C—Nu (Front & Back Attack)
+        </div>
+
+        <div style="background: #111a2e; border: 1px solid var(--border-subtle); border-radius: 8px; padding: 0.75rem; font-size: 0.78rem;">
+          <strong style="color: var(--accent-purple);">Key Stereochemical Characteristic:</strong>
+          <p style="margin-top: 0.25rem; color: #cbd5e1;">
+            The planar sp² carbocation is symmetrical. Nucleophile can attack from the front or back with roughly equal probability, resulting in <strong>Racemization</strong> (with minor excess inversion due to departing halide ion shielding).
+          </p>
+          <div style="margin-top: 0.4rem; color: var(--accent-amber);">
+            <strong>Reactivity Order:</strong> 3° (Tertiary) &gt; 2° &gt; 1° &gt; CH₃X. (Carbocation stability governs rate!).
+          </div>
+          <div style="margin-top: 0.25rem; color: var(--accent-cyan);">
+            <strong>Allylic & Benzylic Halides:</strong> Show exceptionally high SN1 reactivity due to resonance stabilization of carbocations!
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 9. Elimination & Saytzeff vs Hofmann
+  renderCh6EliminationSaytzeff() {
+    this.updateStageMeta('Elimination Reactions & Saytzeff Regioselectivity', 'More substituted stable alkene is major product', 'NCERT Sec 6.7.3');
+    this.visualStage.innerHTML = `
+      <div class="decision-tree-container">
+        <div class="tree-root-box">
+          <span style="font-size: 0.72rem; color: var(--accent-cyan); font-weight: 700;">DEHYDROHALOGENATION (β-ELIMINATION):</span>
+          <h4>2-Bromobutane: CH₃—CH₂—CH(Br)—CH₃ + Base</h4>
+        </div>
+
+        <div class="tree-branches-row">
+          <div class="tree-branch-card aldol">
+            <div class="branch-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Saytzeff / Zaitsev Rule (Normal Base)</div>
+            <h3>Major: More Substituted Alkene</h3>
+            <div class="tree-reagent-tag">Reagent: Alcoholic KOH / C₂H₅ONa</div>
+            <div class="mechanism-steps-list">
+              <div class="mech-step">
+                <strong>Base extracts H from β-carbon with fewer hydrogens:</strong>
+              </div>
+              <div class="mech-step">
+                <strong>Product:</strong> But-2-ene (81% Major, 6 α-hydrogens, more stable).
+              </div>
+            </div>
+            <div class="chemical-equation-box">CH₃—CH=CH—CH₃ (But-2-ene - 81% Major)</div>
+          </div>
+
+          <div class="tree-branch-card cannizzaro">
+            <div class="branch-badge" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">Hofmann Rule (Bulky Base)</div>
+            <h3>Major: Less Substituted Alkene</h3>
+            <div class="tree-reagent-tag">Reagent: Bulky Base like (CH₃)₃CO⁻K⁺</div>
+            <div class="mechanism-steps-list">
+              <div class="mech-step">
+                <strong>Steric crowding forces base to attack terminal methyl:</strong>
+              </div>
+              <div class="mech-step">
+                <strong>Product:</strong> But-1-ene (Major with bulky base).
+              </div>
+            </div>
+            <div class="chemical-equation-box">CH₃—CH₂—CH=CH₂ (But-1-ene - Hofmann Major)</div>
+          </div>
+        </div>
+
+        <div class="neet-trap-alert" style="margin-top: 0.5rem;">
+          <span>💥</span>
+          <p>
+            <strong>Wurtz Reaction:</strong> 2 R-X + 2 Na ⟶[dry ether] R-R + 2 NaX.
+            Produces symmetrical alkanes with an even number of carbon atoms. Methane cannot be synthesized by Wurtz reaction!
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // 10. Reactions of Haloarenes (Dow's, EAS, Fittig, Chloral/DDT)
+  renderCh6HaloareneReactivity() {
+    this.updateStageMeta('Haloarene Inertness & Activating NO₂ Groups', 'Dow process (623 K, 300 atm) vs mild replacement when -NO₂ is ortho/para', 'NCERT Sec 6.8');
+    this.visualStage.innerHTML = `
+      <div class="prep-rxn-display">
+        <h4 style="color: var(--accent-rose); font-size: 0.95rem;">Why Are Haloarenes Unreactive to Nucleophilic Substitution?</h4>
+        <div style="font-size: 0.76rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.25rem;">
+          <div>1. <strong>Resonance effect:</strong> Lone pair on chlorine delocalizes with benzene ring, giving C—Cl partial double bond character (shorter 1.69 Å vs 1.78 Å).</div>
+          <div>2. <strong>Hybridization:</strong> sp² carbon (33% s-character) is more electronegative than sp³ carbon, holding electrons more tightly.</div>
+          <div>3. <strong>Instability of phenyl cation:</strong> Cannot be stabilized by resonance.</div>
+        </div>
+
+        <h4 style="color: var(--accent-cyan); font-size: 0.95rem; margin-top: 0.5rem;">Activating Effect of -NO₂ Groups (Dow's Process):</h4>
+        <div class="chemical-equation-box" style="font-size: 0.78rem;">
+          • Chlorobenzene: ⟶[NaOH, 623 K, 300 atm / H⁺] Phenol (Drastic conditions!)<br>
+          • 4-Nitrochlorobenzene: ⟶[NaOH, 443 K / H⁺] 4-Nitrophenol<br>
+          • 2,4-Dinitrochlorobenzene: ⟶[NaOH, 368 K / H⁺] 2,4-Dinitrophenol<br>
+          • 2,4,6-Trinitrochlorobenzene: ⟶[Warm H₂O, 323 K] Picric Acid (2,4,6-Trinitrophenol)
+        </div>
+
+        <div class="neet-trap-alert" style="margin-top: 0.35rem;">
+          <span>⚠️</span>
+          <p>
+            <strong>NEET Exam Note:</strong> -NO₂ groups at the <strong>meta position</strong> show NO activating effect on nucleophilic substitution because the carbanion resonance charge never lands on the meta carbon!
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // 11. Polyhalogen Compounds & Freon-12 Ozone Depletion
+  renderCh6Polyhalogen() {
+    this.updateStageMeta('Polyhalogen Compounds Studio', 'Chloroform preservation, Freon-12 synthesis, and DDT structure', 'NCERT Sec 6.9');
+    this.visualStage.innerHTML = `
+      <div class="special-rxn-grid">
+        <div class="rxn-card-item">
+          <div class="rxn-card-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Chloroform Preservation</div>
+          <h4>Why CHCl₃ is Stored in Dark Bottles</h4>
+          <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0.3rem 0;">
+            Chloroform is slowly oxidized by air in presence of light into highly poisonous <strong>Phosgene gas (COCl₂)</strong>:
+          </p>
+          <div class="chemical-equation-box" style="font-size: 0.76rem;">
+            2 CHCl₃ + O₂ ⟶[light] 2 COCl₂ (Phosgene) + 2 HCl
+          </div>
+          <p style="font-size: 0.74rem; color: var(--accent-emerald); margin-top: 0.3rem;">
+            ✓ Stored in dark amber bottles filled to the brim. 1% ethanol is added to convert toxic phosgene to harmless diethyl carbonate (C₂H₅O)₂CO!
+          </p>
+        </div>
+
+        <div class="rxn-card-item">
+          <div class="rxn-card-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">DDT Synthesis</div>
+          <h4>Synthesis from Chloral & Chlorobenzene</h4>
+          <p style="font-size: 0.76rem; color: var(--text-muted); margin: 0.3rem 0;">
+            p,p'-Dichlorodiphenyltrichloroethane (DDT):
+          </p>
+          <div class="chemical-equation-box" style="font-size: 0.76rem;">
+            CCl₃CHO + 2 C₆H₅Cl ⟶[conc. H₂SO₄] (Cl-C₆H₄)₂CH—CCl₃ + H₂O
+          </div>
+          <p style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.3rem;">
+            Non-biodegradable and fat-soluble, causing biomagnification in birds and aquatic life; banned worldwide.
+          </p>
+        </div>
+      </div>
+    `;
+  }
+
+  // =========================================================================
+  // CHAPTER 8 DIAGRAM RENDERING METHODS
+  // =========================================================================
 
   // 1. Carbonyl Group Structure & Orbital Overlap
   renderCarbonylStructure() {
@@ -153,57 +831,40 @@ export class StudyHub {
     this.visualStage.innerHTML = `
       <div class="stage-svg-wrap">
         <svg viewBox="0 0 540 320" class="responsive-study-svg">
-          <!-- Background Grids & Guidelines -->
           <rect width="540" height="320" rx="14" fill="#090e1c"/>
           <line x1="80" y1="160" x2="460" y2="160" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
 
-          <!-- Carbon-Oxygen σ Bond -->
           <line x1="200" y1="160" x2="340" y2="160" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"/>
           <text x="270" y="152" fill="#38bdf8" font-size="11" font-weight="800" text-anchor="middle">σ-bond (1.23 Å)</text>
 
-          <!-- Carbon-R1 and Carbon-R2 σ Bonds (120° Angle) -->
           <line x1="200" y1="160" x2="110" y2="90" stroke="#94a3b8" stroke-width="4.5" stroke-linecap="round"/>
           <line x1="200" y1="160" x2="110" y2="230" stroke="#94a3b8" stroke-width="4.5" stroke-linecap="round"/>
 
-          <!-- 120° Angle Arc -->
           <path d="M 155,125 A 50 50 0 0 1 155,195" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="3,3"/>
           <text x="175" y="165" fill="#f59e0b" font-size="12" font-weight="800">120°</text>
 
-          <!-- Substituent Balls -->
           <circle cx="110" cy="90" r="14" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
           <text x="110" y="94" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">R₁</text>
 
           <circle cx="110" cy="230" r="14" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
           <text x="110" y="234" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">R₂/H</text>
 
-          <!-- π-Bond Cloud (Above and Below Plane) -->
           <ellipse cx="270" cy="115" rx="55" ry="18" fill="rgba(236, 72, 153, 0.28)" stroke="#ec4899" stroke-width="2" stroke-dasharray="4,2"/>
           <text x="270" y="119" fill="#f472b6" font-size="10" font-weight="800" text-anchor="middle">π-cloud (above)</text>
 
           <ellipse cx="270" cy="205" rx="55" ry="18" fill="rgba(236, 72, 153, 0.28)" stroke="#ec4899" stroke-width="2" stroke-dasharray="4,2"/>
           <text x="270" y="209" fill="#f472b6" font-size="10" font-weight="800" text-anchor="middle">π-cloud (below)</text>
 
-          <!-- Carbon Atom Center (sp² hybridized) -->
           <circle cx="200" cy="160" r="26" fill="#1e293b" stroke="#00f2fe" stroke-width="3"/>
           <text x="200" y="165" fill="#00f2fe" font-size="18" font-weight="900" text-anchor="middle">C</text>
-          <!-- Electrophilic δ+ marker -->
           <rect x="180" y="115" width="40" height="20" rx="6" fill="rgba(0, 242, 254, 0.15)" stroke="#00f2fe"/>
           <text x="200" y="129" fill="#00f2fe" font-size="11" font-weight="800" text-anchor="middle">δ⁺ (Nu⁻ target)</text>
 
-          <!-- Oxygen Atom Center -->
           <circle cx="340" cy="160" r="26" fill="#1e293b" stroke="#f43f5e" stroke-width="3"/>
           <text x="340" y="165" fill="#f43f5e" font-size="18" font-weight="900" text-anchor="middle">O</text>
-          <!-- Nucleophilic δ- marker -->
           <rect x="320" y="115" width="40" height="20" rx="6" fill="rgba(244, 63, 94, 0.15)" stroke="#f43f5e"/>
           <text x="340" y="129" fill="#f43f5e" font-size="11" font-weight="800" text-anchor="middle">δ⁻ (Base)</text>
 
-          <!-- Oxygen Lone Pairs -->
-          <circle cx="375" cy="145" r="3" fill="#f43f5e"/>
-          <circle cx="382" cy="152" r="3" fill="#f43f5e"/>
-          <circle cx="375" cy="175" r="3" fill="#f43f5e"/>
-          <circle cx="382" cy="168" r="3" fill="#f43f5e"/>
-
-          <!-- Dipole Moment Vector Arrow -->
           <defs>
             <marker id="arrow-dipole" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
               <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981"/>
@@ -231,7 +892,7 @@ export class StudyHub {
           </div>
           <div class="prop-card">
             <span>NEET Reactivity Rule</span>
-            <strong style="color: var(--accent-amber);">Aldehydes > Ketones</strong>
+            <strong style="color: var(--accent-amber);">Aldehydes &gt; Ketones</strong>
           </div>
         </div>
       </div>
@@ -273,7 +934,7 @@ export class StudyHub {
       },
       'ozonolysis': {
         name: 'Ozonolysis of Alkenes',
-        rxn: '>C=C< + O₃ ⟶ Ozonide ⟶[Zn / H₂O] 2 >C=O',
+        rxn: '&gt;C=C&lt; + O₃ ⟶ Ozonide ⟶[Zn / H₂O] 2 &gt;C=O',
         reagent: '1. O₃ (Ozone), 2. Zn dust / H₂O (reductive cleavage)',
         trap: 'Reductive workup with Zn dust prevents H₂O₂ from oxidizing aldehydes to carboxylic acids. If oxidative workup (H₂O₂), carboxylic acids form.',
         substrate: 'Alkenes'
@@ -338,9 +999,7 @@ export class StudyHub {
         <svg viewBox="0 0 520 280" class="responsive-study-svg">
           <rect width="520" height="280" rx="14" fill="#090e1c"/>
 
-          <!-- Step 1: Reactants -->
           <g id="mech-step-1" class="mech-step-group">
-            <!-- Planar Carbonyl -->
             <line x1="80" y1="120" x2="140" y2="120" stroke="#38bdf8" stroke-width="5"/>
             <line x1="80" y1="128" x2="140" y2="128" stroke="#ec4899" stroke-width="3"/>
             <circle cx="80" cy="124" r="16" fill="#1e293b" stroke="#00f2fe" stroke-width="2"/>
@@ -348,21 +1007,17 @@ export class StudyHub {
             <circle cx="140" cy="124" r="16" fill="#1e293b" stroke="#f43f5e" stroke-width="2"/>
             <text x="140" y="129" fill="#f43f5e" font-size="12" font-weight="900" text-anchor="middle">Oδ⁻</text>
 
-            <!-- Nucleophile attacking from above (Nu⁻) -->
             <circle cx="80" cy="40" r="16" fill="#10b981" stroke="#34d399" stroke-width="2"/>
             <text x="80" y="45" fill="#070b14" font-size="11" font-weight="900" text-anchor="middle">Nu⁻</text>
             
-            <!-- Curved Arrow -->
             <path d="M 80,58 Q 65,85 76,105" fill="none" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrow-dipole)"/>
             <text x="110" y="180" fill="#94a3b8" font-size="11" font-weight="700" text-anchor="middle">Planar sp² (120°)</text>
             <text x="110" y="196" fill="#00f2fe" font-size="10" font-weight="800" text-anchor="middle">Slow (Rate Determining)</text>
           </g>
 
-          <!-- Reaction Arrow 1 -->
           <line x1="180" y1="124" x2="230" y2="124" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrow-dipole)"/>
           <text x="205" y="112" fill="#94a3b8" font-size="10" font-weight="800" text-anchor="middle">Step 1</text>
 
-          <!-- Step 2: Tetrahedral Alkoxide Intermediate -->
           <g id="mech-step-2" class="mech-step-group">
             <circle cx="280" cy="124" r="18" fill="#1e293b" stroke="#a855f7" stroke-width="2.5"/>
             <text x="280" y="129" fill="#a855f7" font-size="13" font-weight="900" text-anchor="middle">C</text>
@@ -380,11 +1035,9 @@ export class StudyHub {
             <text x="280" y="200" fill="#a855f7" font-size="11" font-weight="700" text-anchor="middle">Tetrahedral sp³ (109.5°)</text>
           </g>
 
-          <!-- Reaction Arrow 2 -->
           <line x1="380" y1="124" x2="420" y2="124" stroke="#94a3b8" stroke-width="2.5" marker-end="url(#arrow-dipole)"/>
           <text x="400" y="112" fill="#94a3b8" font-size="10" font-weight="800" text-anchor="middle">+ H⁺</text>
 
-          <!-- Step 3: Neutral Addition Product -->
           <g id="mech-step-3" class="mech-step-group">
             <circle cx="470" cy="124" r="18" fill="#1e293b" stroke="#10b981" stroke-width="2.5"/>
             <text x="470" y="129" fill="#10b981" font-size="13" font-weight="900" text-anchor="middle">C</text>
@@ -403,17 +1056,13 @@ export class StudyHub {
       <div class="stage-control-panel">
         <h4 style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--accent-cyan);">Relative Reactivity Towards Nucleophilic Attack:</h4>
         <div class="reactivity-ladder-box">
-          <span class="reactivity-tag high">HCHO (Formaldehyde)</span>
-          <span style="color: var(--accent-cyan); font-weight: 800;">></span>
-          <span class="reactivity-tag mid">CH₃CHO (Acetaldehyde)</span>
-          <span style="color: var(--accent-cyan); font-weight: 800;">></span>
-          <span class="reactivity-tag low">CH₃COCH₃ (Acetone)</span>
-          <span style="color: var(--accent-cyan); font-weight: 800;">></span>
-          <span class="reactivity-tag vlow">PhCHO (Benzaldehyde)</span>
-        </div>
-        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem;">
-          • <strong>Steric Reason</strong>: Bulky alkyl groups crowd the transition state.<br>
-          • <strong>Electronic Reason</strong>: Alkyl (+I) groups disperse δ⁺ charge on carbon.
+          <span class="reactivity-tag high">HCHO</span>
+          <span style="color: var(--accent-cyan); font-weight: 800;">&gt;</span>
+          <span class="reactivity-tag mid">CH₃CHO</span>
+          <span style="color: var(--accent-cyan); font-weight: 800;">&gt;</span>
+          <span class="reactivity-tag low">CH₃COCH₃</span>
+          <span style="color: var(--accent-cyan); font-weight: 800;">&gt;</span>
+          <span class="reactivity-tag vlow">PhCHO</span>
         </div>
       </div>
     `;
@@ -425,7 +1074,6 @@ export class StudyHub {
 
     this.visualStage.innerHTML = `
       <div class="distinction-lab-grid">
-        <!-- Test 1: Tollens' Test -->
         <div class="test-tube-card" id="card-tollens">
           <div class="test-tube-viewport">
             <div class="test-tube-glass" id="tube-tollens">
@@ -439,7 +1087,6 @@ export class StudyHub {
           <button class="btn-test-action" id="btn-run-tollens">Add Aldehyde & Warm ➔</button>
         </div>
 
-        <!-- Test 2: Fehling's Test -->
         <div class="test-tube-card" id="card-fehling">
           <div class="test-tube-viewport">
             <div class="test-tube-glass" id="tube-fehling">
@@ -453,7 +1100,6 @@ export class StudyHub {
           <button class="btn-test-action" id="btn-run-fehling">Add Aliphatic Aldehyde ➔</button>
         </div>
 
-        <!-- Test 3: Iodoform Test -->
         <div class="test-tube-card" id="card-iodoform">
           <div class="test-tube-viewport">
             <div class="test-tube-glass" id="tube-iodoform">
@@ -469,7 +1115,6 @@ export class StudyHub {
       </div>
     `;
 
-    // Button event listeners
     document.getElementById('btn-run-tollens')?.addEventListener('click', () => {
       const mirror = document.getElementById('mirror-tollens');
       const liquid = document.getElementById('liquid-tollens');
@@ -504,7 +1149,6 @@ export class StudyHub {
   // 5. Aldol Condensation vs Cannizzaro Reaction
   renderAldolCannizzaro() {
     this.updateStageMeta('Aldol vs Cannizzaro Decision Pathway', 'Presence vs Absence of α-Hydrogen atoms', 'NCERT Sec 8.4.4');
-
     this.visualStage.innerHTML = `
       <div class="decision-tree-container">
         <div class="tree-root-box">
@@ -513,93 +1157,60 @@ export class StudyHub {
         </div>
 
         <div class="tree-branches-row">
-          <!-- Branch A: Has α-Hydrogen -->
           <div class="tree-branch-card aldol">
             <div class="branch-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">YES: Has α-H (CH₃CHO, Acetone)</div>
             <h3>Aldol Condensation</h3>
-            <div class="tree-reagent-tag">Reagent: Dilute Base (dil. NaOH, Ba(OH)₂)</div>
-            <div class="mechanism-steps-list">
-              <div class="mech-step">
-                <strong>Step 1:</strong> Base removes acidic α-H ⟶ Resonance stabilized Enolate ion.
-              </div>
-              <div class="mech-step">
-                <strong>Step 2:</strong> Enolate attacks 2nd carbonyl molecule ⟶ β-Hydroxyaldehyde (Aldol).
-              </div>
-              <div class="mech-step">
-                <strong>Step 3:</strong> Heating (-H₂O) ⟶ α,β-Unsaturated Aldehyde (But-2-enal).
-              </div>
-            </div>
+            <div class="tree-reagent-tag">Reagent: Dilute Base (dil. NaOH)</div>
             <div class="chemical-equation-box">2 CH₃CHO ⟶[dil. NaOH] CH₃-CH(OH)-CH₂-CHO ⟶[Δ, -H₂O] CH₃-CH=CH-CHO</div>
           </div>
 
-          <!-- Branch B: NO α-Hydrogen -->
           <div class="tree-branch-card cannizzaro">
             <div class="branch-badge" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">NO: Zero α-H (HCHO, PhCHO)</div>
             <h3>Cannizzaro Reaction</h3>
-            <div class="tree-reagent-tag">Reagent: Concentrated Base (50% NaOH / KOH)</div>
-            <div class="mechanism-steps-list">
-              <div class="mech-step">
-                <strong>Self Oxidation-Reduction:</strong> Disproportionation reaction.
-              </div>
-              <div class="mech-step">
-                <strong>1 Molecule Reduced:</strong> Alcohol (Methanol / Benzyl alcohol).
-              </div>
-              <div class="mech-step">
-                <strong>1 Molecule Oxidized:</strong> Salt of carboxylic acid (HCOONa / PhCOONa).
-              </div>
-            </div>
-            <div class="chemical-equation-box">2 HCHO + conc. NaOH ⟶ CH₃OH (Methanol) + HCOONa (Sodium Formate)</div>
+            <div class="tree-reagent-tag">Reagent: Concentrated Base (50% NaOH)</div>
+            <div class="chemical-equation-box">2 HCHO + conc. NaOH ⟶ CH₃OH + HCOONa</div>
           </div>
         </div>
       </div>
     `;
   }
 
-  // 6. Carboxylic Acids Dimer Structure & Hydrogen Bonding
+  // 6. Carboxylic Acids Dimer Structure
   renderCarboxylicDimer() {
     this.updateStageMeta('Carboxylic Acid Cyclic Dimerization', '8-Membered ring formed by 2 strong hydrogen bonds', 'NCERT Sec 8.6.2');
-
     this.visualStage.innerHTML = `
       <div class="stage-svg-wrap">
         <svg viewBox="0 0 540 260" class="responsive-study-svg">
           <rect width="540" height="260" rx="14" fill="#090e1c"/>
 
-          <!-- Left Carboxylic Acid Molecule -->
           <text x="70" y="135" fill="#fff" font-size="16" font-weight="800">R</text>
           <line x1="88" y1="130" x2="140" y2="130" stroke="#94a3b8" stroke-width="4"/>
 
           <circle cx="150" cy="130" r="18" fill="#1e293b" stroke="#00f2fe" stroke-width="2.5"/>
           <text x="150" y="135" fill="#00f2fe" font-size="14" font-weight="900" text-anchor="middle">C</text>
 
-          <!-- Top Carbonyl O of Left Molecule -->
           <line x1="150" y1="112" x2="150" y2="65" stroke="#f43f5e" stroke-width="4"/>
           <circle cx="150" cy="55" r="14" fill="#f43f5e"/>
           <text x="150" y="60" fill="#fff" font-size="11" font-weight="800" text-anchor="middle">O</text>
 
-          <!-- Bottom Hydroxyl of Left Molecule -->
           <line x1="150" y1="148" x2="150" y2="195" stroke="#38bdf8" stroke-width="3"/>
           <text x="140" y="210" fill="#38bdf8" font-size="13" font-weight="800">O — H</text>
 
-          <!-- Right Carboxylic Acid Molecule (Inverted) -->
           <circle cx="390" cy="130" r="18" fill="#1e293b" stroke="#00f2fe" stroke-width="2.5"/>
           <text x="390" y="135" fill="#00f2fe" font-size="14" font-weight="900" text-anchor="middle">C</text>
           <line x1="408" y1="130" x2="460" y2="130" stroke="#94a3b8" stroke-width="4"/>
           <text x="470" y="135" fill="#fff" font-size="16" font-weight="800">R</text>
 
-          <!-- Top Hydroxyl of Right Molecule -->
           <line x1="390" y1="112" x2="390" y2="65" stroke="#38bdf8" stroke-width="3"/>
           <text x="375" y="60" fill="#38bdf8" font-size="13" font-weight="800">H — O</text>
 
-          <!-- Bottom Carbonyl O of Right Molecule -->
           <line x1="390" y1="148" x2="390" y2="195" stroke="#f43f5e" stroke-width="4"/>
           <circle cx="390" cy="205" r="14" fill="#f43f5e"/>
           <text x="390" y="210" fill="#fff" font-size="11" font-weight="800" text-anchor="middle">O</text>
 
-          <!-- Intermolecular Hydrogen Bond Top -->
           <line x1="170" y1="55" x2="370" y2="55" stroke="#10b981" stroke-width="3" stroke-dasharray="5,4"/>
           <text x="270" y="45" fill="#10b981" font-size="11" font-weight="800" text-anchor="middle">H-Bond (O···H)</text>
 
-          <!-- Intermolecular Hydrogen Bond Bottom -->
           <line x1="190" y1="205" x2="370" y2="205" stroke="#10b981" stroke-width="3" stroke-dasharray="5,4"/>
           <text x="270" y="225" fill="#10b981" font-size="11" font-weight="800" text-anchor="middle">H-Bond (H···O)</text>
 
@@ -631,29 +1242,21 @@ export class StudyHub {
     `;
   }
 
-  // 7. Carboxylic Acid Acidity Ladder & pKa Ranking
+  // 7. Acidity Ladder & pKa Ranking
   renderAcidityLadder() {
     this.updateStageMeta('Acidity Ladder & Resonance Stabilization', 'Lower pKa = Stronger Acid. Electron withdrawing groups increase acidity', 'NCERT Sec 8.6.4');
-
     const acids = [
       { name: 'Trichloroacetic Acid (CCl₃COOH)', pka: 0.65, strength: 'Extremely Strong', color: '#ef4444' },
       { name: 'Dichloroacetic Acid (CHCl₂COOH)', pka: 1.29, strength: 'Very Strong', color: '#f97316' },
       { name: 'Fluoroacetic Acid (CH₂FCOOH)', pka: 2.59, strength: 'Strong (-I effect)', color: '#f59e0b' },
       { name: 'Chloroacetic Acid (CH₂ClCOOH)', pka: 2.87, strength: 'Strong', color: '#eab308' },
-      { name: 'Formic Acid (HCOOH)', pka: 3.75, strength: 'Moderate (No +I alkyl)', color: '#84cc16' },
+      { name: 'Formic Acid (HCOOH)', pka: 3.75, strength: 'Moderate', color: '#84cc16' },
       { name: 'Benzoic Acid (C₆H₅COOH)', pka: 4.19, strength: 'Moderate', color: '#10b981' },
-      { name: 'Acetic Acid (CH₃COOH)', pka: 4.76, strength: 'Weak (+I of CH₃)', color: '#06b6d4' },
-      { name: 'Phenol (C₆H₅OH)', pka: 10.0, strength: 'Very Weak (pKa 10)', color: '#a855f7' },
-      { name: 'Ethanol (C₂H₅OH)', pka: 16.0, strength: 'Neutral/Extremely Weak', color: '#64748b' }
+      { name: 'Acetic Acid (CH₃COOH)', pka: 4.76, strength: 'Weak (+I of CH₃)', color: '#06b6d4' }
     ];
 
     this.visualStage.innerHTML = `
       <div class="acidity-ladder-card">
-        <div style="margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--text-muted);">
-          <strong>Resonance Stabilization of Carboxylate Ion:</strong>
-          Two equivalent resonance structures with negative charge delocalized symmetrically over both oxygen atoms (hybrid C-O bond order = 1.5).
-        </div>
-
         <div class="acidity-bars-container">
           ${acids.map(a => `
             <div class="acid-bar-item">
@@ -662,47 +1265,39 @@ export class StudyHub {
                 <strong style="color: ${a.color};">pKa: ${a.pka}</strong>
               </div>
               <div class="acid-bar-track">
-                <div class="acid-bar-fill" style="width: ${Math.max(5, (18 - a.pka) / 18 * 100)}%; background: ${a.color};"></div>
+                <div class="acid-bar-fill" style="width: ${Math.max(5, (6 - a.pka) / 6 * 100)}%; background: ${a.color};"></div>
               </div>
             </div>
           `).join('')}
         </div>
-
-        <div class="neet-trap-alert" style="margin-top: 0.75rem;">
-          <span style="font-size: 1.1rem;">💡</span>
-          <p><strong>NEET Golden Rule:</strong> Acidity ∝ -I / -M effect ∝ 1 / pKa ∝ Ka. Electron withdrawing groups (-NO₂ > -CN > -F > -Cl > -Br > -I > -Ph) stabilize carboxylate ion.</p>
+        <div class="neet-trap-alert" style="margin-top: 0.5rem;">
+          <span>💡</span>
+          <p>Acidity ∝ -I / -M effect ∝ 1 / pKa. -CF₃ &gt; -NO₂ &gt; -CN &gt; -F &gt; -Cl &gt; -Br &gt; -I &gt; -Ph.</p>
         </div>
       </div>
     `;
   }
 
-  // 8. HVZ & Decarboxylation Reactions
+  // 8. HVZ & Decarboxylation
   renderHvzDecarboxylation() {
-    this.updateStageMeta('Special Reactions: HVZ & Decarboxylation', 'Hell-Volhard-Zelinsky α-halogenation and Kolbe / Soda-lime pathways', 'NCERT Sec 8.6.5');
-
+    this.updateStageMeta('HVZ & Decarboxylation Reactions', 'Hell-Volhard-Zelinsky α-halogenation and soda-lime pathways', 'NCERT Sec 8.6.5');
     this.visualStage.innerHTML = `
       <div class="special-rxn-grid">
         <div class="rxn-card-item">
-          <div class="rxn-card-badge">Hell-Volhard-Zelinsky (HVZ)</div>
+          <div class="rxn-card-badge">HVZ Reaction</div>
           <h4>α-Halogenation of Carboxylic Acids</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.4rem 0;">
-            Requires at least ONE α-hydrogen atom. Reagent: <strong>X₂ / Red Phosphorus</strong> followed by H₂O workup.
-          </p>
-          <div class="chemical-equation-box">R-CH₂-COOH + Br₂ ⟶[Red P / H₂O] R-CH(Br)-COOH (α-Bromo Acid)</div>
-          <div style="font-size: 0.72rem; color: #f59e0b; margin-top: 0.35rem;">
-            ⚠️ Formic acid (HCOOH) and Benzoic acid (C₆H₅COOH) DO NOT undergo HVZ because they lack α-hydrogens!
+          <div class="chemical-equation-box">R-CH₂-COOH + Br₂ ⟶[Red P / H₂O] R-CH(Br)-COOH</div>
+          <div style="font-size: 0.74rem; color: #f59e0b; margin-top: 0.35rem;">
+            ⚠️ HCOOH & C₆H₅COOH DO NOT undergo HVZ (lack α-hydrogens)!
           </div>
         </div>
 
         <div class="rxn-card-item">
           <div class="rxn-card-badge">Decarboxylation</div>
           <h4>Soda-Lime Decarboxylation</h4>
-          <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.4rem 0;">
-            Reagent: <strong>Soda-lime (NaOH + CaO in 3:1 ratio)</strong> with heat.
-          </p>
-          <div class="chemical-equation-box">R-COONa + NaOH ⟶[CaO, Δ] R-H (Alkane with 1 less carbon) + Na₂CO₃</div>
-          <div style="font-size: 0.72rem; color: #38bdf8; margin-top: 0.35rem;">
-            📌 CaO keeps NaOH dry (hygroscopic protection) and lowers the fusing temperature.
+          <div class="chemical-equation-box">R-COONa + NaOH ⟶[CaO, Δ] R-H + Na₂CO₃</div>
+          <div style="font-size: 0.74rem; color: #38bdf8; margin-top: 0.35rem;">
+            📌 Alkane product has one less carbon atom than the parent acid.
           </div>
         </div>
       </div>
@@ -726,6 +1321,10 @@ export class StudyHub {
       const feedback = container.querySelector('.study-chk-feedback');
 
       options.forEach(opt => {
+        // Prevent duplicate listener binding
+        if (opt.hasAttribute('data-bound')) return;
+        opt.setAttribute('data-bound', 'true');
+
         opt.addEventListener('click', () => {
           const isCorrect = opt.getAttribute('data-correct') === 'true';
           options.forEach(o => {
