@@ -181,6 +181,25 @@ class AppController {
     if (this.quizEngine) {
       this.quizEngine.setSubject(subj);
     }
+
+    // 6. Sync with Master Study Hub (Physics, Chemistry & Biology)
+    if (this.studyHub) {
+      this.studyHub.filterSubject(subj);
+    }
+
+    // Update study hub tab label dynamically
+    const studyTab = document.getElementById('tab-study');
+    if (studyTab) {
+      if (subj === 'physics') {
+        studyTab.innerHTML = '<span>⚛️</span> Physics Study Hub (4 Chs)';
+      } else if (subj === 'chemistry') {
+        studyTab.innerHTML = '<span>🧪</span> Chemistry Study Hub (7 Chs)';
+      } else if (subj === 'biology') {
+        studyTab.innerHTML = '<span>🧬</span> Biology Study Hub (4 Chs)';
+      } else {
+        studyTab.innerHTML = '<span>📖</span> Master Study Hub (15 Chs)';
+      }
+    }
   }
 
   // Navigation between the 4 Hubs

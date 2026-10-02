@@ -2550,3 +2550,50 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 0 14px rgba(0, 210, 255, 0.3);
   font-weight: 700;
 }
+
+.study-ch-btn[data-subject="physics"].active {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.2));
+  border-color: var(--phy-primary);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+  color: #fff;
+}
+
+.study-ch-btn[data-subject="biology"].active {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.2));
+  border-color: var(--bio-primary);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.35);
+  color: #fff;
+}
+
+.study-subj-filter-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.study-subj-filter-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.2);
+}
+
+.study-subj-filter-btn.active {
+  background: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+.study-subj-filter-btn[data-subj-filter="physics"].active {
+  background: rgba(245, 158, 11, 0.28) !important;
+  border-color: var(--phy-primary) !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
+}
+
+.study-subj-filter-btn[data-subj-filter="chemistry"].active {
+  background: rgba(0, 242, 254, 0.28) !important;
+  border-color: var(--chem-primary) !important;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.4);
+}
+
+.study-subj-filter-btn[data-subj-filter="biology"].active {
+  background: rgba(16, 185, 129, 0.28) !important;
+  border-color: var(--bio-primary) !important;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+

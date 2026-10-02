@@ -70,7 +70,7 @@
   <div class="tool-nav-bar">
     <nav class="nav-tabs" aria-label="Main Tool Navigation">
       <button class="nav-tab active" data-target="view-study" id="tab-study">
-        <span>📖</span> Chemistry Study Hub (Ch. 6 - 10)
+        <span>📖</span> Master Study Hub (Physics, Chemistry &amp; Biology)
       </button>
       <button class="nav-tab" data-target="view-3d-models" id="tab-3d">
         <span>🪐</span> 3D Moveable Models
@@ -121,12 +121,35 @@
         </div>
 
         <!-- Horizontal Chapter Switcher Pills -->
-        <div class="study-ch-selector-bar" style="display: flex; gap: 0.5rem; margin-top: 1.1rem; flex-wrap: wrap;">
-          <button class="study-ch-btn active" data-chapter="ch6">🧪 Ch. 6: Haloalkanes</button>
-          <button class="study-ch-btn" data-chapter="ch7">🍷 Ch. 7: Alcohols, Phenols &amp; Ethers</button>
-          <button class="study-ch-btn" data-chapter="ch8">⚗️ Ch. 8: Carbonyls &amp; Acids</button>
-          <button class="study-ch-btn" data-chapter="ch9">🧬 Ch. 9: Amines</button>
-          <button class="study-ch-btn" data-chapter="ch10">🧫 Ch. 10: Biomolecules</button>
+<div class="study-ch-selector-bar" style="display: flex; gap: 0.5rem; margin-top: 1.1rem; flex-wrap: wrap;">
+          <!-- Subject Filter Pills -->
+          <div style="display: flex; gap: 0.4rem; width: 100%; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.6rem;">
+            <button class="study-subj-filter-btn active" data-subj-filter="all" style="padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid var(--border-subtle); color: #fff;">🌟 All 15 Chapters</button>
+            <button class="study-subj-filter-btn" data-subj-filter="physics" style="padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; cursor: pointer; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--phy-primary);">⚛️ Physics (4)</button>
+            <button class="study-subj-filter-btn" data-subj-filter="chemistry" style="padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; cursor: pointer; background: rgba(0,242,254,0.1); border: 1px solid rgba(0,242,254,0.3); color: var(--chem-primary);">🧪 Chemistry (7)</button>
+            <button class="study-subj-filter-btn" data-subj-filter="biology" style="padding: 0.25rem 0.8rem; border-radius: 999px; font-size: 0.78rem; font-weight: 700; cursor: pointer; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: var(--bio-primary);">🧬 Biology (4)</button>
+          </div>
+
+          <!-- Physics Chapters -->
+          <button class="study-ch-btn" data-chapter="phy-currelec" data-subject="physics" style="border-left: 3px solid var(--phy-primary);">⚡ Current Electricity</button>
+          <button class="study-ch-btn" data-chapter="phy-magcharge" data-subject="physics" style="border-left: 3px solid var(--phy-primary);">🧲 Moving Charges &amp; Magnetism</button>
+          <button class="study-ch-btn" data-chapter="phy-magmatter" data-subject="physics" style="border-left: 3px solid var(--phy-primary);">🧭 Magnetism &amp; Matter</button>
+          <button class="study-ch-btn" data-chapter="phy-emi" data-subject="physics" style="border-left: 3px solid var(--phy-primary);">🔄 Electromagnetic Induction</button>
+
+          <!-- Chemistry Chapters -->
+          <button class="study-ch-btn active" data-chapter="ch6" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">🧪 Ch. 6: Haloalkanes</button>
+          <button class="study-ch-btn" data-chapter="ch7" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">🍷 Ch. 7: Alcohols &amp; Phenols</button>
+          <button class="study-ch-btn" data-chapter="ch8" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">⚗️ Ch. 8: Carbonyls &amp; Acids</button>
+          <button class="study-ch-btn" data-chapter="ch9" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">🧬 Ch. 9: Amines</button>
+          <button class="study-ch-btn" data-chapter="ch10" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">🧫 Ch. 10: Biomolecules</button>
+          <button class="study-ch-btn" data-chapter="chem-kinetics" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">⏱️ Chemical Kinetics</button>
+          <button class="study-ch-btn" data-chapter="chem-coordination" data-subject="chemistry" style="border-left: 3px solid var(--chem-primary);">💠 Coordination Compounds</button>
+
+          <!-- Biology Chapters (Botany & Zoology) -->
+          <button class="study-ch-btn" data-chapter="bio-bot2" data-subject="biology" style="border-left: 3px solid var(--bio-primary);">🌿 Botany: Inheritance &amp; Variation</button>
+          <button class="study-ch-btn" data-chapter="bio-bot3" data-subject="biology" style="border-left: 3px solid var(--bio-primary);">🧬 Botany: Molecular Basis</button>
+          <button class="study-ch-btn" data-chapter="bio-zoo2" data-subject="biology" style="border-left: 3px solid var(--bio-primary);">🚼 Zoology: Reproductive Health</button>
+          <button class="study-ch-btn" data-chapter="bio-zoo3" data-subject="biology" style="border-left: 3px solid var(--bio-primary);">🐒 Zoology: Evolution</button>
         </div>
       </div>
 
@@ -243,6 +266,190 @@
               Launch Chapter 10 Module →
             </button>
           </div>
+
+          <!-- ================= PHYSICS CHAPTERS ================= -->
+          <div class="catalog-chapter-card" data-chapter="phy-currelec" data-subject="physics" style="border-top: 3px solid var(--phy-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(245,158,11,0.2); color: var(--phy-primary);">Physics Ch. 3</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~10%</span>
+            </div>
+            <h4>Current Electricity</h4>
+            <p class="ch-summary">
+              Drift velocity vd, mobility, microscopic Ohm's law, temperature coefficients (metals vs semiconductors), series/parallel cells, Kirchhoff's circuit rules, Wheatstone &amp; Meter bridge.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 25 Curriculum Sections</span>
+              <span>⚡ 3 Visual Simulators</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="phy-currelec" style="background: var(--gradient-amber); color: #000;">
+              Launch Current Electricity →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="phy-magcharge" data-subject="physics" style="border-top: 3px solid var(--phy-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(245,158,11,0.2); color: var(--phy-primary);">Physics Ch. 4</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Moving Charges &amp; Magnetism</h4>
+            <p class="ch-summary">
+              Lorentz force, circular &amp; helical orbits, cyclotron resonance, parallel wire forces, torque on current loop, moving coil galvanometer conversions, Biot-Savart and Ampere's circuital law.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 26 Comprehensive Topics</span>
+              <span>🧲 3 Dynamic Labs</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="phy-magcharge" style="background: var(--gradient-amber); color: #000;">
+              Launch Moving Charges →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="phy-magmatter" data-subject="physics" style="border-top: 3px solid var(--phy-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(245,158,11,0.2); color: var(--phy-primary);">Physics Ch. 5</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~6%</span>
+            </div>
+            <h4>Magnetism and Matter</h4>
+            <p class="ch-summary">
+              Short bar magnet axial vs equatorial fields (B_axial = 2 B_eq), magnetic dipole potential energy, Earth's magnetic elements (BH, BV, dip angle), Dia/Para/Ferro comparison, and Hysteresis loop.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 31 Core Sections</span>
+              <span>🧭 3 Interactive Views</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="phy-magmatter" style="background: var(--gradient-amber); color: #000;">
+              Launch Magnetism &amp; Matter →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="phy-emi" data-subject="physics" style="border-top: 3px solid var(--phy-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(245,158,11,0.2); color: var(--phy-primary);">Physics Ch. 6</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Electromagnetic Induction</h4>
+            <p class="ch-summary">
+              Faraday's laws, Lenz's law &amp; energy conservation, motional EMF (Blv), eddy currents &amp; magnetic damping, self and mutual inductance of solenoids, and AC generator sinusoidal derivation.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 23 Deep-Dive Topics</span>
+              <span>🔄 3 Induction Stages</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="phy-emi" style="background: var(--gradient-amber); color: #000;">
+              Launch EMI Module →
+            </button>
+          </div>
+
+          <!-- ================= EXTRA CHEMISTRY CHAPTERS ================= -->
+          <div class="catalog-chapter-card" data-chapter="chem-kinetics" data-subject="chemistry" style="border-top: 3px solid var(--chem-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(0,242,254,0.2); color: var(--chem-primary);">Chemistry Physical</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Chemical Kinetics</h4>
+            <p class="ch-summary">
+              Reaction rates, order vs molecularity, integrated rate equations for zero and first order, half-life formulas, Arrhenius activation energy profile, and collision theory.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 27 Focused Topics</span>
+              <span>⏱️ Rate &amp; t½ Simulators</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="chem-kinetics">
+              Launch Chemical Kinetics →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="chem-coordination" data-subject="chemistry" style="border-top: 3px solid var(--chem-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(0,242,254,0.2); color: var(--chem-primary);">Chemistry Inorganic</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~10%</span>
+            </div>
+            <h4>Coordination Compounds</h4>
+            <p class="ch-summary">
+              Werner's valencies, ligand denticity &amp; chelate effect, IUPAC nomenclature, structural &amp; stereoisomerism (cisplatin), VBT hybridisation, and Crystal Field Theory (CFT) Δo vs Δt.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 50 High-Yield Topics</span>
+              <span>💠 CFT &amp; Isomer Labs</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="chem-coordination">
+              Launch Coordination Module →
+            </button>
+          </div>
+
+          <!-- ================= BIOLOGY CHAPTERS ================= -->
+          <div class="catalog-chapter-card" data-chapter="bio-bot2" data-subject="biology" style="border-top: 3px solid var(--bio-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(16,185,129,0.2); color: var(--bio-primary);">Botany Ch. 2</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~12%</span>
+            </div>
+            <h4>Principles of Inheritance &amp; Variation</h4>
+            <p class="ch-summary">
+              Mendel's 7 pairs of contrasting traits, monohybrid (3:1, 1:2:1) &amp; dihybrid (9:3:3:1) crosses, test cross, Sutton-Boveri theory, Morgan's Drosophila linkage &amp; recombination, and genetic disorders.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 25 Rigorous Topics</span>
+              <span>🌿 Punnett &amp; Pedigree Stages</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="bio-bot2" style="background: var(--gradient-emerald); color: #fff;">
+              Launch Botany Ch. 2 →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="bio-bot3" data-subject="biology" style="border-top: 3px solid var(--bio-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(16,185,129,0.2); color: var(--bio-primary);">Botany Ch. 3</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~10%</span>
+            </div>
+            <h4>Molecular Basis of Inheritance</h4>
+            <p class="ch-summary">
+              DNA structure &amp; Chargaff rules, nucleosome packaging, semiconservative replication (Meselson-Stahl), transcription &amp; splicing, genetic code, translation, Lac Operon, and DNA fingerprinting.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 33 Landmark Topics</span>
+              <span>🧬 Lac Operon &amp; DNA Models</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="bio-bot3" style="background: var(--gradient-emerald); color: #fff;">
+              Launch Botany Ch. 3 →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="bio-zoo2" data-subject="biology" style="border-top: 3px solid var(--bio-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(16,185,129,0.2); color: var(--bio-primary);">Zoology Ch. 2</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~6%</span>
+            </div>
+            <h4>Reproductive Health</h4>
+            <p class="ch-summary">
+              Population explosion, natural &amp; barrier contraception, IUDs (Lippes, Cu-T, LNG-20), oral pill Saheli, surgical sterilisation, MTP Act, STIs pathogen matrix, and ART (IVF, ZIFT, GIFT, ICSI).
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 25 Clinical Sections</span>
+              <span>🚼 ART &amp; IUD Decision Matrix</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="bio-zoo2" style="background: var(--gradient-emerald); color: #fff;">
+              Launch Zoology Ch. 2 →
+            </button>
+          </div>
+
+          <div class="catalog-chapter-card" data-chapter="bio-zoo3" data-subject="biology" style="border-top: 3px solid var(--bio-primary);">
+            <div class="card-top-row">
+              <span class="ch-number-badge" style="background: rgba(16,185,129,0.2); color: var(--bio-primary);">Zoology Ch. 3</span>
+              <span class="ch-weightage-badge">NEET Weightage: ~8%</span>
+            </div>
+            <h4>Evolution</h4>
+            <p class="ch-summary">
+              Chemical evolution &amp; Miller-Urey experiment, paleontological evidence, homologous vs analogous organs, Darwinian natural selection &amp; adaptive radiation, Hardy-Weinberg law, and human evolution timeline.
+            </p>
+            <div class="ch-stats-row">
+              <span>📖 35 Evolutionary Concepts</span>
+              <span>🐒 Hardy-Weinberg Calculator</span>
+            </div>
+            <button class="btn-primary card-launch-btn" data-chapter="bio-zoo3" style="background: var(--gradient-emerald); color: #fff;">
+              Launch Zoology Ch. 3 →
+            </button>
+          </div>
+
         </div>
       </div>
 
@@ -326,6 +533,127 @@
         <a href="#sec-ch10-nucleic-acids" class="study-index-link">19. DNA Double Helix</a>
         <a href="#sec-ch10-hormones" class="study-index-link">25. Hormones</a>
       </div>
+
+      <!-- Physics: Current Electricity Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-phy-currelec" style="display: none;" aria-label="Current Electricity Topic Index">
+        <a href="#sec-phy-ce-current" class="study-index-link active">1. Current & Drift</a>
+        <a href="#sec-phy-ce-mobility" class="study-index-link">3. Mobility</a>
+        <a href="#sec-phy-ce-resistance" class="study-index-link">4. Resistance & Ohm's Law</a>
+        <a href="#sec-phy-ce-resistivity" class="study-index-link">5. Resistivity & Conductivity</a>
+        <a href="#sec-phy-ce-temp" class="study-index-link">8. Temp Dependence</a>
+        <a href="#sec-phy-ce-combinations" class="study-index-link">9. Series & Parallel R</a>
+        <a href="#sec-phy-ce-cells" class="study-index-link">10. Cells, EMF & r</a>
+        <a href="#sec-phy-ce-kirchhoff" class="study-index-link">14. Kirchhoff's Rules</a>
+        <a href="#sec-phy-ce-bridges" class="study-index-link">16. Wheatstone & Meter Bridge</a>
+        <a href="#sec-phy-ce-power" class="study-index-link">18. Energy, Power & Heating</a>
+        <a href="#sec-phy-ce-instruments" class="study-index-link">21. Ammeter & Voltmeter</a>
+        <a href="#sec-phy-ce-why" class="study-index-link">25. "Why" Questions & Must Do</a>
+      </div>
+
+      <!-- Physics: Moving Charges Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-phy-magcharge" style="display: none;" aria-label="Moving Charges Topic Index">
+        <a href="#sec-phy-mc-intro" class="study-index-link active">1. B-Field & Lorentz Force</a>
+        <a href="#sec-phy-mc-motion" class="study-index-link">3. Circular & Helical Motion</a>
+        <a href="#sec-phy-mc-cyclotron" class="study-index-link">4. Cyclotron</a>
+        <a href="#sec-phy-mc-force" class="study-index-link">5. Conductor Force & Parallel Wires</a>
+        <a href="#sec-phy-mc-torque" class="study-index-link">8. Torque & Magnetic Moment</a>
+        <a href="#sec-phy-mc-galv" class="study-index-link">10. Moving Coil Galvanometer</a>
+        <a href="#sec-phy-mc-biotsavart" class="study-index-link">15. Biot–Savart Law & Wires</a>
+        <a href="#sec-phy-mc-ampere" class="study-index-link">19. Ampere's Law & Solenoid</a>
+        <a href="#sec-phy-mc-why" class="study-index-link">26. "Why" Questions & Must Do</a>
+      </div>
+
+      <!-- Physics: Magnetism and Matter Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-phy-magmatter" style="display: none;" aria-label="Magnetism and Matter Topic Index">
+        <a href="#sec-phy-mm-barmagnet" class="study-index-link active">1. Bar Magnet & Axial/Eq Field</a>
+        <a href="#sec-phy-mm-torque" class="study-index-link">7. Torque & Potential Energy</a>
+        <a href="#sec-phy-mm-earth" class="study-index-link">9. Earth's Magnetism & Dip</a>
+        <a href="#sec-phy-mm-materials" class="study-index-link">13. Dia, Para & Ferromagnetism</a>
+        <a href="#sec-phy-mm-hysteresis" class="study-index-link">21. Hysteresis & Magnets</a>
+        <a href="#sec-phy-mm-why" class="study-index-link">31. "Why" Questions & Must Do</a>
+      </div>
+
+      <!-- Physics: Electromagnetic Induction Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-phy-emi" style="display: none;" aria-label="EMI Topic Index">
+        <a href="#sec-phy-emi-flux" class="study-index-link active">1. Flux & Faraday's Laws</a>
+        <a href="#sec-phy-emi-lenz" class="study-index-link">4. Lenz's Law & Energy</a>
+        <a href="#sec-phy-emi-motional" class="study-index-link">5. Motional EMF & Current</a>
+        <a href="#sec-phy-emi-eddy" class="study-index-link">9. Eddy Currents</a>
+        <a href="#sec-phy-emi-inductance" class="study-index-link">10. Self & Mutual Induction</a>
+        <a href="#sec-phy-emi-generator" class="study-index-link">17. AC Generator</a>
+        <a href="#sec-phy-emi-why" class="study-index-link">23. "Why" Questions & Must Do</a>
+      </div>
+
+      <!-- Chemistry: Chemical Kinetics Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-chem-kinetics" style="display: none;" aria-label="Chemical Kinetics Topic Index">
+        <a href="#sec-chem-kin-rate" class="study-index-link active">1. Reaction Rate</a>
+        <a href="#sec-chem-kin-order" class="study-index-link">6. Rate Law & Order</a>
+        <a href="#sec-chem-kin-zero" class="study-index-link">8. Zero-Order Kinetics</a>
+        <a href="#sec-chem-kin-first" class="study-index-link">10. First-Order Kinetics</a>
+        <a href="#sec-chem-kin-molecularity" class="study-index-link">16. Molecularity vs Order</a>
+        <a href="#sec-chem-kin-arrhenius" class="study-index-link">18. Arrhenius Equation</a>
+        <a href="#sec-chem-kin-collision" class="study-index-link">24. Collision Theory & Ea</a>
+        <a href="#sec-chem-kin-traps" class="study-index-link">27. Formula Chart & Traps</a>
+      </div>
+
+      <!-- Chemistry: Coordination Compounds Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-chem-coordination" style="display: none;" aria-label="Coordination Compounds Topic Index">
+        <a href="#sec-chem-coord-intro" class="study-index-link active">1. Intro & Ligands</a>
+        <a href="#sec-chem-coord-werner" class="study-index-link">10. Werner's Theory</a>
+        <a href="#sec-chem-coord-nomen" class="study-index-link">12. IUPAC Nomenclature</a>
+        <a href="#sec-chem-coord-isomers" class="study-index-link">18. Structural & Stereoisomerism</a>
+        <a href="#sec-chem-coord-vbt" class="study-index-link">28. Valence Bond Theory (VBT)</a>
+        <a href="#sec-chem-coord-cft" class="study-index-link">33. Crystal Field Theory (CFT)</a>
+        <a href="#sec-chem-coord-props" class="study-index-link">41. Magnetic, Colour & Stability</a>
+        <a href="#sec-chem-coord-traps" class="study-index-link">50. Formula Chart & Traps</a>
+      </div>
+
+      <!-- Biology: Botany Ch. 2 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-bio-bot2" style="display: none;" aria-label="Inheritance & Variation Topic Index">
+        <a href="#sec-bio-inh-intro" class="study-index-link active">1. Intro & Mendel</a>
+        <a href="#sec-bio-inh-monohybrid" class="study-index-link">3. Monohybrid & Crosses</a>
+        <a href="#sec-bio-inh-laws" class="study-index-link">4. Mendel's Laws</a>
+        <a href="#sec-bio-inh-dihybrid" class="study-index-link">5. Dihybrid Cross</a>
+        <a href="#sec-bio-inh-linkage" class="study-index-link">8. Morgan & Linkage</a>
+        <a href="#sec-bio-inh-sex" class="study-index-link">11. Sex Determination</a>
+        <a href="#sec-bio-inh-disorders" class="study-index-link">14. Mendelian & Chromosomal</a>
+        <a href="#sec-bio-inh-traps" class="study-index-link">25. High-Yield & Traps</a>
+      </div>
+
+      <!-- Biology: Botany Ch. 3 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-bio-bot3" style="display: none;" aria-label="Molecular Basis Topic Index">
+        <a href="#sec-bio-mol-dna" class="study-index-link active">1. DNA Proof & Experiments</a>
+        <a href="#sec-bio-mol-struct" class="study-index-link">3. Structure & Chargaff</a>
+        <a href="#sec-bio-mol-packaging" class="study-index-link">6. Nucleosome Packaging</a>
+        <a href="#sec-bio-mol-rep" class="study-index-link">7. Semiconservative Replication</a>
+        <a href="#sec-bio-mol-transcription" class="study-index-link">11. Central Dogma & Transcription</a>
+        <a href="#sec-bio-mol-code" class="study-index-link">18. Genetic Code & Translation</a>
+        <a href="#sec-bio-mol-operon" class="study-index-link">25. Lac Operon Regulation</a>
+        <a href="#sec-bio-mol-hgp" class="study-index-link">29. HGP & DNA Fingerprint</a>
+      </div>
+
+      <!-- Biology: Zoology Ch. 2 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-bio-zoo2" style="display: none;" aria-label="Reproductive Health Topic Index">
+        <a href="#sec-bio-rh-intro" class="study-index-link active">1. Intro & Population</a>
+        <a href="#sec-bio-rh-contraception" class="study-index-link">4. Contraception & IUDs</a>
+        <a href="#sec-bio-rh-surgical" class="study-index-link">11. Surgical & MTP</a>
+        <a href="#sec-bio-rh-stis" class="study-index-link">13. STIs & Prevention</a>
+        <a href="#sec-bio-rh-art" class="study-index-link">18. Infertility & ART Matrix</a>
+        <a href="#sec-bio-rh-traps" class="study-index-link">25. High-Yield & Traps</a>
+      </div>
+
+      <!-- Biology: Zoology Ch. 3 Quick Index -->
+      <div class="study-quick-nav-bar" id="quick-nav-bio-zoo3" style="display: none;" aria-label="Evolution Topic Index">
+        <a href="#sec-bio-evo-origin" class="study-index-link active">1. Origin of Life & Miller</a>
+        <a href="#sec-bio-evo-evidences" class="study-index-link">4. Evidences & Homology</a>
+        <a href="#sec-bio-evo-darwin" class="study-index-link">10. Darwin & Finches</a>
+        <a href="#sec-bio-evo-modern" class="study-index-link">15. Modern Theory & Drift</a>
+        <a href="#sec-bio-evo-hw" class="study-index-link">21. Hardy-Weinberg Principle</a>
+        <a href="#sec-bio-evo-selection" class="study-index-link">24. Types of Selection</a>
+        <a href="#sec-bio-evo-human" class="study-index-link">27. Human Evolution Sequence</a>
+        <a href="#sec-bio-evo-traps" class="study-index-link">35. High-Yield & Traps</a>
+      </div>
+
 
 
         <!-- Mobile Toggle for Sticky Visual Stage -->
@@ -3030,6 +3358,1801 @@
 
           </div>
           <!-- END CHAPTER 10 CONTAINER -->
+
+<div id="chapter-phy-currelec-container" style="display: none;">
+  <!-- TOPIC 1 & 2: Electric Current & Drift Velocity -->
+  <article class="study-topic-block" id="sec-phy-ce-current" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-2</span> Electric Current & Drift Velocity in Conductors</h3>
+      <span class="subject-pill phy">Class 12 Physics &bull; Ch. 3</span>
+    </div>
+
+    <p class="study-body-text">
+      <strong>Electric Current:</strong> Defined as the rate of flow of electric charge across any cross-section of a conductor.
+      <br>&bull; Average Current: <code>I = Q / t</code>
+      <br>&bull; Instantaneous Current: <code>I = dQ / dt</code>
+      <br>&bull; <strong>SI Unit:</strong> Ampere (A), where <code>1 A = 1 C/s</code>. Conventional current direction is taken along the direction of positive charge flow, which is <strong>opposite to the direction of electron flow</strong>.
+    </p>
+
+    <h4 style="color: var(--phy-primary); margin: 1rem 0 0.4rem; font-size: 0.95rem;">Microscopic Model & Drift Velocity:</h4>
+    <p class="study-body-text">
+      In a metallic conductor, free electrons undergo constant random thermal collisions with positive metal ions at speeds of ~10⁵–10⁶ m/s, resulting in zero net macroscopic flow. In the presence of an applied electric field <code>E</code>, electrons experience an electrostatic force <code>F = -eE</code> and acquire a steady average drift velocity:
+    </p>
+    <div class="chemical-equation-box" style="font-size: 1rem; color: #fff;">
+      vd = (e · E · τ) / m
+    </div>
+    <p class="study-body-text" style="font-size: 0.85rem; color: var(--text-secondary);">
+      where <strong>e</strong> = electronic charge (1.6×10⁻¹⁹ C), <strong>E</strong> = electric field, <strong>τ</strong> = mean relaxation time (average time between two successive collisions), and <strong>m</strong> = electron mass (9.1×10⁻³¹ kg).
+    </p>
+
+    <h4 style="color: var(--phy-primary); margin: 1rem 0 0.4rem; font-size: 0.95rem;">Relation Between Current and Drift Velocity:</h4>
+    <div class="chemical-equation-box" style="font-size: 1.05rem; color: var(--phy-primary);">
+      I = n · e · A · vd
+    </div>
+    <p class="study-body-text">
+      where <strong>n</strong> is the free electron number density (carriers/m³), <strong>A</strong> is the conductor cross-sectional area, and <strong>Current Density</strong> <code>j = I / A = n · e · vd</code> (a vector quantity pointing along E).
+    </p>
+
+    <div class="neet-trap-alert" style="border-left: 3px solid var(--phy-primary);">
+      <span style="font-size: 1.25rem;">⚡</span>
+      <div>
+        <strong>Why is drift velocity very small (~10⁻⁴ m/s) yet a bulb lights up instantly?</strong>
+        Electrons suffer frequent collisions with lattice ions (τ ≈ 10⁻¹⁴ s), preventing unbounded acceleration. However, the electric field propagates through the wire at nearly the speed of light (~3×10⁸ m/s), initiating coordinated electron drift everywhere in the circuit almost instantaneously!
+      </div>
+    </div>
+
+    <div class="study-checkpoint-card" data-explanation="Current I = n*e*A*vd. If diameter is halved, area A is reduced to 1/4. For constant current I, drift velocity vd must increase by 4 times!">
+      <div class="study-checkpoint-header">
+        <span>Checkpoint Recall 3.1</span>
+        <span style="color: var(--accent-emerald);">CBSE Board Numerical</span>
+      </div>
+      <p>A steady current flows through a metallic wire of non-uniform cross-section. If the wire diameter is halved at a constriction, how does the drift velocity change?</p>
+      <div class="study-opt-grid">
+        <button class="study-opt-btn" data-correct="false">A. Halved</button>
+        <button class="study-opt-btn" data-correct="false">B. Doubled</button>
+        <button class="study-opt-btn" data-correct="true">C. Four times</button>
+        <button class="study-opt-btn" data-correct="false">D. Unchanged</button>
+      </div>
+      <div class="study-chk-feedback"></div>
+    </div>
+  </article>
+
+  <!-- TOPIC 3: Mobility -->
+  <article class="study-topic-block" id="sec-phy-ce-mobility" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">3</span> Mobility of Charge Carriers</h3>
+      <span class="subject-pill phy">Carrier Dynamics</span>
+    </div>
+    <p class="study-body-text">
+      Mobility (<strong>μ</strong>) is defined as the magnitude of drift velocity acquired per unit electric field:
+    </p>
+    <div class="chemical-equation-box">
+      μ = vd / E = (e · τ) / m
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>SI Unit:</strong> <code>m² · V⁻¹ · s⁻¹</code> (or <code>m² / (V · s)</code>).
+      <br>&bull; Mobility is always defined as a <strong>positive quantity</strong> regardless of charge carrier sign (for electrons, <code>μe = eτe / me</code>; for holes, <code>μh = eτh / mh</code>).
+      <br>&bull; Since electron mass is much smaller than effective hole mass, <strong>electron mobility is significantly higher than hole mobility</strong> (μe &gt; μh).
+    </p>
+  </article>
+
+  <!-- TOPIC 4 to 7: Resistance, Ohm's Law, Resistivity & Conductivity -->
+  <article class="study-topic-block" id="sec-phy-ce-resistance" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">4-7</span> Ohm's Law, Resistance, Resistivity & Conductivity</h3>
+      <span class="subject-pill phy">Constitutive Laws</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Ohm's Law:</strong> The potential difference <code>V</code> across the ends of a conductor is directly proportional to the current <code>I</code> flowing through it, provided physical conditions (temperature, pressure, mechanical strain) remain constant:
+    </p>
+    <div class="chemical-equation-box">
+      V = I · R &nbsp;&nbsp;⇒&nbsp;&nbsp; Vector Form: j = σ · E
+    </div>
+
+    <h4 style="color: var(--phy-primary); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">Resistance of a Conductor:</h4>
+    <div class="chemical-equation-box">
+      R = ρ · (l / A) = (m / (n · e² · τ)) · (l / A)
+    </div>
+    <p class="study-body-text">
+      where <strong>l</strong> is length, <strong>A</strong> is cross-sectional area, and <strong>ρ</strong> is the electrical resistivity of the material.
+      <br>&bull; <strong>Resistivity (ρ):</strong> <code>ρ = (R · A) / l = m / (n · e² · τ)</code>. Material property; independent of dimensions; depends only on material nature and temperature. SI unit: <strong>Ω &bull; m</strong>.
+      <br>&bull; <strong>Conductivity (σ):</strong> Reciprocal of resistivity: <code>σ = 1 / ρ = (n · e² · τ) / m</code>. SI unit: <strong>Siemens per metre (S &bull; m⁻¹ or Ω⁻¹ &bull; m⁻¹)</strong>.
+    </p>
+
+    <div class="concept-callout">
+      <span class="callout-icon">💡</span>
+      <div>
+        <strong>Ohmic vs Non-Ohmic Conductors:</strong>
+        <br>&bull; <strong>Ohmic Conductors:</strong> Obey Ohm's law with linear V-I characteristics passing through the origin (e.g., metals at constant temperature, dilute electrolytes).
+        <br>&bull; <strong>Non-Ohmic Conductors:</strong> Do not obey Ohm's law; V-I relation is non-linear, non-unique, or asymmetric upon reversing V (e.g., p-n junction diode, LED, vacuum tube, thyristor, GaAs).
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 8: Temperature Dependence of Resistance -->
+  <article class="study-topic-block" id="sec-phy-ce-temp" data-visual="phy-ce-temp">
+    <div class="topic-header-row">
+      <h3><span class="section-num">8</span> Temperature Dependence of Resistance</h3>
+      <span class="subject-pill phy">Thermal Coefficients</span>
+    </div>
+    <p class="study-body-text">
+      The resistance of a metallic conductor varies with temperature according to:
+    </p>
+    <div class="chemical-equation-box">
+      R_T = R₀ [1 + α (T - T₀)] &nbsp;&nbsp;⇒&nbsp;&nbsp; ρ_T = ρ₀ [1 + α (T - T₀)]
+    </div>
+    <p class="study-body-text">
+      where <strong>α</strong> is the temperature coefficient of resistance (SI unit: <strong>K⁻¹</strong> or <strong>°C⁻¹</strong>):
+      <br>&bull; <strong>Metals:</strong> Positive α (<code>α &gt; 0</code>). As temperature increases, lattice ions vibrate more vigorously, reducing mean relaxation time τ (more collisions) ⟶ <strong>Resistance increases</strong>.
+      <br>&bull; <strong>Semiconductors & Insulators:</strong> Negative α (<code>α &lt; 0</code>). Increasing temperature breaks covalent bonds, causing carrier density <code>n</code> to increase exponentially, dominating over collision effects ⟶ <strong>Resistance decreases</strong>.
+      <br>&bull; <strong>Standard Alloys (Constantan, Manganin, Nichrome):</strong> Extremely small positive α and high resistivity; resistance changes negligibly with temperature, making them ideal for standard resistors, resistance boxes, and meter bridges!
+    </p>
+  </article>
+
+  <!-- TOPIC 9: Combination of Resistors -->
+  <article class="study-topic-block" id="sec-phy-ce-combinations" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">9</span> Combination of Resistors (Series & Parallel)</h3>
+      <span class="subject-pill phy">Circuit Analysis</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin: 0.6rem 0;">
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <span style="color: var(--accent-cyan); font-weight: 700;">Resistors in Series</span>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          <code>R_eq = R₁ + R₂ + R₃ + ...</code><br>
+          &bull; Same current through each resistor.<br>
+          &bull; Potential divides: <code>V = V₁ + V₂ + ...</code><br>
+          &bull; Equivalent resistance is greater than the largest individual resistance.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <span style="color: var(--accent-emerald); font-weight: 700;">Resistors in Parallel</span>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          <code>1 / R_eq = 1/R₁ + 1/R₂ + 1/R₃ + ...</code><br>
+          &bull; Same voltage across each resistor.<br>
+          &bull; Current divides: <code>I = I₁ + I₂ + ...</code><br>
+          &bull; Equivalent resistance is smaller than the smallest individual resistance.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 10 to 13: Cells, EMF, Internal Resistance & Combinations -->
+  <article class="study-topic-block" id="sec-phy-ce-cells" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">10-13</span> Cells, EMF, Internal Resistance & Combinations</h3>
+      <span class="subject-pill phy">Sources of EMF</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Electromotive Force (EMF, E):</strong> Maximum potential difference between cell terminals in an open circuit (no current drawn): <code>E = W / q</code> (Unit: Volt).
+      <br>&bull; <strong>Internal Resistance (r):</strong> Opposition to current flow offered by the electrolyte and electrodes inside the cell.
+      <br>&bull; <strong>Terminal Potential Difference (V):</strong> Potential difference across terminals when current <code>I</code> flows through external load <code>R</code>:
+    </p>
+    <div class="chemical-equation-box">
+      V = E - I · r &nbsp;&nbsp;and&nbsp;&nbsp; I = E / (R + r)
+    </div>
+    <p class="study-body-text" style="font-size: 0.82rem; color: var(--accent-amber);">
+      📌 <strong>When cell is charging:</strong> Current is pushed into the positive terminal, so <code>V = E + I · r</code> (Terminal voltage exceeds EMF!).
+    </p>
+
+    <h4 style="color: var(--phy-primary); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">Combinations of n Identical Cells:</h4>
+    <p class="study-body-text">
+      &bull; <strong>Cells in Series:</strong> <code>E_eq = n · E</code>, <code>r_eq = n · r</code> ⟶ <code>I = (n · E) / (R + n · r)</code>. Most advantageous when external resistance is very large (<code>R ≫ nr</code>).
+      <br>&bull; <strong>Cells in Parallel:</strong> <code>E_eq = E</code>, <code>r_eq = r / n</code> ⟶ <code>I = E / (R + r/n)</code>. Most advantageous when external resistance is very small (<code>R ≪ r</code>).
+      <br>&bull; <strong>Mixed Combination:</strong> m rows of n cells: Maximum current occurs when <code>R = (n · r) / m</code> (Internal resistance equals external load resistance).
+    </p>
+  </article>
+
+  <!-- TOPIC 14 & 15: Kirchhoff's Rules & Circuit Solving -->
+  <article class="study-topic-block" id="sec-phy-ce-kirchhoff" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">14-15</span> Kirchhoff's Circuit Rules & Sign Conventions</h3>
+      <span class="subject-pill phy">Major Board Derivation</span>
+    </div>
+    <p class="study-body-text">
+      <strong>1. Kirchhoff's First Rule (Junction Rule):</strong>
+      <br>At any junction, the algebraic sum of currents entering the junction equals the sum leaving it:
+    </p>
+    <div class="chemical-equation-box">
+      Σ I_in = Σ I_out &nbsp;&nbsp;(Conservation of Electric Charge)
+    </div>
+    <p class="study-body-text">
+      <strong>2. Kirchhoff's Second Rule (Loop Rule):</strong>
+      <br>The algebraic sum of changes in potential around any closed mesh/loop is zero:
+    </p>
+    <div class="chemical-equation-box">
+      Σ ΔV = 0 &nbsp;&nbsp;(Conservation of Energy)
+    </div>
+    <div class="neet-trap-alert" style="border-left: 3px solid var(--phy-primary);">
+      <span style="font-size: 1.25rem;">⚖️</span>
+      <div>
+        <strong>CBSE Loop Rule Sign Conventions:</strong>
+        <br>&bull; Traversing a resistor in direction of current: <strong>- I · R</strong> (potential drop).
+        <br>&bull; Traversing a resistor opposite to current: <strong>+ I · R</strong> (potential rise).
+        <br>&bull; Traversing a cell from negative to positive terminal: <strong>+ E</strong> (potential gain).
+        <br>&bull; Traversing a cell from positive to negative terminal: <strong>- E</strong> (potential loss).
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 16 & 17: Wheatstone Bridge & Meter Bridge -->
+  <article class="study-topic-block" id="sec-phy-ce-bridges" data-visual="phy-ce-bridge">
+    <div class="topic-header-row">
+      <h3><span class="section-num">16-17</span> Wheatstone Bridge & Meter Bridge</h3>
+      <span class="subject-pill phy">Practical Measurement</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Balanced Wheatstone Bridge:</strong> Four resistors P, Q, R, S arranged in a quadrilateral bridge. When no current flows through the central galvanometer (<code>I_g = 0</code>):
+    </p>
+    <div class="chemical-equation-box">
+      P / Q = R / S &nbsp;&nbsp;(Bridge Balance Condition)
+    </div>
+    <p class="study-body-text">
+      <strong>Meter Bridge (Practical Application):</strong> Consists of a 1-metre (100 cm) uniform manganin wire. A known resistance R is placed in the left gap and an unknown resistance S in the right gap. If the null balance point is found at distance <code>l</code> cm from the zero end:
+    </p>
+    <div class="chemical-equation-box">
+      R / S = l / (100 - l) &nbsp;&nbsp;⇒&nbsp;&nbsp; S = R · (100 - l) / l
+    </div>
+    <div class="concept-callout">
+      <span class="callout-icon">🎯</span>
+      <div>
+        <strong>Why is balance point preferably near the middle (40–60 cm)?</strong>
+        The bridge sensitivity is maximum when all four arms have nearly equal resistance, which minimizes fractional error in measuring length <code>Δl / l</code> and end resistance corrections!
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 18 to 20: Electrical Energy, Power & Heating -->
+  <article class="study-topic-block" id="sec-phy-ce-power" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">18-20</span> Electrical Energy, Power & Joule Heating</h3>
+      <span class="subject-pill phy">Thermal Effects</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Electrical Work & Energy:</strong> <code>W = V · I · t = I² · R · t = (V² / R) · t</code> (Unit: Joule).
+      <br>&bull; <strong>Electrical Power:</strong> <code>P = V · I = I² · R = V² / R</code> (Unit: Watt, where 1 W = 1 J/s).
+      <br>&bull; <strong>Commercial Unit:</strong> Kilowatt-hour (kWh) or Board of Trade unit:
+    </p>
+    <div class="chemical-equation-box">
+      1 kWh = 1000 W × 3600 s = 3.6 × 10⁶ J
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Joule's Law of Heating:</strong> Heat produced <code>H = I² · R · t</code>. Applications: Electric heater, iron, toaster, electric fuse (alloy of lead and tin with low melting point and high resistance).
+    </p>
+  </article>
+
+  <!-- TOPIC 21: Instruments (Ammeter & Voltmeter) -->
+  <article class="study-topic-block" id="sec-phy-ce-instruments" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">21</span> Electrical Measurement Instruments</h3>
+      <span class="subject-pill phy">Ammeter vs Voltmeter</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem;">
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <span style="color: var(--accent-cyan); font-weight: 700;">Ammeter (Current Measurement)</span>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          &bull; Connected in <strong>series</strong> with circuit element.<br>
+          &bull; Has <strong>very low resistance</strong> so it does not decrease circuit current.<br>
+          &bull; <strong>Ideal Ammeter Resistance:</strong> <code>R_A = 0</code>.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <span style="color: var(--accent-emerald); font-weight: 700;">Voltmeter (Potential Difference)</span>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          &bull; Connected in <strong>parallel</strong> across circuit element.<br>
+          &bull; Has <strong>very high resistance</strong> so it draws negligible bypass current.<br>
+          &bull; <strong>Ideal Voltmeter Resistance:</strong> <code>R_V = ∞</code>.
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 25: Important "Why" Questions & MUST DO -->
+  <article class="study-topic-block" id="sec-phy-ce-why" data-visual="phy-ce-drift">
+    <div class="topic-header-row">
+      <h3><span class="section-num">25</span> High-Yield CBSE "Why" Questions & MUST-DO Checklist</h3>
+      <span class="subject-pill phy">Board Q&A Bank</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: 0.6rem;">
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why does resistance of metals increase with temperature?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          As temperature rises, amplitude of lattice ion vibrations increases. Free electrons collide more frequently, reducing relaxation time τ. Since <code>ρ = m / (ne²τ)</code>, decreased τ results in increased resistivity.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why does terminal voltage become less than EMF when a cell supplies current?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          When current flows, some energy is lost as heat across the electrolyte's internal resistance r (potential drop = Ir). Hence <code>V = E - Ir &lt; E</code>.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why is an ammeter connected in series and voltmeter in parallel?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          Series connection ensures the entire branch current passes through the ammeter. Parallel connection ensures the voltmeter experiences the exact potential difference across the desired two nodes.
+        </p>
+      </div>
+    </div>
+
+    <div class="neet-trap-alert" style="margin-top: 0.8rem; border-left: 3px solid var(--accent-rose);">
+      <span style="font-size: 1.25rem;">⭐</span>
+      <div>
+        <strong>CBSE BOARD MUST-DO DERIVATION CHECKLIST:</strong>
+        <br>1. Drift velocity <code>vd = eEτ/m</code> and <code>I = neAvd</code>.
+        <br>2. Deduction of Ohm's law from microscopic drift theory (<code>ρ = m / ne²τ</code>).
+        <br>3. Series & parallel combinations of cells (equivalent E and r).
+        <br>4. Kirchhoff's rules application to multiloop circuits.
+        <br>5. Balanced Wheatstone bridge condition (<code>P/Q = R/S</code>) using loop rule.
+        <br>6. Meter bridge formula for unknown resistance.
+      </div>
+    </div>
+  </article>
+</div>
+
+
+<div id="chapter-phy-magcharge-container" style="display: none;">
+  <!-- TOPIC 1 & 2: Magnetic Field & Lorentz Force -->
+  <article class="study-topic-block" id="sec-phy-mc-intro" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-2</span> Magnetic Field & Lorentz Force on Moving Charges</h3>
+      <span class="subject-pill phy">Class 12 Physics &bull; Ch. 4</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Magnetic Field (B):</strong> Space surrounding a magnet or current-carrying conductor in which magnetic forces are experienced. SI unit: <strong>Tesla (T)</strong>, where <code>1 T = 1 N / (A · m) = 10⁴ Gauss</code>.
+      <br>&bull; <strong>Magnetic Field Lines:</strong> Closed continuous loops (emerge from North, enter South outside; continue South to North inside). Tangent gives B direction. Field lines <strong>never intersect</strong> (otherwise two directions would exist at a single point, which is impossible!).
+    </p>
+
+    <h4 style="color: var(--phy-primary); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">Magnetic Lorentz Force:</h4>
+    <div class="chemical-equation-box">
+      F = q (v × B) &nbsp;&nbsp;⇒&nbsp;&nbsp; F = q · v · B · sin θ
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Special Cases:</strong>
+      <br>&nbsp;&nbsp;&bull; Charge at rest (<code>v = 0</code>) ⟶ <code>F = 0</code> (A stationary charge experiences zero magnetic force!).
+      <br>&nbsp;&nbsp;&bull; Motion parallel/antiparallel (<code>θ = 0° or 180°</code>) ⟶ <code>F = 0</code>.
+      <br>&nbsp;&nbsp;&bull; Motion perpendicular (<code>θ = 90°</code>) ⟶ Maximum force <code>F_max = q · v · B</code>.
+      <br>&bull; <strong>Direction:</strong> Given by Right-Hand Thumb Rule or Fleming's Left-Hand Rule. For negative charges (electrons), the force direction is exactly reversed!
+    </p>
+  </article>
+
+  <!-- TOPIC 3: Motion in Magnetic Field -->
+  <article class="study-topic-block" id="sec-phy-mc-motion" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">3</span> Motion of a Charged Particle in Uniform B-Field</h3>
+      <span class="subject-pill phy">Circular & Helical Trajectories</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Case A: Velocity Perpendicular to B (θ = 90°):</strong>
+      <br>The magnetic force acts as the centripetal force: <code>q · v · B = (m · v²) / r</code>.
+    </p>
+    <div class="chemical-equation-box">
+      r = (m · v) / (q · B) &nbsp;|&nbsp; T = (2π · m) / (q · B) &nbsp;|&nbsp; f = (q · B) / (2π · m)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>CRITICAL NCERT INSIGHT:</strong> Time period <code>T</code> and frequency <code>f</code> are <strong>completely independent of the particle's speed v and orbit radius r</strong>! Faster particles travel along larger circles, completing each revolution in the exact same time.
+      <br><br>
+      <strong>Case B: Velocity at Oblique Angle (Helical Path):</strong>
+      <br>&bull; Parallel component <code>v_∥ = v cos θ</code> is unaffected (causes uniform translation along B).
+      <br>&bull; Perpendicular component <code>v_⊥ = v sin θ</code> causes circular motion with radius <code>r = (m · v_⊥) / (qB)</code>.
+      <br>&bull; Resultant path is a <strong>Helix</strong> with pitch <code>p = v_∥ · T = (v cos θ) · (2πm / qB)</code>.
+    </p>
+  </article>
+
+  <!-- TOPIC 4: Cyclotron -->
+  <article class="study-topic-block" id="sec-phy-mc-cyclotron" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">4</span> The Cyclotron Particle Accelerator</h3>
+      <span class="subject-pill phy">Classic Board Derivation</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Principle:</strong> A charged particle is repeatedly accelerated across an alternating electric field while a perpendicular magnetic field bends it into expanding semicircular paths inside two hollow D-shaped metal chambers (dees).
+      <br>&bull; <strong>Cyclotron Resonance Frequency:</strong> <code>f_c = (q · B) / (2π · m)</code>.
+      <br>&bull; <strong>Maximum Kinetic Energy:</strong> When particle exits at dee radius R:
+    </p>
+    <div class="chemical-equation-box">
+      K_max = ½ m v_max² = (q² · B² · R²) / (2m)
+    </div>
+    <div class="neet-trap-alert" style="border-left: 3px solid var(--accent-rose);">
+      <span style="font-size: 1.25rem;">⚠️</span>
+      <div>
+        <strong>Limitations of Cyclotron:</strong>
+        <br>1. Cannot accelerate neutral particles (neutrons) as they experience zero electric/magnetic force.
+        <br>2. Cannot accelerate electrons effectively because their tiny mass causes relativistic mass increase <code>m = m₀ / √(1 - v²/c²)</code> at relatively low energies, falling out of resonance with the oscillator!
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 5 to 7: Force on Conductor & Parallel Wires -->
+  <article class="study-topic-block" id="sec-phy-mc-force" data-visual="phy-mc-wires">
+    <div class="topic-header-row">
+      <h3><span class="section-num">5-7</span> Force on Conductor & Between Parallel Wires</h3>
+      <span class="subject-pill phy">B-Field Forces</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Force on Current-Carrying Conductor:</strong> <code>F = I (L × B)</code> ⟶ <code>F = B · I · L · sin θ</code>. Direction given by Fleming's Left-Hand Rule.
+      <br><br>
+      <strong>Force Between Two Long Parallel Conductors:</strong>
+    </p>
+    <div class="chemical-equation-box">
+      F / L = (μ₀ · I₁ · I₂) / (2π · d)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Currents in same direction:</strong> <strong>ATTRACT</strong> each other.
+      <br>&bull; <strong>Currents in opposite direction:</strong> <strong>REPEL</strong> each other.
+      <br>&bull; <strong>Definition of Ampere:</strong> 1 Ampere is that steady current which, when maintained in two straight parallel conductors of infinite length placed 1 metre apart in vacuum, produces between them a force of <code>2 × 10⁻⁷ N per metre of length</code>.
+    </p>
+  </article>
+
+  <!-- TOPIC 8 & 9: Torque & Magnetic Dipole Moment -->
+  <article class="study-topic-block" id="sec-phy-mc-torque" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">8-9</span> Torque on Current Loop & Magnetic Dipole Moment</h3>
+      <span class="subject-pill phy">Dipole Interactions</span>
+    </div>
+    <p class="study-body-text">
+      A planar current loop placed in a uniform magnetic field experiences zero net force but a net deflecting torque:
+    </p>
+    <div class="chemical-equation-box">
+      τ = m × B &nbsp;&nbsp;⇒&nbsp;&nbsp; τ = N · I · A · B · sin θ
+    </div>
+    <p class="study-body-text">
+      where <strong>m = N · I · A</strong> is the magnetic dipole moment of the loop (SI unit: <code>A · m²</code> or <code>J / T</code>).
+      <br>&bull; Maximum torque at <code>θ = 90°</code> (loop plane parallel to B).
+      <br>&bull; Zero torque at <code>θ = 0° or 180°</code> (loop plane perpendicular to B).
+    </p>
+  </article>
+
+  <!-- TOPIC 10 to 14: Moving Coil Galvanometer -->
+  <article class="study-topic-block" id="sec-phy-mc-galv" data-visual="phy-mc-galv">
+    <div class="topic-header-row">
+      <h3><span class="section-num">10-14</span> Moving Coil Galvanometer & Conversions</h3>
+      <span class="subject-pill phy">Core Board Instrument</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Principle:</strong> A current-carrying coil placed in a magnetic field experiences a deflecting torque <code>τ = N · I · A · B</code>. Under a <strong>radial magnetic field</strong> (produced by concave pole pieces and a soft iron core), the coil plane is always parallel to field lines (sin θ = 1).
+      <br>At equilibrium, deflecting torque = restoring torque: <code>N · I · A · B = k · θ</code>.
+    </p>
+    <div class="chemical-equation-box">
+      θ = (N · A · B / k) · I &nbsp;&nbsp;⇒&nbsp;&nbsp; Deflection θ ∝ Current I
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Current Sensitivity:</strong> <code>θ / I = (N · A · B) / k</code>.
+      <br>&bull; <strong>Voltage Sensitivity:</strong> <code>θ / V = (N · A · B) / (k · G)</code>.
+      <br>&bull; <strong>Conversion into Ammeter:</strong> Connect a small shunt <code>S = (I_g · G) / (I - I_g)</code> in <strong>parallel</strong>.
+      <br>&bull; <strong>Conversion into Voltmeter:</strong> Connect high resistance <code>R = (V / I_g) - G</code> in <strong>series</strong>.
+    </p>
+  </article>
+
+  <!-- TOPIC 15 to 18: Biot-Savart Law & Circular Loops -->
+  <article class="study-topic-block" id="sec-phy-mc-biotsavart" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">15-18</span> Biot–Savart Law & Magnetic Fields of Currents</h3>
+      <span class="subject-pill phy">Field Derivations</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Biot–Savart Law:</strong> Magnetic field <code>dB</code> due to an infinitesimal current element <code>I · dl</code>:
+    </p>
+    <div class="chemical-equation-box">
+      dB = (μ₀ / 4π) · (I · dl · sin θ) / r² &nbsp;&nbsp;where&nbsp;&nbsp; μ₀ / 4π = 10⁻⁷ T·m/A
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Long Straight Wire:</strong> <code>B = (μ₀ · I) / (2π · r)</code> (Direction given by Right-Hand Thumb Rule).
+      <br>&bull; <strong>Centre of Circular Loop (N turns):</strong> <code>B = (μ₀ · N · I) / (2R)</code>.
+      <br>&bull; <strong>Axis of Circular Loop at distance x:</strong>
+    </p>
+    <div class="chemical-equation-box">
+      B_axis = (μ₀ · N · I · R²) / [2 (R² + x²)^(3/2)]
+    </div>
+  </article>
+
+  <!-- TOPIC 19 to 21: Ampere's Law, Solenoid & Toroid -->
+  <article class="study-topic-block" id="sec-phy-mc-ampere" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">19-21</span> Ampere's Circuital Law, Solenoid & Toroid</h3>
+      <span class="subject-pill phy">Circuital Theorems</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Ampere's Circuital Law:</strong> The line integral of magnetic field <code>B</code> around any closed loop equals <code>μ₀</code> times the total current enclosed by the loop:
+    </p>
+    <div class="chemical-equation-box">
+      ∮ B · dl = μ₀ · I_enclosed
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Long Ideal Solenoid:</strong> <code>B = μ₀ · n · I</code> (where <code>n = N / L</code> is turns per unit length). Field inside is uniform and parallel to the axis; field outside is negligibly weak (~0).
+      <br>&bull; <strong>Toroid (Endless Solenoid):</strong> <code>B = (μ₀ · N · I) / (2π · r)</code> inside the core; zero in open space inside and outside the toroid.
+    </p>
+  </article>
+
+  <!-- TOPIC 26: "Why" Questions & MUST DO -->
+  <article class="study-topic-block" id="sec-phy-mc-why" data-visual="phy-mc-lorentz">
+    <div class="topic-header-row">
+      <h3><span class="section-num">26</span> Board "Why" Questions & MUST-DO Checklist</h3>
+      <span class="subject-pill phy">High-Yield Revisions</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: 0.6rem;">
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why does a magnetic field not change the kinetic energy of a charged particle?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          Magnetic force <code>F = q(v × B)</code> is perpendicular to velocity <code>v</code> at every instant. Power delivered <code>P = F · v = 0</code>. By work-energy theorem, work done is zero, so speed and KE remain constant.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why is a radial magnetic field used in a moving coil galvanometer?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          In a radial field, field lines always lie in the plane of the coil (θ = 90°), making deflecting torque maximum and constant for a given current, which ensures a linear scale (<code>θ ∝ I</code>).
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+
+
+<div id="chapter-phy-magmatter-container" style="display: none;">
+  <!-- TOPIC 1 to 6: Bar Magnet & Dipole -->
+  <article class="study-topic-block" id="sec-phy-mm-barmagnet" data-visual="phy-mm-dipole">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-6</span> Bar Magnet, Magnetic Dipole & Field Lines</h3>
+      <span class="subject-pill phy">Class 12 Physics &bull; Ch. 5</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Bar Magnet as a Magnetic Dipole:</strong> Consists of two equal and opposite magnetic poles separated by magnetic length <code>2l</code>.
+      <br>&bull; <strong>Magnetic Dipole Moment:</strong> <code>M = m · (2l)</code> (SI unit: <code>A · m²</code> or <code>J / T</code>). Direction points from <strong>South Pole to North Pole</strong> inside the magnet.
+      <br>&bull; <strong>Magnetic Monopoles Do Not Exist:</strong> Cutting a bar magnet in half produces two smaller complete dipoles; isolated magnetic monopoles have never been observed!
+    </p>
+
+    <h4 style="color: var(--phy-primary); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">Fields of a Short Bar Magnet (r ≫ l):</h4>
+    <div class="chemical-equation-box">
+      B_axial = (μ₀ / 4π) · (2M / r³) &nbsp;|&nbsp; B_equatorial = (μ₀ / 4π) · (M / r³)
+    </div>
+    <p class="study-body-text" style="font-weight: 700; color: var(--phy-primary);">
+      ✦ Crucial Board Relation: B_axial = 2 · B_equatorial (at the same distance r).
+    </p>
+  </article>
+
+  <!-- TOPIC 7 & 8: Torque & Potential Energy -->
+  <article class="study-topic-block" id="sec-phy-mm-torque" data-visual="phy-mm-dipole">
+    <div class="topic-header-row">
+      <h3><span class="section-num">7-8</span> Torque & Potential Energy of Magnetic Dipole</h3>
+      <span class="subject-pill phy">Uniform B-Field</span>
+    </div>
+    <p class="study-body-text">
+      When a magnetic dipole with moment <code>M</code> is placed in a uniform magnetic field <code>B</code>:
+    </p>
+    <div class="chemical-equation-box">
+      τ = M × B = M · B · sin θ &nbsp;|&nbsp; U = - M · B = - M · B · cos θ
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Stable Equilibrium:</strong> <code>θ = 0°</code> (M parallel to B) ⟶ <code>τ = 0</code>, <code>U = -MB</code> (Minimum potential energy).
+      <br>&bull; <strong>Unstable Equilibrium:</strong> <code>θ = 180°</code> (M antiparallel to B) ⟶ <code>τ = 0</code>, <code>U = +MB</code> (Maximum potential energy).
+      <br>&bull; <strong>Work Done to rotate dipole from θ₁ to θ₂:</strong> <code>W = -MB (cos θ₂ - cos θ₁)</code>.
+    </p>
+  </article>
+
+  <!-- TOPIC 9 to 12: Earth's Magnetism -->
+  <article class="study-topic-block" id="sec-phy-mm-earth" data-visual="phy-mm-earth">
+    <div class="topic-header-row">
+      <h3><span class="section-num">9-12</span> Earth's Magnetism & Magnetic Elements</h3>
+      <span class="subject-pill phy">Major Numerical Topic</span>
+    </div>
+    <p class="study-body-text">
+      Earth behaves like a giant magnetic dipole tilted at ~11.3° to its geographic rotational axis. Its magnetic South pole lies near the geographic North pole.
+    </p>
+    <h4 style="color: var(--phy-primary); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">The Three Magnetic Elements:</h4>
+    <p class="study-body-text">
+      1. <strong>Magnetic Declination (D):</strong> Angle between geographic meridian and magnetic meridian at a place.
+      <br>2. <strong>Angle of Dip or Magnetic Inclination (δ):</strong> Angle made by Earth's total magnetic field with the horizontal plane:
+      <br>&nbsp;&nbsp;&bull; At Magnetic Equator: <code>δ = 0°</code> (needle rests horizontally).
+      <br>&nbsp;&nbsp;&bull; At Magnetic Poles: <code>δ = 90°</code> (needle rests vertically).
+      <br>3. <strong>Horizontal Component (B_H):</strong>
+    </p>
+    <div class="chemical-equation-box">
+      B_H = B · cos δ &nbsp;|&nbsp; B_V = B · sin δ &nbsp;⇒&nbsp; tan δ = B_V / B_H &nbsp;|&nbsp; B = √(B_H² + B_V²)
+    </div>
+  </article>
+
+  <!-- TOPIC 13 to 20: Magnetic Materials -->
+  <article class="study-topic-block" id="sec-phy-mm-materials" data-visual="phy-mm-materials">
+    <div class="topic-header-row">
+      <h3><span class="section-num">13-20</span> Classification of Magnetic Materials</h3>
+      <span class="subject-pill phy">Dia vs Para vs Ferro</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Magnetisation (M):</strong> Net magnetic dipole moment per unit volume: <code>M = m_net / V</code> (Unit: <code>A / m</code>).
+      <br>&bull; <strong>Magnetic Intensity (H):</strong> Applied magnetising field: <code>B = μ₀ (H + M)</code>.
+      <br>&bull; <strong>Magnetic Susceptibility (χ_m):</strong> <code>χ_m = M / H</code>. Dimensionless measure of material response.
+      <br>&bull; <strong>Relative Permeability:</strong> <code>μ_r = 1 + χ_m = μ / μ₀</code>.
+    </p>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Susceptibility (χ_m)</th>
+          <th>Relative Permeability (μ_r)</th>
+          <th>Temperature Law</th>
+          <th>Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Diamagnetic</strong></td>
+          <td>Small & negative (-1 ≤ χ &lt; 0)</td>
+          <td>0 ≤ μ_r &lt; 1</td>
+          <td>Independent of Temp</td>
+          <td>Bi, Cu, Pb, H₂O, NaCl, Au</td>
+        </tr>
+        <tr>
+          <td><strong>Paramagnetic</strong></td>
+          <td>Small & positive (0 &lt; χ &lt; ε)</td>
+          <td>μ_r slightly &gt; 1</td>
+          <td>Curie Law: <code>χ = C / T</code></td>
+          <td>Al, Pt, Mn, Cr, O₂, Na</td>
+        </tr>
+        <tr>
+          <td><strong>Ferromagnetic</strong></td>
+          <td>Very large positive (χ ≫ 1000)</td>
+          <td>μ_r ≫ 1000</td>
+          <td>Curie-Weiss above T_c: <code>χ = C/(T - T_c)</code></td>
+          <td>Fe, Co, Ni, Gd, Alnico</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+  <!-- TOPIC 21 to 27: Hysteresis & Permanent vs Electromagnets -->
+  <article class="study-topic-block" id="sec-phy-mm-hysteresis" data-visual="phy-mm-materials">
+    <div class="topic-header-row">
+      <h3><span class="section-num">21-27</span> Magnetic Hysteresis & Technical Magnets</h3>
+      <span class="subject-pill phy">Materials Engineering</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Hysteresis:</strong> The lagging of magnetisation <code>B</code> behind the magnetising field <code>H</code> in ferromagnetic materials.
+      <br>&bull; <strong>Retentivity (Remanence):</strong> Value of B remaining when H is reduced to zero.
+      <br>&bull; <strong>Coercivity:</strong> Reverse magnetising field (-H) required to reduce residual B to zero.
+      <br>&bull; <strong>Hysteresis Loss:</strong> Energy dissipated as heat per cycle of magnetisation equals the <strong>area of the B-H loop</strong>!
+    </p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.6rem;">
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <span style="color: var(--accent-rose); font-weight: 700;">Permanent Magnets (Steel, Alnico)</span>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          &bull; <strong>High Retentivity:</strong> Stays strongly magnetised.<br>
+          &bull; <strong>High Coercivity:</strong> Resistant to stray demagnetisation.<br>
+          &bull; Broad B-H loop; hard magnetic material.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <span style="color: var(--accent-cyan); font-weight: 700;">Electromagnets & Cores (Soft Iron)</span>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          &bull; <strong>High Initial Permeability:</strong> Produces intense B for small I.<br>
+          &bull; <strong>Low Coercivity & Retentivity:</strong> Demagnetises readily.<br>
+          &bull; Narrow B-H loop (minimal hysteresis heat loss in transformers).
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 31: "Why" Questions & MUST DO -->
+  <article class="study-topic-block" id="sec-phy-mm-why" data-visual="phy-mm-dipole">
+    <div class="topic-header-row">
+      <h3><span class="section-num">31</span> Board "Why" Questions & MUST-DO Checklist</h3>
+      <span class="subject-pill phy">High-Yield Revisions</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: 0.6rem;">
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why do magnetic field lines form continuous closed loops?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          Because isolated magnetic monopoles do not exist. In Gauss's law for magnetism, net magnetic flux through any closed surface is always zero (<code>∮ B · dA = 0</code>). Lines that emerge from North must loop back and enter South.
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why does a ferromagnetic substance become paramagnetic above Curie temperature?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          Thermal agitation overcomes the exchange coupling between adjacent atomic magnetic moments, destroying domain alignment. The domains break up into randomly oriented individual atomic dipoles.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+
+
+<div id="chapter-phy-emi-container" style="display: none;">
+  <!-- TOPIC 1 to 3: Magnetic Flux & Faraday's Laws -->
+  <article class="study-topic-block" id="sec-phy-emi-flux" data-visual="phy-emi-faraday">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-3</span> Magnetic Flux & Faraday's Laws of Induction</h3>
+      <span class="subject-pill phy">Class 12 Physics &bull; Ch. 6</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Magnetic Flux (Φ_B):</strong> Total number of magnetic field lines crossing an area A:
+    </p>
+    <div class="chemical-equation-box">
+      Φ_B = B · A = B · A · cos θ &nbsp;&nbsp;(SI Unit: Weber, Wb = T · m²)
+    </div>
+    <p class="study-body-text">
+      <strong>Faraday's Laws of Induction:</strong>
+      <br>&bull; <strong>First Law:</strong> Whenever magnetic flux linked with a closed circuit changes, an electromotive force (EMF) is induced, persisting as long as the flux continues to change.
+      <br>&bull; <strong>Second Law:</strong> The magnitude of induced EMF is directly proportional to the rate of change of magnetic flux:
+    </p>
+    <div class="chemical-equation-box">
+      ε = - N · (dΦ_B / dt)
+    </div>
+  </article>
+
+  <!-- TOPIC 4: Lenz's Law -->
+  <article class="study-topic-block" id="sec-phy-emi-lenz" data-visual="phy-emi-faraday">
+    <div class="topic-header-row">
+      <h3><span class="section-num">4</span> Lenz's Law & Conservation of Energy</h3>
+      <span class="subject-pill phy">Foundational Board Topic</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Statement:</strong> The polarity of induced EMF is such that it tends to produce a current which <em>opposes the change in magnetic flux that produces it</em>.
+    </p>
+    <div class="neet-trap-alert" style="border-left: 3px solid var(--phy-primary);">
+      <span style="font-size: 1.25rem;">⚡</span>
+      <div>
+        <strong>Why is Lenz's Law a Consequence of Energy Conservation?</strong>
+        <br>When a magnet's North pole approaches a coil, induced current flows counter-clockwise, forming a North pole to repel the approaching magnet. An external agent must do mechanical work to push the magnet against this repulsive magnetic force. This mechanical work is precisely converted into electrical energy. If induced current instead attracted the magnet, infinite kinetic energy would be created from nothing, violating energy conservation!
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 5 to 8: Motional EMF & Current -->
+  <article class="study-topic-block" id="sec-phy-emi-motional" data-visual="phy-emi-motional">
+    <div class="topic-header-row">
+      <h3><span class="section-num">5-8</span> Motional EMF, Current & Power Dissipation</h3>
+      <span class="subject-pill phy">Moving Conductors</span>
+    </div>
+    <p class="study-body-text">
+      When a straight conducting rod of length <code>l</code> moves with velocity <code>v</code> perpendicular to uniform magnetic field <code>B</code>:
+    </p>
+    <div class="chemical-equation-box">
+      ε = B · l · v &nbsp;|&nbsp; I = (B · l · v) / R &nbsp;|&nbsp; F_ext = (B² · l² · v) / R &nbsp;|&nbsp; P = (B² · l² · v²) / R
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Fleming's Right-Hand Rule:</strong> Stretch thumb, forefinger, and middle finger mutually perpendicular:
+      <br>&nbsp;&nbsp;&bull; <strong>Thumb:</strong> Direction of motion of conductor (v).
+      <br>&nbsp;&nbsp;&bull; <strong>Forefinger:</strong> Direction of magnetic field (B).
+      <br>&nbsp;&nbsp;&bull; <strong>Middle finger:</strong> Direction of induced current (I).
+    </p>
+  </article>
+
+  <!-- TOPIC 9: Eddy Currents -->
+  <article class="study-topic-block" id="sec-phy-emi-eddy" data-visual="phy-emi-motional">
+    <div class="topic-header-row">
+      <h3><span class="section-num">9</span> Eddy Currents (Foucault Currents)</h3>
+      <span class="subject-pill phy">Bulk Conductor Phenomena</span>
+    </div>
+    <p class="study-body-text">
+      Circulating induced currents produced in the bulk mass of metallic conductors when exposed to changing magnetic flux.
+      <br>&bull; <strong>Applications:</strong>
+      <br>&nbsp;&nbsp;1. <em>Electromagnetic Braking:</em> In high-speed trains, strong electro-magnets induce eddy currents in rails, creating opposing torque that stops trains smoothly.
+      <br>&nbsp;&nbsp;2. <em>Induction Furnace:</em> High-frequency eddy currents generate rapid Joule heating (I²Rt) to melt metals in vacuum.
+      <br>&nbsp;&nbsp;3. <em>Dead-Beat Galvanometers:</em> A metallic coil frame induces eddy currents that damp needle oscillation rapidly.
+      <br>&bull; <strong>Disadvantage & Reduction:</strong> Causes unwanted heating and power loss in transformers and motor cores. Minimized by constructing cores from <strong>thin laminated sheets</strong> insulated by varnish!
+    </p>
+  </article>
+
+  <!-- TOPIC 10 to 15: Self & Mutual Inductance -->
+  <article class="study-topic-block" id="sec-phy-emi-inductance" data-visual="phy-emi-faraday">
+    <div class="topic-header-row">
+      <h3><span class="section-num">10-15</span> Self & Mutual Inductance</h3>
+      <span class="subject-pill phy">Inductive Inertia</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Self-Induction (Electrical Inertia):</strong> Production of induced EMF in a coil due to change of current in the same coil:
+    </p>
+    <div class="chemical-equation-box">
+      ε = - L · (dI / dt) &nbsp;&nbsp;(SI Unit: Henry, H = V·s/A)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Self-Inductance of Long Solenoid:</strong> <code>L = (μ₀ · N² · A) / l = μ₀ · n² · A · l</code>.
+      <br>&bull; <strong>Energy Stored in Inductor:</strong> <code>U = ½ L · I²</code> &nbsp;&nbsp;(Magnetic Energy Density <code>u_B = B² / 2μ₀</code>).
+      <br><br>
+      &bull; <strong>Mutual Induction:</strong> Production of induced EMF in a secondary coil due to current variation in a neighbouring primary coil:
+    </p>
+    <div class="chemical-equation-box">
+      ε₂ = - M · (dI₁ / dt) &nbsp;|&nbsp; Two Coaxial Solenoids: M = (μ₀ · N₁ · N₂ · A) / l
+    </div>
+  </article>
+
+  <!-- TOPIC 17 to 19: AC Generator -->
+  <article class="study-topic-block" id="sec-phy-emi-generator" data-visual="phy-emi-generator">
+    <div class="topic-header-row">
+      <h3><span class="section-num">17-19</span> The AC Generator (Alternator)</h3>
+      <span class="subject-pill phy">Major Board 5-Marker</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Principle:</strong> Works on Electromagnetic Induction. Mechanical rotation of a coil in a magnetic field changes the flux linkage <code>Φ_B = N B A cos(ωt)</code>.
+    </p>
+    <div class="chemical-equation-box">
+      e = - dΦ_B / dt = N · B · A · ω · sin(ωt) = e₀ · sin(ωt)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Peak EMF:</strong> <code>e₀ = N · B · A · ω = 2π · f · N · B · A</code>.
+      <br>&bull; <strong>Construction Essentials:</strong> Armature coil, strong field magnets, two slip rings (continuous contact without reversing polarity), and carbon brushes connecting to external load circuit.
+    </p>
+  </article>
+
+  <!-- TOPIC 23: "Why" Questions & MUST DO -->
+  <article class="study-topic-block" id="sec-phy-emi-why" data-visual="phy-emi-faraday">
+    <div class="topic-header-row">
+      <h3><span class="section-num">23</span> Board "Why" Questions & MUST-DO Checklist</h3>
+      <span class="subject-pill phy">High-Yield Revisions</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: 0.6rem;">
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why does a spark occur when an inductive circuit is suddenly switched off?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          Current drops from I to 0 in a very short duration (dt ≈ 0). This massive rate of change <code>-dI/dt</code> induces a tremendous self-induced back-EMF <code>ε = -L(dI/dt)</code> across the switch gap, ionizing air and creating an electric spark!
+        </p>
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0; padding: 0.6rem;">
+        <strong style="color: var(--phy-primary);">Q: Why are transformer cores laminated?</strong>
+        <p style="font-size: 0.8rem; color: #fff; margin-top: 0.2rem;">
+          Laminations break up large continuous conductive loops into thin sheets insulated by varnish. This dramatically increases electrical resistance along the eddy current circulation plane, cutting heat energy losses.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+
+
+<div id="chapter-chem-kinetics-container" style="display: none;">
+  <!-- TOPIC 1 to 5: Reaction Rates -->
+  <article class="study-topic-block" id="sec-chem-kin-rate" data-visual="chem-kin-order">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-5</span> Rates of Chemical Reactions</h3>
+      <span class="subject-pill chem">Physical Chemistry &bull; Ch. 4</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Chemical Kinetics:</strong> Branch of chemistry dealing with the rate of chemical reactions, the factors influencing them, and the molecular mechanism.
+      <br>For general reaction <code>a A + b B ⟶ c C + d D</code>:
+    </p>
+    <div class="chemical-equation-box">
+      Rate = - (1/a) (Δ[A] / Δt) = - (1/b) (Δ[B] / Δt) = + (1/c) (Δ[C] / Δt) = + (1/d) (Δ[D] / Δt)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Negative Sign:</strong> Indicates reactant concentration decreases over time.
+      <br>&bull; <strong>Average Rate:</strong> <code>r_avg = - Δ[R] / Δt</code> over a finite time interval.
+      <br>&bull; <strong>Instantaneous Rate:</strong> <code>r_inst = - d[R] / dt</code> (tangent slope of [R] vs t plot).
+      <br>&bull; <strong>Factors Affecting Rate:</strong> Concentration of reactants, Temperature, Catalyst (lowers activation energy), Surface area, Nature of reactants.
+    </p>
+  </article>
+
+  <!-- TOPIC 6 & 7: Rate Law & Order of Reaction -->
+  <article class="study-topic-block" id="sec-chem-kin-order" data-visual="chem-kin-order">
+    <div class="topic-header-row">
+      <h3><span class="section-num">6-7</span> Rate Law Expression & Order of Reaction</h3>
+      <span class="subject-pill chem">Experimental Kinetics</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Rate Law:</strong> Experimentally determined mathematical expression relating reaction rate to molar concentrations of reactants:
+    </p>
+    <div class="chemical-equation-box">
+      Rate = k [A]^x [B]^y &nbsp;&nbsp;⇒&nbsp;&nbsp; Overall Order n = x + y
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Order of Reaction:</strong> The sum of powers of concentration terms in the rate law.
+      <br>&bull; <em>Crucial NEET fact:</em> Order cannot generally be deduced from stoichiometric coefficients in a balanced equation! It is strictly an experimental quantity.
+      <br>&bull; <strong>General Unit of Rate Constant (k):</strong> <code>[k] = (mol / L)^(1 - n) · s⁻¹</code>.
+    </p>
+  </article>
+
+  <!-- TOPIC 8 & 9: Zero-Order Kinetics -->
+  <article class="study-topic-block" id="sec-chem-kin-zero" data-visual="chem-kin-order">
+    <div class="topic-header-row">
+      <h3><span class="section-num">8-9</span> Zero-Order Reaction Kinetics</h3>
+      <span class="subject-pill chem">Integrated Equations</span>
+    </div>
+    <p class="study-body-text">
+      Rate is independent of reactant concentration: <code>- d[R] / dt = k [R]⁰ = k</code>.
+    </p>
+    <div class="chemical-equation-box">
+      [R]_t = [R]₀ - k · t &nbsp;&nbsp;⇒&nbsp;&nbsp; k = ([R]₀ - [R]_t) / t
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Half-Life (t½):</strong> Time required for concentration to reduce to [R]₀ / 2:
+    </p>
+    <div class="chemical-equation-box">
+      t½ = [R]₀ / (2k) &nbsp;&nbsp;⇒&nbsp;&nbsp; t½ ∝ [R]₀ (Directly proportional to initial concentration!)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Plot of [R] vs t:</strong> Straight line with <strong>Slope = -k</strong> and <strong>Intercept = [R]₀</strong>.
+      <br>&bull; <strong>Examples:</strong> Decomposition of gaseous NH₃ on hot Pt surface; Photochemical H₂ + Cl₂ ⟶ 2 HCl.
+    </p>
+  </article>
+
+  <!-- TOPIC 10 to 15: First-Order Kinetics -->
+  <article class="study-topic-block" id="sec-chem-kin-first" data-visual="chem-kin-halflife">
+    <div class="topic-header-row">
+      <h3><span class="section-num">10-15</span> First-Order Reactions & Half-Life</h3>
+      <span class="subject-pill chem">Major Numerical Area</span>
+    </div>
+    <p class="study-body-text">
+      Rate is proportional to first power of reactant concentration: <code>r = k [R]</code>.
+    </p>
+    <div class="chemical-equation-box">
+      k = (2.303 / t) · log([R]₀ / [R]_t) &nbsp;&nbsp;or&nbsp;&nbsp; [R]_t = [R]₀ · e^(-kt)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Half-Life of First-Order:</strong>
+    </p>
+    <div class="chemical-equation-box">
+      t½ = ln 2 / k = 0.693 / k &nbsp;&nbsp;(Completely INDEPENDENT of initial concentration [R]₀!)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Fraction Remaining after n Half-Lives:</strong> <code>[R]_t / [R]₀ = (½)ⁿ</code>.
+      <br>&bull; <strong>Pseudo First-Order Reaction:</strong> A higher-order reaction that behaves as first-order when one reactant is present in huge stoichiometric excess (e.g., Acid-catalysed hydrolysis of ethyl acetate: <code>CH₃COOC₂H₅ + H₂O(excess) ⟶ CH₃COOH + C₂H₅OH</code>; Inversion of cane sugar).
+    </p>
+  </article>
+
+  <!-- TOPIC 16 & 17: Molecularity vs Order -->
+  <article class="study-topic-block" id="sec-chem-kin-molecularity" data-visual="chem-kin-order">
+    <div class="topic-header-row">
+      <h3><span class="section-num">16-17</span> Order vs Molecularity</h3>
+      <span class="subject-pill chem">CBSE Comparison</span>
+    </div>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Order of Reaction</th>
+          <th>Molecularity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Definition</strong></td>
+          <td>Sum of concentration exponents in rate law</td>
+          <td>Number of reacting species in elementary step</td>
+        </tr>
+        <tr>
+          <td><strong>Determination</strong></td>
+          <td>Experimentally determined only</td>
+          <td>Theoretical mechanism-based concept</td>
+        </tr>
+        <tr>
+          <td><strong>Values</strong></td>
+          <td>Can be 0, fraction, integer, or negative</td>
+          <td>Always a positive whole integer (1, 2, 3)</td>
+        </tr>
+        <tr>
+          <td><strong>Zero Value?</strong></td>
+          <td>Can be zero (Zero-order reaction)</td>
+          <td>NEVER zero</td>
+        </tr>
+        <tr>
+          <td><strong>Scope</strong></td>
+          <td>Applies to elementary AND complex reactions</td>
+          <td>Meaningful ONLY for elementary steps</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+
+  <!-- TOPIC 18 to 23: Arrhenius Equation -->
+  <article class="study-topic-block" id="sec-chem-kin-arrhenius" data-visual="chem-kin-arrhenius">
+    <div class="topic-header-row">
+      <h3><span class="section-num">18-23</span> Temperature Dependence & The Arrhenius Equation</h3>
+      <span class="subject-pill chem">Activation Energy</span>
+    </div>
+    <p class="study-body-text">
+      Generally, reaction rate nearly doubles for every 10°C rise in temperature (Temperature Coefficient ≈ 2 to 3).
+    </p>
+    <div class="chemical-equation-box">
+      k = A · e^(-Ea / RT) &nbsp;&nbsp;⇒&nbsp;&nbsp; log k = log A - (Ea / (2.303 · R · T))
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Two-Temperature Form (Core Numerical Formula):</strong>
+    </p>
+    <div class="chemical-equation-box">
+      log(k₂ / k₁) = [Ea / (2.303 R)] · [(T₂ - T₁) / (T₁ · T₂)]
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Arrhenius Plot:</strong> <code>log k vs 1/T</code> gives a straight line with <strong>Slope = - Ea / (2.303 R)</strong> and <strong>Intercept = log A</strong>.
+      <br>&bull; <em>Crucial Note:</em> Temperature MUST always be expressed in <strong>Kelvin</strong> (K = °C + 273.15)!
+    </p>
+  </article>
+
+  <!-- TOPIC 24 to 27: Collision Theory & Traps -->
+  <article class="study-topic-block" id="sec-chem-kin-collision" data-visual="chem-kin-arrhenius">
+    <div class="topic-header-row">
+      <h3><span class="section-num">24-27</span> Collision Theory & Energy Profile</h3>
+      <span class="subject-pill chem">Transition State</span>
+    </div>
+    <p class="study-body-text">
+      For an effective chemical reaction, reactant molecules must satisfy TWO criteria simultaneously:
+      <br>1. <strong>Energy Barrier:</strong> Molecules must possess minimum energy equal to or exceeding <strong>Threshold Energy</strong> (Activation Energy <code>Ea = E_threshold - E_reactants</code>).
+      <br>2. <strong>Orientation Barrier:</strong> Molecules must collide with proper spatial orientation (steric factor P: <code>k = P · Z_AB · e^(-Ea/RT)</code>).
+      <br><br>
+      <strong>Role of Catalyst:</strong>
+      <br>&bull; Provides an alternative reaction pathway with a lower activation energy barrier.
+      <br>&bull; <strong>Does NOT alter ΔH (enthalpy of reaction)</strong>!
+      <br>&bull; <strong>Does NOT alter Equilibrium Constant (K_eq)</strong>; accelerates forward and backward rates equally!
+    </p>
+  </article>
+</div>
+
+
+<div id="chapter-chem-coordination-container" style="display: none;">
+  <!-- TOPIC 1 to 9: Intro & Important Terms -->
+  <article class="study-topic-block" id="sec-chem-coord-intro" data-visual="chem-coord-cft">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-9</span> Coordination Compounds & Ligand Classifications</h3>
+      <span class="subject-pill chem">Inorganic Chemistry &bull; Ch. 5</span>
+    </div>
+    <p class="study-body-text">
+      A coordination compound contains a central metal atom/ion surrounded by electron-pair donating ligands via coordinate covalent bonds, enclosed in square brackets <code>[M(L)_n]</code> (Coordination Sphere).
+      <br>&bull; <strong>Denticity of Ligands:</strong>
+      <br>&nbsp;&nbsp;&bull; <em>Unidentate:</em> One donor atom (<code>H₂O, NH₃, Cl⁻, CN⁻, OH⁻</code>).
+      <br>&nbsp;&nbsp;&bull; <em>Bidentate:</em> Two donor atoms (Ethane-1,2-diamine <code>en</code>, Oxalate <code>C₂O₄²⁻</code>).
+      <br>&nbsp;&nbsp;&bull; <em>Polydentate:</em> Multiple donor atoms (<code>EDTA⁴⁻</code> is hexadentate!).
+      <br>&bull; <strong>Chelate Effect:</strong> Chelating (ring-forming) di- or polydentate ligands form complexes with exceptionally high thermodynamic stability compared to monodentate analogues.
+      <br>&bull; <strong>Ambidentate Ligands:</strong> Can coordinate through either of two different donor atoms (e.g., <code>-NO₂⁻</code> nitro vs <code>-ONO⁻</code> nitrito; <code>-SCN⁻</code> thiocyanato vs <code>-NCS⁻</code> isothiocyanato). Gives rise to <strong>Linkage Isomerism</strong>!
+    </p>
+  </article>
+
+  <!-- TOPIC 10 & 11: Werner's Theory -->
+  <article class="study-topic-block" id="sec-chem-coord-werner" data-visual="chem-coord-werner">
+    <div class="topic-header-row">
+      <h3><span class="section-num">10-11</span> Alfred Werner's Coordination Theory</h3>
+      <span class="subject-pill chem">Nobel Prize Foundation</span>
+    </div>
+    <p class="study-body-text">
+      Werner proposed that metals in coordination compounds exhibit two types of valency:
+      <br>&bull; <strong>Primary Valency:</strong> Corresponds to the <strong>Oxidation State</strong>; ionisable; non-directional; satisfied by negative ions.
+      <br>&bull; <strong>Secondary Valency:</strong> Corresponds to the <strong>Coordination Number</strong>; non-ionisable; directional (defines geometry like octahedral, tetrahedral, square planar); satisfied by neutral molecules or negative ions.
+    </p>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Complex Formula</th>
+          <th>Formulation</th>
+          <th>Ionisable Cl⁻ (AgCl ppt)</th>
+          <th>Total Ions in Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>CoCl₃ · 6NH₃</code></td><td><code>[Co(NH₃)₆]Cl₃</code></td><td>3 moles AgCl</td><td>4 ions (1:3 electrolyte)</td></tr>
+        <tr><td><code>CoCl₃ · 5NH₃</code></td><td><code>[Co(NH₃)₅Cl]Cl₂</code></td><td>2 moles AgCl</td><td>3 ions (1:2 electrolyte)</td></tr>
+        <tr><td><code>CoCl₃ · 4NH₃</code></td><td><code>[Co(NH₃)₄Cl₂]Cl</code></td><td>1 mole AgCl</td><td>2 ions (1:1 electrolyte)</td></tr>
+        <tr><td><code>CoCl₃ · 3NH₃</code></td><td><code>[Co(NH₃)₃Cl₃]</code></td><td>0 moles AgCl</td><td>Non-electrolyte (0 ions)</td></tr>
+      </tbody>
+    </table>
+  </article>
+
+  <!-- TOPIC 12 to 17: IUPAC Nomenclature -->
+  <article class="study-topic-block" id="sec-chem-coord-nomen" data-visual="chem-coord-cft">
+    <div class="topic-header-row">
+      <h3><span class="section-num">12-17</span> IUPAC Nomenclature of Coordination Complexes</h3>
+      <span class="subject-pill chem">Systematic Naming</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Core IUPAC Rules:</strong>
+      <br>1. Cation is named first in both cationic and anionic complexes.
+      <br>2. Inside coordination entity, ligands are named in <strong>alphabetical order</strong> before the central metal.
+      <br>3. Anionic ligands end in <code>-o</code> (e.g. chlorido, cyanido, oxalato); neutral ligands use special names (<code>H₂O = aqua, NH₃ = ammine, CO = carbonyl, NO = nitrosyl</code>).
+      <br>4. Multiplicity prefixes: <em>di, tri, tetra</em>; or <em>bis, tris, tetrakis</em> for complex ligands containing numerical prefixes (e.g. <em>tris(ethane-1,2-diamine)</em>).
+      <br>5. Oxidation state of central metal is indicated by <strong>Roman numerals in parentheses</strong>.
+      <br>6. If the complex entity is an <strong>anion</strong>, the metal name ends with suffix <strong>-ate</strong> (e.g., ferrate, cobaltate, cuprate, platinate).
+      <br><br>
+      <strong>Benchmark Examples:</strong>
+      <br>&bull; <code>[Co(NH₃)₆]Cl₃</code>: Hexaamminecobalt(III) chloride
+      <br>&bull; <code>[Co(NH₃)₅Cl]Cl₂</code>: Pentaamminechloridocobalt(III) chloride
+      <br>&bull; <code>K₄[Fe(CN)₆]</code>: Potassium hexacyanidoferrate(II)
+      <br>&bull; <code>[Pt(NH₃)₂Cl₂]</code>: Diamminedichloridoplatinum(II)
+    </p>
+  </article>
+
+  <!-- TOPIC 18 to 27: Isomerism -->
+  <article class="study-topic-block" id="sec-chem-coord-isomers" data-visual="chem-coord-isomers">
+    <div class="topic-header-row">
+      <h3><span class="section-num">18-27</span> Isomerism: Structural & Stereoisomerism</h3>
+      <span class="subject-pill chem">Spatial & Structural Arrangements</span>
+    </div>
+    <h4 style="color: var(--accent-cyan); font-size: 0.95rem;">A. Structural Isomerism:</h4>
+    <p class="study-body-text">
+      &bull; <strong>Linkage Isomerism:</strong> Ambidentate ligands (<code>[Co(NH₃)₅(NO₂)]Cl₂</code> yellow vs <code>[Co(NH₃)₅(ONO)]Cl₂</code> red).
+      <br>&bull; <strong>Coordination Isomerism:</strong> Interchange of ligands between cationic and anionic entities (<code>[Co(NH₃)₆][Cr(CN)₆]</code> and <code>[Cr(NH₃)₆][Co(CN)₆]</code>).
+      <br>&bull; <strong>Ionisation Isomerism:</strong> Exchange of counter ion with a ligand inside coordination sphere (<code>[Co(NH₃)₅SO₄]Br</code> red gives AgBr ppt; <code>[Co(NH₃)₅Br]SO₄</code> violet gives BaSO₄ ppt).
+      <br>&bull; <strong>Solvate / Hydrate Isomerism:</strong> Water inside vs outside lattice (<code>[Cr(H₂O)₆]Cl₃</code> violet vs <code>[Cr(H₂O)₅Cl]Cl₂·H₂O</code> grey-green).
+    </p>
+    <h4 style="color: var(--accent-rose); font-size: 0.95rem; margin-top: 0.8rem;">B. Stereoisomerism:</h4>
+    <p class="study-body-text">
+      &bull; <strong>Geometrical Isomerism:</strong> Cis-trans in square planar [MA₂B₂] (e.g., <em>cis-platin</em> <code>cis-[Pt(NH₃)₂Cl₂]</code> is an anticancer drug; trans is inactive) and octahedral [MA₄B₂]. Facial (fac) and meridional (mer) isomers in [MA₃B₃] complexes.
+      <br>&bull; <strong>Optical Isomerism (Enantiomers):</strong> Non-superimposable mirror images. Common in octahedral complexes with bidentate ligands, e.g. <code>[Co(en)₃]³⁺</code> and <code>cis-[Co(en)₂Cl₂]⁺</code>. <em>(trans-[Co(en)₂Cl₂]⁺ has a plane of symmetry and is optically inactive!).</em>
+    </p>
+  </article>
+
+  <!-- TOPIC 28 to 32: Valence Bond Theory (VBT) -->
+  <article class="study-topic-block" id="sec-chem-coord-vbt" data-visual="chem-coord-cft">
+    <div class="topic-header-row">
+      <h3><span class="section-num">28-32</span> Valence Bond Theory (VBT) & Hybridisation</h3>
+      <span class="subject-pill chem">Bonding Models</span>
+    </div>
+    <p class="study-body-text">
+      Ligands donate lone pairs into vacant hybridised metal orbitals:
+      <br>&bull; <strong>Inner Orbital Complex:</strong> Uses <code>(n-1)d</code> orbitals ⟶ <code>d²sp³</code> (Octahedral). Associated with strong-field ligands that force pairing of d-electrons; low-spin / diamagnetic.
+      <br>&bull; <strong>Outer Orbital Complex:</strong> Uses outer <code>nd</code> orbitals ⟶ <code>sp³d²</code> (Octahedral). Associated with weak-field ligands; high-spin / paramagnetic.
+      <br>&bull; <strong>Coordination Number 4:</strong> <code>sp³</code> (Tetrahedral, e.g., <code>[NiCl₄]²⁻</code> paramagnetic) vs <code>dsp²</code> (Square planar, e.g., <code>[Ni(CN)₄]²⁻</code> diamagnetic).
+    </p>
+  </article>
+
+  <!-- TOPIC 33 to 40: Crystal Field Theory (CFT) -->
+  <article class="study-topic-block" id="sec-chem-coord-cft" data-visual="chem-coord-cft">
+    <div class="topic-header-row">
+      <h3><span class="section-num">33-40</span> Crystal Field Theory (CFT) & Δo vs Δt Splitting</h3>
+      <span class="subject-pill chem">Electrostatic Crystal Field</span>
+    </div>
+    <p class="study-body-text">
+      Treats metal-ligand interactions as electrostatic point charges. Splitting of degenerate d-orbitals:
+      <br>&bull; <strong>Octahedral Splitting (Δo):</strong>
+      <br>&nbsp;&nbsp;&bull; <code>eg</code> orbitals (dx²-y², dz²) point directly at ligands ⟶ destabilised to <strong>+ 0.6 Δo</strong>.
+      <br>&nbsp;&nbsp;&bull; <code>t2g</code> orbitals (dxy, dyz, dxz) point between axes ⟶ stabilised to <strong>- 0.4 Δo</strong>.
+      <br>&bull; <strong>Spectrochemical Series:</strong>
+    </p>
+    <div class="chemical-equation-box" style="font-size: 0.85rem;">
+      I⁻ &lt; Br⁻ &lt; SCN⁻ &lt; Cl⁻ &lt; S²⁻ &lt; F⁻ &lt; OH⁻ &lt; C₂O₄²⁻ &lt; H₂O &lt; NCS⁻ &lt; EDTA⁴⁻ &lt; NH₃ &lt; en &lt; CN⁻ &lt; CO
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>High-Spin vs Low-Spin:</strong>
+      <br>&nbsp;&nbsp;&bull; Weak-field ligand: <code>Δo &lt; P</code> (Pairing energy) ⟶ electrons enter eg without pairing (High spin).
+      <br>&nbsp;&nbsp;&bull; Strong-field ligand: <code>Δo &gt; P</code> ⟶ electrons pair up in t2g first (Low spin).
+      <br>&bull; <strong>Tetrahedral Splitting (Δt):</strong> Inverted splitting (e lower, t₂ higher). <code>Δt = (4/9) Δo</code>. Tetrahedral complexes are <strong>always high-spin</strong> because Δt is too small to overcome pairing energy P!
+    </p>
+  </article>
+
+  <!-- TOPIC 41 to 50: Properties & Applications -->
+  <article class="study-topic-block" id="sec-chem-coord-props" data-visual="chem-coord-cft">
+    <div class="topic-header-row">
+      <h3><span class="section-num">41-50</span> Magnetic Properties, Colour & Bio-Applications</h3>
+      <span class="subject-pill chem">Spectroscopy & Applications</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Spin-Only Magnetic Moment:</strong> <code>μ = √(n(n + 2)) BM</code> (where n = number of unpaired electrons).
+      <br>&bull; <strong>Colour:</strong> Due to <strong>d–d electronic transitions</strong> across Δo. Observed colour is complementary to the absorbed wavelength. <em>d⁰ (e.g. Sc³⁺, Ti⁴⁺) and d¹⁰ (e.g. Zn²⁺, Cu⁺) complexes are completely COLOURLESS!</em>
+      <br><br>
+      <strong>Biological & Medicinal Significance (High-Yield NEET Match):</strong>
+      <br>&bull; <strong>Haemoglobin:</strong> Red blood pigment containing <strong>Fe²⁺</strong> porphyrin complex.
+      <br>&bull; <strong>Chlorophyll:</strong> Green photosynthetic pigment containing <strong>Mg²⁺</strong> porphyrin complex.
+      <br>&bull; <strong>Vitamin B₁₂ (Cyanocobalamin):</strong> Anti-pernicious anaemia factor containing <strong>Co³⁺</strong>.
+      <br>&bull; <strong>Cisplatin (cis-[Pt(NH₃)₂Cl₂]):</strong> Potent clinical antitumor / anticancer chemotherapeutic.
+      <br>&bull; <strong>EDTA (Chelating Agent):</strong> Used in treatment of lead poisoning.
+    </p>
+  </article>
+</div>
+
+
+<div id="chapter-bio-bot2-container" style="display: none;">
+  <!-- TOPIC 1 & 2: Intro & Mendel's 7 Traits -->
+  <article class="study-topic-block" id="sec-bio-inh-intro" data-visual="bio-inh-traits">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-2</span> Heredity, Variation & Mendel's Garden Pea</h3>
+      <span class="subject-pill bio">Botany &bull; Ch. 2</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Gregor Johann Mendel (Father of Genetics)</strong> conducted hybridization experiments on garden pea (<em>Pisum sativum</em>) for 7 years (1856–1863) and proposed the laws of inheritance.
+      <br>&bull; <strong>Why Mendel Chose Pea Plant:</strong> Easily available, short life span, bisexual flowers, naturally self-pollinating but easily cross-pollinated artificially, produces numerous fertile offspring, and possesses clearly distinguishable contrasting traits!
+    </p>
+
+    <h4 style="color: var(--bio-primary); margin: 0.8rem 0 0.3rem; font-size: 0.95rem;">The 7 Pairs of Contrasting Characters in Garden Pea:</h4>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Character</th>
+          <th>Dominant Trait</th>
+          <th>Recessive Trait</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Stem Height</strong></td><td>Tall</td><td>Dwarf</td></tr>
+        <tr><td><strong>Flower Colour</strong></td><td>Violet</td><td>White</td></tr>
+        <tr><td><strong>Flower Position</strong></td><td>Axial</td><td>Terminal</td></tr>
+        <tr><td><strong>Pod Shape</strong></td><td>Inflated</td><td>Constricted</td></tr>
+        <tr><td><strong>Pod Colour</strong></td><td>Green</td><td>Yellow</td></tr>
+        <tr><td><strong>Seed Shape</strong></td><td>Round</td><td>Wrinkled</td></tr>
+        <tr><td><strong>Seed Colour</strong></td><td>Yellow</td><td>Green</td></tr>
+      </tbody>
+    </table>
+
+    <div class="neet-trap-alert" style="border-left: 3px solid var(--accent-rose);">
+      <span style="font-size: 1.25rem;">⚠️</span>
+      <div>
+        <strong>CRITICAL NEET REPEATED TRAP:</strong>
+        Notice the inversion between Seed Colour and Pod Colour:
+        <br>&bull; <strong>Seed Colour:</strong> YELLOW is Dominant, Green is Recessive.
+        <br>&bull; <strong>Pod Colour:</strong> GREEN is Dominant, Yellow is Recessive!
+      </div>
+    </div>
+  </article>
+
+  <!-- TOPIC 3: Monohybrid Cross -->
+  <article class="study-topic-block" id="sec-bio-inh-monohybrid" data-visual="bio-inh-ratios">
+    <div class="topic-header-row">
+      <h3><span class="section-num">3</span> Monohybrid Cross, Test Cross & Back Cross</h3>
+      <span class="subject-pill bio">Mendelian Ratios</span>
+    </div>
+    <p class="study-body-text">
+      A cross involving a single pair of contrasting characters (e.g., Pure Tall <code>TT</code> × Pure Dwarf <code>tt</code>):
+      <br>&bull; <strong>F₁ Generation:</strong> All heterozygous Tall (<code>Tt</code>).
+      <br>&bull; <strong>F₂ Generation (Selfing Tt × Tt):</strong>
+    </p>
+    <div class="chemical-equation-box">
+      F₂ Phenotypic Ratio = 3 Tall : 1 Dwarf (3 : 1)<br>
+      F₂ Genotypic Ratio = 1 TT : 2 Tt : 1 tt (1 : 2 : 1)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Test Cross:</strong> Cross of an individual displaying a dominant phenotype (genotype unknown: TT or Tt) with a <strong>homozygous recessive parent (tt)</strong>:
+      <br>&nbsp;&nbsp;&bull; If dominant parent is <code>Tt</code> ⟶ 1 Tall (Tt) : 1 Dwarf (tt) (<strong>Ratio = 1 : 1</strong>).
+      <br>&nbsp;&nbsp;&bull; If dominant parent is <code>TT</code> ⟶ 100% Tall offspring.
+      <br>&bull; <em>Every test cross is a back cross, but NOT every back cross is a test cross!</em>
+    </p>
+  </article>
+
+  <!-- TOPIC 4: Mendel's Laws -->
+  <article class="study-topic-block" id="sec-bio-inh-laws" data-visual="bio-inh-ratios">
+    <div class="topic-header-row">
+      <h3><span class="section-num">4</span> Mendel's Laws of Inheritance</h3>
+      <span class="subject-pill bio">Genetic Postulates</span>
+    </div>
+    <p class="study-body-text">
+      1. <strong>Law of Dominance:</strong> Characters are controlled by discrete units called factors (genes) which occur in pairs. In a dissimilar pair, one factor dominates (dominant allele) and the other is masked (recessive allele).
+      <br><br>
+      2. <strong>Law of Segregation (Purity of Gametes):</strong> During gamete formation, the two alleles of a gene pair separate/segregate from each other so that each gamete receives only one allele. <em>Alleles do not show any blending!</em> (Universal law without exception).
+      <br><br>
+      3. <strong>Law of Independent Assortment:</strong> When two pairs of traits are combined in a hybrid, segregation of one pair of characters is independent of the other pair during gamete formation (Applies only to unlinked genes on different chromosomes!).
+    </p>
+  </article>
+
+  <!-- TOPIC 5 to 7: Dihybrid Cross -->
+  <article class="study-topic-block" id="sec-bio-inh-dihybrid" data-visual="bio-inh-ratios">
+    <div class="topic-header-row">
+      <h3><span class="section-num">5-7</span> Dihybrid Cross & Probability in Genetics</h3>
+      <span class="subject-pill bio">Punnett Squares</span>
+    </div>
+    <p class="study-body-text">
+      Cross involving two pairs of contrasting traits (Round Yellow <code>RRYY</code> × Wrinkled Green <code>rryy</code>):
+      <br>&bull; <strong>F₁:</strong> All Round Yellow (<code>RrYy</code>). Produces 4 types of gametes in equal ratio: <code>RY, Ry, rY, ry</code> (1 : 1 : 1 : 1).
+      <br>&bull; <strong>F₂ Generation (16 combinations via Reginald C. Punnett Square):</strong>
+    </p>
+    <div class="chemical-equation-box">
+      F₂ Phenotypic Ratio = 9 Round Yellow : 3 Round Green : 3 Wrinkled Yellow : 1 Wrinkled Green (9:3:3:1)<br>
+      F₂ Genotypic Ratio = 1:2:1 : 2:4:2 : 1:2:1 (9 Distinct Genotypes)
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Chromosomal Theory of Inheritance:</strong> Proposed by <strong>Walter Sutton & Theodor Boveri (1902)</strong>. Pointed out that chromosomal behaviour during meiosis parallels gene behaviour (both occur in pairs, segregate during gamete formation, and assort independently).
+    </p>
+  </article>
+
+  <!-- TOPIC 8 to 10: Morgan, Linkage & Recombination -->
+  <article class="study-topic-block" id="sec-bio-inh-linkage" data-visual="bio-inh-ratios">
+    <div class="topic-header-row">
+      <h3><span class="section-num">8-10</span> T.H. Morgan, Linkage & Genetic Mapping</h3>
+      <span class="subject-pill bio">Fly Room Discoveries</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Thomas Hunt Morgan (Father of Experimental Genetics)</strong> chose fruit fly (<em>Drosophila melanogaster</em>) because: cultured on simple synthetic medium, life cycle ~2 weeks, single mating produces hundreds of progeny, clear male/female dimorphism, and distinct hereditary variations visible under low-power microscope!
+      <br>&bull; <strong>Linkage:</strong> Physical association of genes on the same chromosome. Complete linkage produces only parental types (0% recombinants).
+      <br>&bull; <strong>Recombination:</strong> Generation of non-parental gene combinations due to crossing over during <strong>pachytene of prophase-I</strong>:
+    </p>
+    <div class="chemical-equation-box">
+      Recombination Frequency (%) = (Number of Recombinants / Total Offspring) × 100
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Genetic Maps:</strong> Alfred Sturtevant used recombination frequency as a measure of physical distance between genes: <code>1% Recombination = 1 Map Unit = 1 centimorgan (cM)</code>.
+    </p>
+  </article>
+
+  <!-- TOPIC 11 & 12: Sex Determination -->
+  <article class="study-topic-block" id="sec-bio-inh-sex" data-visual="bio-inh-disorders">
+    <div class="topic-header-row">
+      <h3><span class="section-num">11-12</span> Mechanisms of Sex Determination</h3>
+      <span class="subject-pill bio">Chromosomal Systems</span>
+    </div>
+    <p class="study-body-text">
+      1. <strong>XX – XY System (Humans & Drosophila):</strong> Male heterogamety. Female produces only X ova; male produces 50% X and 50% Y sperms. <em>The father determines the sex of the child!</em>
+      <br>2. <strong>XX – XO System (Grasshopper):</strong> Male heterogamety. Male has only one X chromosome (XO); female has two (XX).
+      <br>3. <strong>ZW – ZZ System (Birds):</strong> <strong>Female heterogamety!</strong> Female has ZW (heteromorphic); male has ZZ (homomorphic). The mother determines offspring sex!
+      <br>4. <strong>Haplodiploidy (Honey Bees):</strong> Males (drones) develop parthenogenetically from unfertilised haploid eggs (n = 16) and have no father and cannot have sons! Females (queen & workers) develop from fertilised diploid eggs (2n = 32).
+    </p>
+  </article>
+
+  <!-- TOPIC 14 to 24: Mendelian & Chromosomal Disorders -->
+  <article class="study-topic-block" id="sec-bio-inh-disorders" data-visual="bio-inh-disorders">
+    <div class="topic-header-row">
+      <h3><span class="section-num">14-24</span> Mendelian & Chromosomal Disorders</h3>
+      <span class="subject-pill bio">Medical Genetics</span>
+    </div>
+    <h4 style="color: var(--accent-cyan); font-size: 0.95rem;">A. Mendelian Disorders (Single-Gene Mutations):</h4>
+    <p class="study-body-text">
+      &bull; <strong>Haemophilia (Royal Disease):</strong> X-linked recessive. A single protein in the blood clotting cascade is affected; simple cut leads to non-stop bleeding. Carrier female (XʰX) transmits to 50% of sons.
+      <br>&bull; <strong>Colour Blindness:</strong> X-linked recessive defect in red or green cone photoreceptors. Much more common in males (~8%) than females (~0.4%).
+      <br>&bull; <strong>Sickle-Cell Anaemia:</strong> Autosomal recessive. Point mutation in 6th codon of β-globin gene from <code>GAG (Glutamic acid) ⟶ GTG (Valine)</code>. Polymerizes under low O₂ into sickle-shaped RBCs.
+      <br>&bull; <strong>Phenylketonuria (PKU):</strong> Autosomal recessive inborn error of metabolism. Deficiency of phenylalanine hydroxylase enzyme fails to convert phenylalanine to tyrosine, causing mental retardation.
+      <br>&bull; <strong>Thalassemia:</strong> Autosomal recessive quantitative defect (reduced synthesis of α or β globin chains). Contrast with Sickle-cell which is a <em>qualitative defect</em>!
+    </p>
+
+    <h4 style="color: var(--accent-rose); font-size: 0.95rem; margin-top: 0.8rem;">B. Chromosomal Disorders (Aneuploidy via Non-Disjunction):</h4>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-top: 0.4rem;">
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <strong style="color: var(--accent-rose);">Down's Syndrome (Trisomy 21):</strong> Karyotype <code>47, XX,+21 or 47, XY,+21</code>. First described by Langdon Down (1866). Short stature, furrowed tongue, broad palm with simian crease, intellectual disability.
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <strong style="color: var(--accent-cyan);">Klinefelter's Syndrome:</strong> Karyotype <code>47, XXY</code>. Sterile male, overall masculine development with feminine features (gynaecomastia), tall stature.
+      </div>
+      <div class="model-meta-card" style="margin-bottom: 0;">
+        <strong style="color: var(--accent-amber);">Turner's Syndrome:</strong> Karyotype <code>45, XO</code>. Sterile female, rudimentary ovaries, lack of secondary sexual characteristics, webbed neck, short stature.
+      </div>
+    </div>
+  </article>
+</div>
+
+
+<div id="chapter-bio-bot3-container" style="display: none;">
+  <!-- TOPIC 1 & 2: Search for Genetic Material -->
+  <article class="study-topic-block" id="sec-bio-mol-dna" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-2</span> Search for Genetic Material & Landmark Experiments</h3>
+      <span class="subject-pill bio">Botany &bull; Ch. 3</span>
+    </div>
+    <p class="study-body-text">
+      1. <strong>Griffith's Transformation (1928):</strong> <em>Streptococcus pneumoniae</em>. Smooth (S) virulent strain killed mice; Rough (R) non-virulent did not. Heat-killed S + Live R injected together killed mice! Live virulent S bacteria recovered. Proved a "transforming principle" was transferred from dead S to live R.
+      <br><br>
+      2. <strong>Avery, MacLeod & McCarty (1944):</strong> Discovered transforming principle was DNA. Proteases and RNases did not inhibit transformation, but <strong>DNase completely inhibited it</strong>!
+      <br><br>
+      3. <strong>Hershey & Chase Blender Experiment (1952):</strong> Unequivocal proof using T2 bacteriophage:
+      <br>&bull; ³²P labelled DNA (radioactivity detected in bacterial pellet).
+      <br>&bull; ³⁵S labelled protein coat (radioactivity detected in supernatant).
+      <br>Proved DNA is the genetic material passed from virus to bacteria!
+    </p>
+  </article>
+
+  <!-- TOPIC 3 to 5: Structure of DNA & Chargaff's Rules -->
+  <article class="study-topic-block" id="sec-bio-mol-struct" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">3-5</span> Structure of DNA & Watson-Crick B-DNA Model</h3>
+      <span class="subject-pill bio">Double Helix Geometry</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Nucleotide:</strong> Nitrogenous base + Deoxyribose sugar + Phosphate group (bonded via phosphoester bond to 5′ OH). Nucleotides polymerize via 3′–5′ phosphodiester linkages.
+      <br>&bull; <strong>Chargaff's Equimolar Rules (for dsDNA):</strong>
+    </p>
+    <div class="chemical-equation-box">
+      [A] = [T] &nbsp;|&nbsp; [G] = [C] &nbsp;⇒&nbsp; [A + G] = [T + C] &nbsp;⇒&nbsp; (A + G) / (T + C) = 1
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Watson-Crick Double Helix Parameters:</strong>
+      <br>&nbsp;&nbsp;&bull; Two antiparallel polynucleotide chains (5′ ⟶ 3′ and 3′ ⟶ 5′).
+      <br>&nbsp;&nbsp;&bull; <code>A = T</code> linked by 2 hydrogen bonds; <code>G ≡ C</code> linked by 3 hydrogen bonds.
+      <br>&nbsp;&nbsp;&bull; Right-handed helix pitch = <strong>3.4 nm</strong>; ~<strong>10 bp per turn</strong>; distance between consecutive base pairs = <strong>0.34 nm</strong>; diameter = <strong>2.0 nm</strong>.
+    </p>
+  </article>
+
+  <!-- TOPIC 6: Packaging of DNA -->
+  <article class="study-topic-block" id="sec-bio-mol-packaging" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">6</span> Packaging of DNA & The Nucleosome</h3>
+      <span class="subject-pill bio">Chromatin Architecture</span>
+    </div>
+    <p class="study-body-text">
+      Human diploid genome contains 6.6 × 10⁹ bp, measuring <strong>2.2 metres long</strong>, packed into a ~10⁻⁶ m nucleus!
+      <br>&bull; <strong>Nucleosome:</strong> Negatively charged DNA wrapped around a positively charged <strong>histone octamer</strong> (two copies each of H2A, H2B, H3, H4).
+      <br>&bull; Rich in basic amino acids <strong>Lysine and Arginine</strong> (carrying positive charges on side chains).
+      <br>&bull; A typical nucleosome contains <strong>200 bp of DNA</strong>. H1 histone seals the entry/exit linker DNA.
+      <br>&bull; <strong>Euchromatin:</strong> Loosely packed, stains light, transcriptionally active.
+      <br>&bull; <strong>Heterochromatin:</strong> Densely packed, stains dark, transcriptionally inactive!
+    </p>
+  </article>
+
+  <!-- TOPIC 7 to 10: Semiconservative Replication -->
+  <article class="study-topic-block" id="sec-bio-mol-rep" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">7-10</span> DNA Replication & Meselson-Stahl Proof</h3>
+      <span class="subject-pill bio">Semiconservative Mechanism</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Meselson & Stahl Experiment (1958):</strong> Proved semiconservative replication in <em>E. coli</em> using heavy ¹⁵N and light ¹⁴N with CsCl density gradient centrifugation:
+      <br>&bull; After Gen 1 (20 min): 100% hybrid density DNA (¹⁵N–¹⁴N).
+      <br>&bull; After Gen 2 (40 min): 50% hybrid density + 50% light density (¹⁴N–¹⁴N).
+      <br><br>
+      <strong>Replication Machinery:</strong>
+      <br>&bull; <strong>DNA-dependent DNA Polymerase:</strong> Highly processive; synthesizes only in the <strong>5′ ⟶ 3′ direction</strong>.
+      <br>&bull; <strong>Leading Strand:</strong> Continuous synthesis (template 3′ ⟶ 5′).
+      <br>&bull; <strong>Lagging Strand:</strong> Discontinuous synthesis producing <strong>Okazaki fragments</strong> (joined together by <strong>DNA ligase</strong>).
+    </p>
+  </article>
+
+  <!-- TOPIC 11 to 17: Transcription & RNA Processing -->
+  <article class="study-topic-block" id="sec-bio-mol-transcription" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">11-17</span> Transcription & Eukaryotic RNA Processing</h3>
+      <span class="subject-pill bio">Gene Expression</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Transcription Unit:</strong> Promoter (binding site for RNA polymerase), Structural gene, and Terminator.
+      <br>&bull; <strong>Template Strand:</strong> 3′ ⟶ 5′ polarity.
+      <br>&bull; <strong>Coding Strand:</strong> 5′ ⟶ 3′ polarity (sequence identical to mRNA except T replaced by U).
+      <br><br>
+      <strong>Eukaryotic RNA Polymerases:</strong>
+      <br>&bull; <strong>RNA Polymerase I:</strong> Transcribes 28S, 18S, and 5.8S rRNAs.
+      <br>&bull; <strong>RNA Polymerase II:</strong> Transcribes precursor of mRNA (heterogeneous nuclear RNA, <strong>hnRNA</strong>).
+      <br>&bull; <strong>RNA Polymerase III:</strong> Transcribes tRNA, 5S rRNA, and snRNAs.
+      <br><br>
+      <strong>Post-Transcriptional Modifications of hnRNA:</strong>
+      <br>&bull; <strong>5′ Capping:</strong> Addition of methyl guanosine triphosphate.
+      <br>&bull; <strong>3′ Polyadenylation (Tailing):</strong> 200–300 adenylate residues added.
+      <br>&bull; <strong>Splicing:</strong> Non-coding intervening sequences (<strong>introns</strong>) removed; coding sequences (<strong>exons</strong>) joined by spliceosome!
+    </p>
+  </article>
+
+  <!-- TOPIC 18 to 24: Genetic Code & Translation -->
+  <article class="study-topic-block" id="sec-bio-mol-code" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">18-24</span> The Genetic Code & Translation</h3>
+      <span class="subject-pill bio">Ribosomal Protein Synthesis</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Salient Features of Genetic Code (George Gamow, Nirenberg, Khorana):</strong>
+      <br>&bull; <strong>Triplet:</strong> 61 sense codons code for 20 amino acids; 3 stop codons (<code>UAA, UAG, UGA</code>) code for NO amino acid.
+      <br>&bull; <strong>Unambiguous & Specific:</strong> One codon codes for only one amino acid.
+      <br>&bull; <strong>Degenerate:</strong> Some amino acids are specified by more than one codon (except Methionine <code>AUG</code> and Tryptophan <code>UGG</code>).
+      <br>&bull; <strong>Universal:</strong> AUG codes for Methionine from bacteria to humans!
+      <br>&bull; <strong>Dual Function of AUG:</strong> Acts as initiation/start codon AND codes for Methionine.
+      <br><br>
+      &bull; <strong>tRNA (Adaptor Molecule):</strong> Has amino acid acceptor end (CCA-3′) and anticodon loop that pairs complementarily with mRNA codon.
+      <br>&bull; <strong>Ribosomes:</strong> Prokaryotic 70S (50S + 30S) & Eukaryotic 80S (60S + 40S). 23S rRNA in bacteria acts as <strong>peptidyl transferase ribozyme</strong>!
+    </p>
+  </article>
+
+  <!-- TOPIC 25 to 28: Lac Operon -->
+  <article class="study-topic-block" id="sec-bio-mol-operon" data-visual="bio-mol-operon">
+    <div class="topic-header-row">
+      <h3><span class="section-num">25-28</span> Regulation of Gene Expression: The Lac Operon</h3>
+      <span class="subject-pill bio">Inducible Model (Jacob & Monod)</span>
+    </div>
+    <p class="study-body-text">
+      Consists of: Regulatory gene <strong>i</strong> (inhibitor/repressor), Promoter <strong>p</strong>, Operator <strong>o</strong>, and three structural genes <strong>z, y, a</strong>:
+      <br>&bull; <strong>z gene:</strong> β-galactosidase (hydrolyses lactose into galactose + glucose).
+      <br>&bull; <strong>y gene:</strong> Permease (increases cell permeability to β-galactosides).
+      <br>&bull; <strong>a gene:</strong> Transacetylase.
+      <br><br>
+      &bull; <strong>In absence of inducer (Lactose):</strong> Repressor binds operator, blocking RNA polymerase ⟶ <strong>Operon OFF</strong>.
+      <br>&bull; <strong>In presence of inducer:</strong> Lactose/allolactose binds repressor, inactivating it. RNA pol transcribes z, y, a ⟶ <strong>Operon ON</strong>.
+    </p>
+  </article>
+
+  <!-- TOPIC 29 to 33: HGP & DNA Fingerprinting -->
+  <article class="study-topic-block" id="sec-bio-mol-hgp" data-visual="bio-mol-dna">
+    <div class="topic-header-row">
+      <h3><span class="section-num">29-33</span> Human Genome Project & DNA Fingerprinting</h3>
+      <span class="subject-pill bio">Genomic Frontiers</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Human Genome Project (1990–2003):</strong> Coordinated mega-project. Human genome contains <strong>3.1647 billion bp</strong>. Average gene = 3000 bases (largest human gene is <em>dystrophin</em> at 2.4 million bases). Less than 2% of the genome codes for proteins! Chromosome 1 has highest genes (2968); Y chromosome has least (231).
+      <br><br>
+      &bull; <strong>DNA Fingerprinting (Sir Alec Jeffreys):</strong>
+      <br>Based on identifying <strong>Variable Number of Tandem Repeats (VNTRs)</strong>, a class of satellite DNA showing high degree of polymorphism.
+      <br><strong>Steps:</strong> DNA isolation ⟶ Restriction endonuclease digestion ⟶ Gel electrophoresis ⟶ Southern blotting onto nitrocellulose membrane ⟶ Hybridisation with labelled VNTR probe ⟶ Autoradiography detection.
+    </p>
+  </article>
+</div>
+
+
+<div id="chapter-bio-zoo2-container" style="display: none;">
+  <!-- TOPIC 1 to 3: Intro & Population Explosion -->
+  <article class="study-topic-block" id="sec-bio-rh-intro" data-visual="bio-rh-methods">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-3</span> Reproductive Health & Population Explosion</h3>
+      <span class="subject-pill bio">Zoology &bull; Ch. 2</span>
+    </div>
+    <p class="study-body-text">
+      <strong>WHO Definition:</strong> Reproductive health implies a total well-being in all aspects of reproduction, including <strong>physical, emotional, behavioural, and social aspects</strong>.
+      <br>&bull; India was the first nation in the world to initiate national action plans for family planning in <strong>1951</strong>, now modernized as Reproductive and Child Health Care (<strong>RCH</strong>) programmes.
+      <br>&bull; <strong>Causes of Population Explosion:</strong> Rapid decline in death rate, maternal mortality rate (MMR), and infant mortality rate (IMR), coupled with an increase in life expectancy and population in reproducible age group.
+    </p>
+  </article>
+
+  <!-- TOPIC 4 to 10: Contraception & IUDs -->
+  <article class="study-topic-block" id="sec-bio-rh-contraception" data-visual="bio-rh-methods">
+    <div class="topic-header-row">
+      <h3><span class="section-num">4-10</span> Contraceptive Methods & IUDs</h3>
+      <span class="subject-pill bio">Family Planning Devices</span>
+    </div>
+    <p class="study-body-text">
+      1. <strong>Natural / Traditional Methods:</strong>
+      <br>&bull; <em>Periodic Abstinence:</em> Avoid coitus during fertile period (days 10–17 of menstrual cycle when ovulation is expected).
+      <br>&bull; <em>Coitus Interruptus:</em> Withdrawal of penis before ejaculation.
+      <br>&bull; <em>Lactational Amenorrhea:</em> Absence of menstruation during intense breastfeeding due to high prolactin inhibiting gonadotropins (effective up to maximum 6 months postpartum).
+      <br><br>
+      2. <strong>Barrier Methods:</strong> Condoms (Nirodh), diaphragms, cervical caps, vaults. Condoms offer crucial dual protection against pregnancy AND <strong>STIs/AIDS</strong>!
+      <br><br>
+      3. <strong>Intra-Uterine Devices (IUDs) — Super High-Yield:</strong>
+      <br>&bull; <strong>Non-Medicated IUDs:</strong> <em>Lippes loop</em> (enhances phagocytosis of sperms).
+      <br>&bull; <strong>Copper-Releasing IUDs:</strong> <em>Cu-T, Cu7, Multiload 375</em> (released Cu ions suppress sperm motility and fertilising capacity).
+      <br>&bull; <strong>Hormone-Releasing IUDs:</strong> <em>Progestasert, LNG-20</em> (render uterus unsuitable for implantation and cervix hostile to sperms).
+      <br><br>
+      4. <strong>Oral Contraceptive Pills:</strong> Progestogen or Progestogen-Estrogen combinations taken daily for 21 days starting within first 5 days of cycle.
+      <br>&bull; <strong>Saheli:</strong> Non-steroidal pill developed by <strong>CDRI Lucknow</strong>; contains <em>centchroman</em>; taken "once-a-week" with high contraceptive value and negligible side effects.
+    </p>
+  </article>
+
+  <!-- TOPIC 11 & 12: Surgical Methods & MTP -->
+  <article class="study-topic-block" id="sec-bio-rh-surgical" data-visual="bio-rh-methods">
+    <div class="topic-header-row">
+      <h3><span class="section-num">11-12</span> Surgical Sterilisation & MTP</h3>
+      <span class="subject-pill bio">Permanent Methods</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Vasectomy:</strong> In males, a small part of the <strong>vas deferens</strong> is cut and tied. <em>Spermatogenesis still occurs</em>, but sperms cannot reach semen.
+      <br>&bull; <strong>Tubectomy:</strong> In females, a small part of the <strong>fallopian tubes</strong> is cut and tied. <em>Ovulation and menstrual cycles continue normally</em>, but ovum cannot meet sperm.
+      <br><br>
+      &bull; <strong>Medical Termination of Pregnancy (MTP):</strong> Legalized in India in <strong>1971</strong> with strict conditions to avoid female foeticide. Safe up to the first trimester (12 weeks of pregnancy); second trimester abortions are far more risky.
+    </p>
+  </article>
+
+  <!-- TOPIC 13 to 17: STIs -->
+  <article class="study-topic-block" id="sec-bio-rh-stis" data-visual="bio-rh-stis">
+    <div class="topic-header-row">
+      <h3><span class="section-num">13-17</span> Sexually Transmitted Infections (STIs)</h3>
+      <span class="subject-pill bio">Pathology & Prevention</span>
+    </div>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Infection</th>
+          <th>Causative Organism</th>
+          <th>Type & Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Gonorrhoea</strong></td><td>Neisseria gonorrhoeae</td><td>Bacterium</td></tr>
+        <tr><td><strong>Syphilis</strong></td><td>Treponema pallidum</td><td>Bacterium</td></tr>
+        <tr><td><strong>Chlamydiasis</strong></td><td>Chlamydia trachomatis</td><td>Bacterium</td></tr>
+        <tr><td><strong>Genital Herpes</strong></td><td>Herpes simplex virus (HSV)</td><td>Viral (Incurable)</td></tr>
+        <tr><td><strong>Genital Warts</strong></td><td>Human papillomavirus (HPV)</td><td>Viral</td></tr>
+        <tr><td><strong>Trichomoniasis</strong></td><td>Trichomonas vaginalis</td><td>Protozoan</td></tr>
+        <tr><td><strong>Hepatitis-B & HIV</strong></td><td>HBV & HIV</td><td>Viral (Incurable; transmitted via blood/sexual fluids)</td></tr>
+      </tbody>
+    </table>
+    <p class="study-body-text" style="font-size: 0.85rem; color: var(--accent-amber);">
+      📌 <strong>Incurable STIs:</strong> Genital herpes, Hepatitis-B, and HIV infections are not completely curable. Other bacterial and protozoan STIs are completely curable if detected early and treated properly!
+    </p>
+  </article>
+
+  <!-- TOPIC 18 to 25: Infertility & ART Matrix -->
+  <article class="study-topic-block" id="sec-bio-rh-art" data-visual="bio-rh-art">
+    <div class="topic-header-row">
+      <h3><span class="section-num">18-25</span> Infertility & Assisted Reproductive Technologies (ART)</h3>
+      <span class="subject-pill bio">Clinical Interventions</span>
+    </div>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Technique</th>
+          <th>Full Name</th>
+          <th>Target Site & Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>IVF</strong></td>
+          <td>In Vitro Fertilisation</td>
+          <td>Fertilisation outside body in laboratory ("Test-tube baby") followed by ET.</td>
+        </tr>
+        <tr>
+          <td><strong>ZIFT</strong></td>
+          <td>Zygote Intra Fallopian Transfer</td>
+          <td>Zygote or early embryo up to <strong>8 blastomeres</strong> transferred into <strong>Fallopian Tube</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>IUT</strong></td>
+          <td>Intra Uterine Transfer</td>
+          <td>Embryos with <strong>more than 8 blastomeres</strong> transferred into <strong>Uterus</strong>.</td>
+        </tr>
+        <tr>
+          <td><strong>GIFT</strong></td>
+          <td>Gamete Intra Fallopian Transfer</td>
+          <td>Transfer of collected ovum into <strong>Fallopian Tube</strong> of female who cannot produce one (in vivo fertilisation).</td>
+        </tr>
+        <tr>
+          <td><strong>ICSI</strong></td>
+          <td>Intra Cytoplasmic Sperm Injection</td>
+          <td>A single sperm is directly injected into the cytoplasm of the ovum in the laboratory.</td>
+        </tr>
+        <tr>
+          <td><strong>AI / IUI</strong></td>
+          <td>Intra-Uterine Insemination</td>
+          <td>Semen from husband/donor introduced into uterus; used for low sperm count (oligospermia).</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</div>
+
+
+<div id="chapter-bio-zoo3-container" style="display: none;">
+  <!-- TOPIC 1 to 3: Origin of Life & Miller-Urey -->
+  <article class="study-topic-block" id="sec-bio-evo-origin" data-visual="bio-evo-homology">
+    <div class="topic-header-row">
+      <h3><span class="section-num">1-3</span> Origin of Life & Miller-Urey Experiment</h3>
+      <span class="subject-pill bio">Zoology &bull; Ch. 3</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Oparin-Haldane Theory:</strong> First forms of life originated from pre-existing non-living organic molecules (chemical evolution) preceded by abiogenesis in a reducing atmosphere (without free O₂).
+      <br><br>
+      <strong>Stanley Miller & Harold Urey Experiment (1953):</strong>
+      <br>&bull; Simulated primitive Earth conditions in a closed glass apparatus: <strong>CH₄, NH₃, H₂, H₂O vapour (ratio 2 : 1 : 2)</strong>.
+      <br>&bull; High energy spark discharge at <strong>800°C</strong> using tungsten electrodes.
+      <br>&bull; <strong>Result:</strong> Observed formation of simple organic compounds including amino acids (<strong>glycine, alanine, aspartic acid</strong>).
+      <br>&bull; <em>Crucial NEET fact:</em> Miller's experiment did NOT synthesize living cells; it demonstrated chemical evolution of organic biomolecules from inorganic precursors!
+    </p>
+  </article>
+
+  <!-- TOPIC 4 to 9: Evidences for Evolution & Homology vs Analogy -->
+  <article class="study-topic-block" id="sec-bio-evo-evidences" data-visual="bio-evo-homology">
+    <div class="topic-header-row">
+      <h3><span class="section-num">4-9</span> Evidences for Evolution & Comparative Anatomy</h3>
+      <span class="subject-pill bio">Homology vs Analogy</span>
+    </div>
+    <table class="study-data-table">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Homologous Organs</th>
+          <th>Analogous Organs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Basic Anatomy & Origin</strong></td>
+          <td>Same basic structure & embryonic origin</td>
+          <td>Different structure & origin</td>
+        </tr>
+        <tr>
+          <td><strong>Function</strong></td>
+          <td>Different functions adapted to habitats</td>
+          <td>Similar functions in similar habitats</td>
+        </tr>
+        <tr>
+          <td><strong>Evolutionary Mode</strong></td>
+          <td><strong>DIVERGENT EVOLUTION</strong></td>
+          <td><strong>CONVERGENT EVOLUTION</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Animal Examples</strong></td>
+          <td>Forelimbs of human, cheetah, whale, bat</td>
+          <td>Wings of butterfly & bird; Eye of octopus & mammal</td>
+        </tr>
+        <tr>
+          <td><strong>Plant Examples</strong></td>
+          <td>Thorns of <em>Bougainvillea</em> & tendrils of <em>Cucurbita</em></td>
+          <td>Sweet potato (root tuber) & potato (stem tuber)</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="study-body-text" style="font-size: 0.85rem; color: var(--accent-cyan); margin-top: 0.5rem;">
+      &bull; <strong>Molecular Evidence:</strong> Comparison of proteins (e.g. Cytochrome c) and nucleic acid sequences reveals evolutionary relatedness (greater similarity = closer common ancestry).
+    </p>
+  </article>
+
+  <!-- TOPIC 10 to 14: Darwin & Adaptive Radiation -->
+  <article class="study-topic-block" id="sec-bio-evo-darwin" data-visual="bio-evo-homology">
+    <div class="topic-header-row">
+      <h3><span class="section-num">10-14</span> Darwinian Natural Selection & Adaptive Radiation</h3>
+      <span class="subject-pill bio">Evolutionary Mechanisms</span>
+    </div>
+    <p class="study-body-text">
+      <strong>Charles Darwin (H.M.S. Beagle, 1859):</strong> Proposed natural selection based on overproduction, struggle for existence, variations, and survival of the fittest.
+      <br>&bull; <strong>Adaptive Radiation:</strong> Evolutionary divergence of different species starting from a common ancestral stock radiating into diverse ecological niches:
+      <br>&nbsp;&nbsp;1. <em>Darwin's Finches:</em> Original seed-eating finch on Galápagos Islands radiated into insectivorous, vegetarian, and cactus-eating beaks.
+      <br>&nbsp;&nbsp;2. <em>Australian Marsupials:</em> Common marsupial ancestor diversified into kangaroo, koala, wombat, bandicoot, Tasmanian tiger cat.
+      <br>&nbsp;&nbsp;3. <em>Placental Mammals vs Marsupials:</em> Parallel evolution / convergent evolution (e.g. Anteater & Numbat; Flying squirrel & Flying phalanger).
+    </p>
+  </article>
+
+  <!-- TOPIC 21 to 23: Hardy-Weinberg Principle -->
+  <article class="study-topic-block" id="sec-bio-evo-hw" data-visual="bio-evo-hw">
+    <div class="topic-header-row">
+      <h3><span class="section-num">21-23</span> Hardy-Weinberg Principle & Population Genetics</h3>
+      <span class="subject-pill bio">Equilibrium Mathematics</span>
+    </div>
+    <p class="study-body-text">
+      In a large, randomly mating diploid population without evolutionary disturbances, allele frequencies remain constant from generation to generation:
+    </p>
+    <div class="chemical-equation-box">
+      p + q = 1 &nbsp;&nbsp;and&nbsp;&nbsp; p² + 2pq + q² = 1
+    </div>
+    <p class="study-body-text">
+      where <strong>p</strong> = frequency of dominant allele A, <strong>q</strong> = frequency of recessive allele a, <strong>p²</strong> = homozygous dominant (AA), <strong>2pq</strong> = heterozygous (Aa), and <strong>q²</strong> = homozygous recessive (aa).
+      <br><br>
+      <strong>Five Factors That Disrupt Hardy-Weinberg Equilibrium:</strong>
+      <br>1. Gene Migration / Gene Flow (alleles enter/leave via migration).
+      <br>2. Genetic Drift (random allele frequency changes in small populations; e.g. <strong>Founder Effect</strong> & <strong>Bottleneck Effect</strong>).
+      <br>3. Mutation (creates novel genetic variations).
+      <br>4. Genetic Recombination (shuffles alleles during crossing over).
+      <br>5. Natural Selection.
+    </p>
+  </article>
+
+  <!-- TOPIC 24: Types of Natural Selection -->
+  <article class="study-topic-block" id="sec-bio-evo-selection" data-visual="bio-evo-hw">
+    <div class="topic-header-row">
+      <h3><span class="section-num">24</span> Types of Natural Selection</h3>
+      <span class="subject-pill bio">Population Curve Shifts</span>
+    </div>
+    <p class="study-body-text">
+      &bull; <strong>Stabilising Selection:</strong> Favours intermediate mean phenotypes; narrows the distribution peak (e.g., human birth weight ~3 kg survives best).
+      <br>&bull; <strong>Directional Selection:</strong> Favours one extreme phenotype; shifts peak in one direction (e.g., <strong>Industrial Melanism</strong> in peppered moth <em>Biston betularia</em> — dark melanic moths favoured in soot-covered polluted areas; DDT resistance in mosquitoes).
+      <br>&bull; <strong>Disruptive Selection:</strong> Favours both extreme phenotypes; selects against intermediate mean, creating two distinct peaks.
+    </p>
+  </article>
+
+  <!-- TOPIC 27 to 34: Human Evolution Sequence -->
+  <article class="study-topic-block" id="sec-bio-evo-human" data-visual="bio-evo-human">
+    <div class="topic-header-row">
+      <h3><span class="section-num">27-34</span> Human Evolution Sequence & Cranial Capacities</h3>
+      <span class="subject-pill bio">High-Yield NEET Timeline</span>
+    </div>
+    <div class="chemical-equation-box" style="font-size: 0.88rem; text-align: center;">
+      Dryopithecus ⟶ Ramapithecus ⟶ Australopithecines ⟶ Homo habilis ⟶ Homo erectus ⟶ Neanderthal ⟶ Homo sapiens
+    </div>
+    <table class="study-data-table" style="margin-top: 0.6rem;">
+      <thead>
+        <tr>
+          <th>Hominid Stage</th>
+          <th>Time Period</th>
+          <th>Cranial Capacity</th>
+          <th>Key NCERT Traits</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Dryopithecus</strong></td>
+          <td>15 mya</td>
+          <td>Ape-like</td>
+          <td>Hairy, walked like gorillas and chimpanzees.</td>
+        </tr>
+        <tr>
+          <td><strong>Ramapithecus</strong></td>
+          <td>15 mya</td>
+          <td>Man-like</td>
+          <td>More erect and man-like teeth.</td>
+        </tr>
+        <tr>
+          <td><strong>Australopithecines</strong></td>
+          <td>2 mya</td>
+          <td>~450–500 cc</td>
+          <td>East Africa; bipedal locomotion; hunted with stone weapons; fruit-eaters.</td>
+        </tr>
+        <tr>
+          <td><strong>Homo habilis</strong></td>
+          <td>2 mya</td>
+          <td><strong>650–800 cc</strong></td>
+          <td>First human-like hominid ("Handy man"); tool maker; did not eat meat.</td>
+        </tr>
+        <tr>
+          <td><strong>Homo erectus</strong></td>
+          <td>1.5 mya</td>
+          <td><strong>900 cc</strong></td>
+          <td>Java man; upright posture; definitely ate meat; used fire.</td>
+        </tr>
+        <tr>
+          <td><strong>Neanderthal Man</strong></td>
+          <td>100,000–40,000 ya</td>
+          <td><strong>1400 cc</strong></td>
+          <td>Central Asia; used animal hides; buried dead with rituals.</td>
+        </tr>
+        <tr>
+          <td><strong>Homo sapiens</strong></td>
+          <td>75,000–10,000 ya</td>
+          <td><strong>~1450 cc</strong></td>
+          <td>Ice age origin in Africa; cave paintings (Bhimbetka ~18,000 ya); agriculture (10,000 ya).</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</div>
+
 
           </div>
         </div>
